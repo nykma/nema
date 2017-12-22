@@ -1,4 +1,5 @@
-;;; nema-basic - Must-have plugins and configs
+;;; nema-basic --- Must-have plugins and configs
+;;; Code:
 
 ;; smex
 ;; (package-install 'smex)
@@ -7,7 +8,7 @@
 ;; ivy - Completion
 (package-install 'ivy)
 (ivy-mode t)
-(setq ivy-use-virtual-buffers t)
+
 (setq enable-recursive-minibuffers t)
 
 ;; swiper - show all overview of searches
@@ -23,9 +24,6 @@
 
 ;; mwim - better default behavior
 (package-install 'mwim)
-
-;; magit - Magit git
-(package-install 'magit)
 
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
