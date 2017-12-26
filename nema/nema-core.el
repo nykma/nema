@@ -1,4 +1,7 @@
-;;; nema-core - Core config for nema
+;;; nema-core --- Core config for nema
+;;; Commentary:
+
+;;; Code:
 
 (set-locale-environment "UTF-8")
 
@@ -18,17 +21,20 @@ e.g. ruby main.rb => ruby main.rb:directory_name"
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
-;; Config 
+;; Config
 (defun nema/core/config-reload ()
-  "Reload ~/.emacs.d/init.el"
+  "Reload '~/.emacs.d/init.el'."
   (interactive)
   (load-file "~/.emacs.d/init.el")
   (message "Nema - config reloaded."))
 
 (defun nema/core/config-open-init-el ()
-  "Open init.el"
+  "Open 'init.el'."
   (interactive)
   (find-file "~/.emacs.d/init.el"))
+
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (provide 'nema-core)
 ;;; nema-core.el ends here
