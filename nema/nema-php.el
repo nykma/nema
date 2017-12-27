@@ -1,7 +1,7 @@
 ;;; nema-php --- PHP mode
 ;;; Code:
 
-(package-install 'php-mode)
+(use-package php-mode :ensure t)
 
 (eval-after-load 'php-mode
   '(require 'php-ext))

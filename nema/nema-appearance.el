@@ -27,6 +27,14 @@
   :config
   (powerline-default-theme))
 
+;; Paren mode
+
+(show-paren-mode t)
+(setq show-paren-style 'parenthesis)
+(use-package rainbow-delimiters :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
 (provide 'nema-appearance)
 
 ;;; nema-appearance.el ends here
