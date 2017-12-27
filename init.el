@@ -43,9 +43,9 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex
-			(zenburn-theme)
-			zenburn-theme)))
+    (use-package yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex
+		 (zenburn-theme)
+		 zenburn-theme)))
  '(yas-global-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
