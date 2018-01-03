@@ -18,6 +18,9 @@
 (when (display-graphic-p)
   (defvar nema/cjk-font "-gnu-Unifont-Medium-R-Normal-Sans-16-*-*-*-*-*-*"
     "Default CJK font for GUI.")
+  ;; (defvar nema/font "Monoid"
+  ;;   "Default main font for GUI.")
+  ;; (set-fontset-font (frame-parameter nil 'font) nil nema/font)
   (dolist (charset '(kana han cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
 		      (font-spec :name nema/cjk-font))))

@@ -1,4 +1,4 @@
-;;; nema --- Nayuki's EMAcs distro
+v;;; nema --- Nayuki's EMAcs distro
 ;;; Commentary:
 "init.d heavily inspired by kuanyui/.emacs.d"
 ;;; Code:
@@ -45,7 +45,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (enh-ruby-mode paredit rainbow-delimiters rainbow-delimiters-mode pack powerline use-package yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex
+    (flycheck-rust cargo racer toml-mode rust-mode tex company-auctex enh-ruby-mode paredit rainbow-delimiters rainbow-delimiters-mode pack powerline use-package yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex
 		   (zenburn-theme)
 		   zenburn-theme)))
  '(yas-global-mode t))

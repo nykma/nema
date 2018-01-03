@@ -29,6 +29,16 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Define temp file dir.
+;; SEEALSO: https://stackoverflow.com/questions/2680389/how-to-remove-all-files-ending-with-made-by-emacs
+(setq backup-directory-alist '(("." . "~/.emacs.d/temp/backup"))
+  backup-by-copying t    ; Don't delink hardlinks
+  version-control t      ; Use version numbers on backups
+  delete-old-versions t  ; Automatically delete excess backups
+  kept-new-versions 20   ; how many of the newest versions to keep
+  kept-old-versions 5    ; and how many of the old
+  )
+
 (defmacro buffer-real-name ()
   "This macro will return the real filename of current
 buffer (without parent directory) Because `uniquify' could cause

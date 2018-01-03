@@ -11,3 +11,6 @@
 *.eld
 smex-items
 /url
+
+/temp
+!/temp/.keep
