@@ -1,4 +1,4 @@
-v;;; nema --- Nayuki's EMAcs distro
+;;; nema --- Nayuki's EMAcs distro
 ;;; Commentary:
 "init.d heavily inspired by kuanyui/.emacs.d"
 ;;; Code:
