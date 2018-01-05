@@ -1,6 +1,10 @@
 ;;; nema-basic --- Must-have plugins and configs
 ;;; Code:
 
+;; diminish - Change minor mode indicator in mode line
+(use-package diminish
+  :ensure t)
+
 ;; smex
 ;; (package-install 'smex)
 ;; (smex-initialize)
@@ -8,6 +12,7 @@
 ;; ivy - Completion
 ;; SEEALSO: https://www.reddit.com/r/emacs/comments/6xc0im/ivy_counsel_swiper_company_helm_smex_and_evil/
 (use-package ivy
+  :ensure t
   :diminish (ivy-mode . "")
   :config
   (ivy-mode t)
@@ -19,23 +24,32 @@
   (setq ivy-re-builders-alist
       '((counsel-M-x . ivy--regex-fuzzy) ; Only counsel-M-x use flx fuzzy search
         (t . ivy--regex-plus)))
-  (setq ivy-initial-inputs-alist nil)
-  )
+  (setq ivy-initial-inputs-alist nil))
 
 ;; swiper - show all overview of searches
-(use-package swiper)
+(use-package swiper
+  :ensure t)
 
 ;; counsel - enhanced default common commands
-(use-package counsel)
+(use-package counsel
+  :ensure t)
 
 ;; which-key
 (use-package which-key
+  :ensure t
+  :diminish (which-key-mode . "")
   :config
   (which-key-mode)
   (which-key-setup-side-window-right-bottom))
 
 ;; mwim - better default behavior
-(use-package mwim)
+(use-package mwim
+  :ensure t)
+
+;; ace-jump-mode - cursor quick jump
+(use-package ace-jump-mode
+  :ensure t
+  :bind (("C-." . ace-jump-mode)))
 
 (provide 'nema-basic)
 ;;; nema-basic.el ends here

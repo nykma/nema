@@ -5,6 +5,7 @@
 
 (use-package paredit
   :ensure t
+  :diminish (paredit-mode . "Par")
   :config
   ;; SEEALSO: https://www.emacswiki.org/emacs/ParEdit
   (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)

@@ -15,6 +15,15 @@
 
 (set-locale-environment "UTF-8")
 
+;; PATH settings
+(setenv "PATH"
+	(concat
+	 (format "%s/%s;" (getenv "HOME") ".cargo/bin")
+	 (format "%s/%s;" (getenv "HOME") ".rbenv/shims")
+	 (format "%s/%s;" (getenv "HOME") ".cabal/bin")
+	 (format "%s/%s;" (getenv "HOME") ".config/composer/vendor/bin")
+	 (getenv "PATH")))
+
 ;; Config
 (defun nema/core/config-reload ()
   "Reload '~/.emacs.d/init.el'."

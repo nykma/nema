@@ -1,8 +1,11 @@
 ;;; nema-completion --- Completion
 ;;; Code:
 
-(package-install 'company)
-(add-hook 'after-init-hook 'global-company-mode)
+(use-package company
+  :ensure t
+  :diminish (company-mode . "")
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
 
 (provide 'nema-completion)
 
