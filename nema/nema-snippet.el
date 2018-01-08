@@ -3,7 +3,8 @@
 
 (use-package yasnippet
   :ensure t
-  :diminish (yas-mode . "Y")
+  :defer t
+  :diminish (yas-global-mode . "Y")
   :config
   (add-hook 'after-init-hook '(yas-global-mode 1)))
 

@@ -24,11 +24,11 @@
 		      ruby-tools
 		      rake
 		      ))
-(dolist (packa ruby-packages)
-  (message packa))
-
-(dolist (pac ruby-packages)
-  (use-package pac :ensure t))
+(dolist (pkg ruby-packages)
+  (unless package-archive-contents (package-refresh-contents))
+  (unless (package-installed-p pkg)
+    (package-install pkg)
+    (require pkg)))
 
 (eval-after-load 'ruby-mode
   '(require 'ruby-ext))
