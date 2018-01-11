@@ -15,6 +15,8 @@
 
 (set-locale-environment "UTF-8")
 
+(setq require-final-newline t)
+
 ;; PATH settings
 (setenv "PATH"
 	(concat
@@ -54,6 +56,15 @@ buffer (without parent directory) Because `uniquify' could cause
 `buffer-name' returning you an unwanted value.
 e.g. ruby main.rb => ruby main.rb:directory_name"
   `(file-name-nondirectory buffer-file-name))
+
+;; auto pair
+(electric-pair-mode t)
+
+;; windmove
+(global-set-key (kbd "C-c C-w h") 'windmove-left)
+(global-set-key (kbd "C-c C-w j") 'windmove-down)
+(global-set-key (kbd "C-c C-w k") 'windmove-up)
+(global-set-key (kbd "C-c C-w l") 'windmove-right)
 
 (provide 'nema-core)
 ;;; nema-core.el ends here
