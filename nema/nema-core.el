@@ -61,10 +61,10 @@ e.g. ruby main.rb => ruby main.rb:directory_name"
 (electric-pair-mode t)
 
 ;; windmove
-(global-set-key (kbd "C-c C-w h") 'windmove-left)
-(global-set-key (kbd "C-c C-w j") 'windmove-down)
-(global-set-key (kbd "C-c C-w k") 'windmove-up)
-(global-set-key (kbd "C-c C-w l") 'windmove-right)
+(global-set-key (kbd "C-c C-w C-h") 'windmove-left)
+(global-set-key (kbd "C-c C-w C-j") 'windmove-down)
+(global-set-key (kbd "C-c C-w C-k") 'windmove-up)
+(global-set-key (kbd "C-c C-w C-l") 'windmove-right)
 
 (provide 'nema-core)
 ;;; nema-core.el ends here

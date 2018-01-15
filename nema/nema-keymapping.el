@@ -1,4 +1,7 @@
-;;; nema-keymapping - All customized keymappings goes here
+;;; nema-keymapping --- All customized keymappings goes here
+;;; Commentary:
+"All customized keymappings goes here"
+;;; Code:
 
 (global-set-key (kbd "C-c C-/") 'comment-line)
 (global-set-key (kbd "C-x c r") 'nema/core/config-reload)
@@ -19,6 +22,9 @@
 (global-set-key (kbd "C-c g g") 'magit-status)
 (global-set-key (kbd "C-c g p") 'magit-push)
 (global-set-key (kbd "C-c g P") 'magit-pull)
+
+(global-set-key (kbd "C-x w s") 'split-window-below)
+(global-set-key (kbd "C-x w v") 'split-window-right)
 
 (provide 'nema-keymapping)
 ;;; nema-keymapping.el ends here
