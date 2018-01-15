@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Git commit message - Fix a stupid typo
+# key: gitypo
+# --
+[!!] ${1:where/typo/is/located}
+
+${2:* ${3:$1}}
+$0
