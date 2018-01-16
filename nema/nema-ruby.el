@@ -30,8 +30,11 @@
     (package-install pkg)
     (require pkg)))
 
-(eval-after-load 'ruby-mode
-  '(require 'ruby-ext))
+(use-package inf-ruby
+  :ensure t
+  :config
+  (add-hook 'enh-ruby-mode-hook 'inf-ruby-minor-mode)
+  (add-hook 'compilation-filter-hook 'inf-ruby-auto-enter))
 
 (provide 'nema-ruby)
 
