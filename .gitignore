@@ -15,5 +15,6 @@ smex-items
 /temp
 !/temp/.keep
 
+/network-security.data
 /recentf
 /eshell
