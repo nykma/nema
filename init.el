@@ -1,6 +1,7 @@
 ;;; nema --- Nayuki's EMAcs distro
 ;;; Commentary:
-"init.d heavily inspired by Spacemacs and kuanyui/.emacs.d"
+
+"init.d heavily inspired by Spacemacs, prelude and kuanyui/.emacs.d"
 ;;; Code:
 
 (require 'package)
