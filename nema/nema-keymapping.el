@@ -26,5 +26,11 @@
 (global-set-key (kbd "C-x w s") 'split-window-below)
 (global-set-key (kbd "C-x w v") 'split-window-right)
 
+;; windmove
+(global-set-key (kbd "C-c C-w C-h") 'windmove-left)
+(global-set-key (kbd "C-c C-w C-j") 'windmove-down)
+(global-set-key (kbd "C-c C-w C-k") 'windmove-up)
+(global-set-key (kbd "C-c C-w C-l") 'windmove-right)
+
 (provide 'nema-keymapping)
 ;;; nema-keymapping.el ends here
