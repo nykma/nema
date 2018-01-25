@@ -3,9 +3,9 @@
 "Appearance and UI settings 中文测试测试测试"
 ;;; Code:
 
-(use-package hc-zenburn-theme
-  :config
-  (load-theme 'hc-zenburn t))
+;; (use-package hc-zenburn-theme
+  ;; :config
+  ;; (load-theme 'hc-zenburn t))
 
 ;; UI - disable all UI elements
 (menu-bar-mode -1)
@@ -27,6 +27,7 @@
 
 ;; Powerline
 (use-package powerline
+  :ensure t
   :config
   (powerline-default-theme))
 
@@ -37,6 +38,16 @@
 (use-package rainbow-delimiters :ensure t
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
+;; moe-theme
+(use-package moe-theme
+  :ensure t
+  :config
+  (setq moe-theme-highlight-buffer-id t)
+  (moe-theme-set-color 'yellow)
+  (powerline-moe-theme) ;; This must appear AFTER =use-package powerline=
+  (moe-dark)
+  )
 
 (provide 'nema-appearance)
 
