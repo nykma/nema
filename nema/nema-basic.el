@@ -53,7 +53,9 @@
 
 ;; ace-window - Quickly switch windows
 (use-package ace-window
-  :ensure t)
+  :ensure t
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 (provide 'nema-basic)
 ;;; nema-basic.el ends here

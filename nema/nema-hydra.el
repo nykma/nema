@@ -29,7 +29,7 @@
    ("a" ace-window "Ace")
    ("s" ace-swap-window "Swap")
    ("d" ace-delete-window "Close")
-   ("o" ace-maxmize-window "Maxmize")
+   ("o" ace-maximize-window "Maxmize" :color blue)
    ("q" nil "Quit")))
 
 (provide 'nema-hydra)
