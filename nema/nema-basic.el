@@ -51,5 +51,9 @@
   :ensure t
   :bind (("C-." . ace-jump-mode)))
 
+;; ace-window - Quickly switch windows
+(use-package ace-window
+  :ensure t)
+
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
