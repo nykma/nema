@@ -12,24 +12,24 @@
    ("j" windmove-down)
    ("k" windmove-up)
    ("l" windmove-right)
-   ("H" hydra-move-splitter-left)
-   ("J" hydra-move-splitter-down)
-   ("K" hydra-move-splitter-up)
-   ("L" hydra-move-splitter-right)
    ("v" (lambda () (interactive)
 	  (split-window-right)
 	  (windmove-right))
-    "Vertical"
-    )
+    "Vertical")
    ("i" (lambda () (interactive)
 	  (split-window-below)
 	  (windmove-down))
-    "Horizonal"
-    )
+    "Horizonal")
    ("a" ace-window "Ace")
    ("s" ace-swap-window "Swap")
    ("d" ace-delete-window "Close")
    ("o" ace-maximize-window "Maxmize" :color blue)
+
+   ("b" ivy-switch-buffer "Buffer")
+   ("F" counsel-find-file "Open")
+   ("p" counsel-projectile-switch-project "Project")
+   ("f" counsel-projectile-find-file "File in project")
+
    ("q" nil "Quit")))
 
 (provide 'nema-hydra)

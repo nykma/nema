@@ -5,6 +5,12 @@
 (use-package diminish
   :ensure t)
 
+;; delight - Chage minor mode indicator in mode line
+(use-package delight
+  :ensure t
+  :config
+  (delight '((eldoc-mode nil "eldoc"))))
+
 ;; smex
 ;; (package-install 'smex)
 ;; (smex-initialize)

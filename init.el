@@ -2,6 +2,7 @@
 ;;; Commentary:
 
 "init.d heavily inspired by Spacemacs, prelude and kuanyui/.emacs.d"
+
 ;;; Code:
 
 (require 'package)
@@ -32,6 +33,8 @@
 (require 'nema-elisp)
 (require 'nema-org)
 (require 'nema-markdown)
+(require 'nema-javascript)
+(require 'nema-python)
 
 ;; local-defined scripts
 ;; (add-to-list 'load-path "~/.emacs.d/scripts)
@@ -49,8 +52,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ace-window hydra tabbar moe-theme org-bullets apib-mode markdown-mode pyim php-extras ruby-ext htmlize rake ruby-tools ruby-refactor ruby-test-mode rspec-mode rubocop bundler robe rbenv exec-path-from-shell diminish flycheck-rust cargo racer toml-mode rust-mode tex company-auctex enh-ruby-mode paredit rainbow-delimiters rainbow-delimiters-mode pack powerline use-package yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex zenburn-theme))
- '(yas-global-mode t))
+   '(delight rjsx-mode elpy tide js2-mode ace-window hydra tabbar moe-theme org-bullets apib-mode markdown-mode pyim php-extras ruby-ext htmlize rake ruby-tools ruby-refactor ruby-test-mode rspec-mode rubocop bundler robe rbenv exec-path-from-shell diminish flycheck-rust cargo racer toml-mode rust-mode tex company-auctex enh-ruby-mode paredit rainbow-delimiters rainbow-delimiters-mode pack powerline use-package yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -59,3 +61,4 @@
  )
 
 ;;; init.el ends here
+(put 'erase-buffer 'disabled nil)

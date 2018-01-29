@@ -2,7 +2,7 @@
 ;;; Code:
 
 (use-package projectile
-  :diminish (projectile-mode . "")
+  :delight '(:eval (concat " <" (projectile-project-name) ">"))
   :ensure t
   :config
   (projectile-mode))

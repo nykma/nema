@@ -4,16 +4,16 @@
 ;;; Code:
 
 (use-package yasnippet
+  :if (not noninteractive)
   :ensure t
-  :defer t
-  :diminish (yas-global-mode . "")
+  :delight yas-minor-mode
+  :commands (yas-global-mode yas-minor-mode)
   :config
-  (add-hook 'after-init-hook '(yas-global-mode 1)))
+  (progn
+    (setq yas-indent-line nil)))
 
 (use-package yasnippet-snippets
-  :ensure t
-  :defer t)
+  :ensure t)
 
 (provide 'nema-snippet)
-
 ;;; nema-snippet.el ends here
