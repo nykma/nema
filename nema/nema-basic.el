@@ -1,15 +1,12 @@
 ;;; nema-basic --- Must-have plugins and configs
 ;;; Code:
 
-;; diminish - Change minor mode indicator in mode line
-(use-package diminish
-  :ensure t)
-
 ;; delight - Chage minor mode indicator in mode line
 (use-package delight
   :ensure t
   :config
-  (delight '((eldoc-mode nil "eldoc"))))
+  (delight '((eldoc-mode nil "eldoc")
+	     (auto-revert-mode nil "autorevert"))))
 
 ;; smex
 ;; (package-install 'smex)
@@ -19,7 +16,7 @@
 ;; SEEALSO: https://www.reddit.com/r/emacs/comments/6xc0im/ivy_counsel_swiper_company_helm_smex_and_evil/
 (use-package ivy
   :ensure t
-  :diminish (ivy-mode . "")
+  :delight
   :config
   (ivy-mode t)
   (setq enable-recursive-minibuffers t)
@@ -43,7 +40,7 @@
 ;; which-key
 (use-package which-key
   :ensure t
-  :diminish (which-key-mode . "")
+  :delight
   :config
   (which-key-mode)
   (which-key-setup-side-window-right-bottom))

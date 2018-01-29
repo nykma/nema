@@ -4,13 +4,11 @@
 ;;; Code:
 
 (use-package yasnippet
-  :if (not noninteractive)
   :ensure t
   :delight yas-minor-mode
-  :commands (yas-global-mode yas-minor-mode)
   :config
-  (progn
-    (setq yas-indent-line nil)))
+  (setq yas-indent-line nil)
+  (yas-global-mode 1))
 
 (use-package yasnippet-snippets
   :ensure t)

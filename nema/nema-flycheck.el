@@ -4,7 +4,7 @@
 (use-package flycheck
   :ensure t
   :defer t
-  :diminish (flycheck-mode . "")
+  :delight
   :config
   (add-hook 'after-init-hook 'global-flycheck-mode))
 

@@ -1,15 +1,20 @@
 ;;; nema-project --- Project management
 ;;; Code:
 
+
 (use-package projectile
-  :delight '(:eval (concat " <" (projectile-project-name) ">"))
+  :delight '(:eval
+	     (if (projectile-project-p)
+		 (concat " |" (projectile-project-name) "|")
+	       "")
+	     )
   :ensure t
   :config
   (projectile-mode))
 
 (use-package counsel-projectile
   :ensure t
-  :diminish (counsel-projectile-mode . "")
+  :delight
   :config
   (counsel-projectile-mode))
 
