@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: do || ... end
+# key: do
+# --
+
+do ${1:|${2:arg}|}
+  $0
+end

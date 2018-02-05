@@ -7,7 +7,6 @@
   :ensure t
   :delight yas-minor-mode
   :config
-  (setq yas-indent-line nil)
   (yas-global-mode 1))
 
 (use-package yasnippet-snippets

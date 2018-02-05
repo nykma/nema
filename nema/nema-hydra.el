@@ -20,6 +20,7 @@
 	  (split-window-below)
 	  (windmove-down))
     "Horizonal")
+   ("=" balance-windows "Balance")
    ("a" ace-window "Ace")
    ("s" ace-swap-window "Swap")
    ("d" ace-delete-window "Close")
@@ -29,6 +30,8 @@
    ("F" counsel-find-file "Open")
    ("p" counsel-projectile-switch-project "Project")
    ("f" counsel-projectile-find-file "File in project")
+   ("t" multi-term "Terminal")
+   ("S" swiper "Search")
 
    ("q" nil "Quit")))
 

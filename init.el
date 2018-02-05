@@ -26,6 +26,7 @@
 (require 'nema-flycheck)
 (require 'nema-project)
 (require 'nema-im)
+(require 'nema-terminal)
 
 ;; Language-specific layers
 (require 'nema-restclient)
@@ -36,6 +37,8 @@
 (require 'nema-markdown)
 (require 'nema-javascript)
 (require 'nema-python)
+(require 'nema-web)
+(require 'nema-markup)
 
 ;; local-defined scripts
 ;; (add-to-list 'load-path "~/.emacs.d/scripts)
@@ -53,7 +56,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(delight rjsx-mode elpy tide js2-mode ace-window hydra tabbar moe-theme org-bullets apib-mode markdown-mode pyim php-extras ruby-ext htmlize rake ruby-tools ruby-refactor ruby-test-mode rspec-mode rubocop bundler robe rbenv exec-path-from-shell flycheck-rust cargo racer toml-mode rust-mode tex company-auctex enh-ruby-mode paredit rainbow-delimiters rainbow-delimiters-mode pack powerline use-package yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex zenburn-theme)))
+   '(multiple-cursors projectile-rails yaml-mode rinari multi-term emmet-mode web-mode delight rjsx-mode elpy tide js2-mode ace-window hydra tabbar moe-theme org-bullets apib-mode markdown-mode pyim php-extras ruby-ext htmlize rake ruby-tools ruby-refactor ruby-test-mode rspec-mode rubocop bundler robe rbenv exec-path-from-shell flycheck-rust cargo racer toml-mode rust-mode tex company-auctex enh-ruby-mode paredit rainbow-delimiters rainbow-delimiters-mode pack powerline use-package yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

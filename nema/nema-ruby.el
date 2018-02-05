@@ -9,12 +9,13 @@
 	 ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
   :interpreter "ruby"
   :ensure t
-  :init
-  (progn
-    (setq enh-ruby-deep-indent-paren nil
-	  enh-ruby-hanging-paren-deep-indent-level 2)))
+  :config
+  (setq enh-ruby-deep-indent-paren nil
+	enh-ruby-hanging-paren-deep-indent-level 2
+	ruby-insert-encoding-magic-comment nil))
 
-(setq ruby-packages '(bundler
+
+(let ((ruby-packages '(bundler
 		      rbenv
 		      robe
 		      rubocop
@@ -23,18 +24,26 @@
 		      ruby-refactor
 		      ruby-tools
 		      rake
-		      ))
-(dolist (pkg ruby-packages)
-  (unless package-archive-contents (package-refresh-contents))
-  (unless (package-installed-p pkg)
-    (package-install pkg)
-    (require pkg)))
+		      )))
+  (dolist (pkg ruby-packages)
+    (unless (package-installed-p pkg)
+      (unless package-archive-contents (package-refresh-contents))
+      (package-install pkg)
+      (require pkg))))
 
 (use-package inf-ruby
   :ensure t
   :config
   (add-hook 'enh-ruby-mode-hook 'inf-ruby-minor-mode)
   (add-hook 'compilation-filter-hook 'inf-ruby-auto-enter))
+
+(use-package projectile-rails
+  :delight 'projectile-rails-mode
+  :config
+  (projectile-rails-global-mode)
+  )
+
+(use-package rinari)
 
 (provide 'nema-ruby)
 

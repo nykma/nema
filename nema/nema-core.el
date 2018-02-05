@@ -15,13 +15,19 @@
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
-(unless package-archive-contents (package-refresh-contents))
-(package-install 'use-package)
+;; use-package
+(unless (or package-archive-contents (package-installed-p 'use-package))
+  (package-refresh-contents)
+  (package-install 'use-package))
+
 (eval-when-compile
   ;; Following line is not needed if use-package.el is in ~/.emacs.d
   (require 'use-package))
+;; Always install new package
+(setq use-package-always-ensure t)
 
 (set-locale-environment "UTF-8")
+
 
 (setq require-final-newline t)
 

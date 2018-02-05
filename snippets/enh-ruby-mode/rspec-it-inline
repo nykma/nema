@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: it {...}
+# key: itb
+# --
+
+it { $0 }

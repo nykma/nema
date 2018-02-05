@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: expect { ... }.to [raise_error]
+# key: exper
+# --
+
+expect { ${1:do_something} }.to ${3:raise_error(${2:ErrorClass})}

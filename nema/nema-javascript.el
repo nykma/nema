@@ -26,7 +26,7 @@ See also: https://github.com/ananthakumaran/tide"
 
 (use-package rjsx-mode
   :ensure t
-  :mode "components\\/.*\\.js\\'")
+  :mode "\\.\\(js\\|tsx\\)\\'")
 
 (provide 'nema-javascript)
 
