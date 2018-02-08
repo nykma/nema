@@ -6,6 +6,7 @@
 (use-package htmlize
   :ensure t
   :defer t)
+
 (use-package org-bullets
   :ensure t
   :hook (org-mode . org-bullets-mode))

@@ -3,11 +3,6 @@
 "Appearance and UI settings"
 ;;; Code:
 
-;; UI - disable all UI elements
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-
 ;; Font
 ;; ~/.Xresources:
 ;; Emacs.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*

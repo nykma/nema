@@ -26,10 +26,13 @@
 ;; Always install new package
 (setq use-package-always-ensure t)
 
+;; better defaults
+(use-package better-defaults)
+
 (set-locale-environment "UTF-8")
 
-
-;; (setq require-final-newline t)
+(setq require-final-newline nil
+      visible-bell nil)
 
 ;; PATH settings
 (setenv "PATH"
@@ -54,16 +57,6 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Define temp file dir.
-;; SEEALSO: https://stackoverflow.com/questions/2680389/how-to-remove-all-files-ending-with-made-by-emacs
-(setq backup-directory-alist '(("." . "~/.emacs.d/temp/backup"))
-  backup-by-copying t    ; Don't delink hardlinks
-  version-control t      ; Use version numbers on backups
-  delete-old-versions t  ; Automatically delete excess backups
-  kept-new-versions 5    ; how many of the newest versions to keep
-  kept-old-versions 0    ; and how many of the old
-  vc-make-backup-files t ; you don't commit on every save, right?
-  )
 ;; Don't auto save sensitive data
 (setq auto-mode-alist
       (append

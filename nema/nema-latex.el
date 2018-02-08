@@ -3,21 +3,17 @@
 "LaTeX enhance tools."
 ;;; Code:
 
-(use-package tex
-  :defer t
-  :init (progn
-	  (setq TeX-auto-save t
-		TeX-parse-self t
-		TeX-syntactic-comment t
-		;; Synctex support
-		TeX-source-correlate-start-server nil
-		;; Don't insert line-break at inline math
-		)
-	  (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-	  (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
-	  (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)))
+(use-package auctex
+  :config
+  (setq TeX-command-list
+      '(("TeX" "%(PDF)%(tex) %`%S%(PDFout)%(mode)%' %t" TeX-run-TeX nil
+         (plain-tex-mode ams-tex-mode texinfo-mode)
+         :help "Run plain TeX")
+        ("LaTeX" "xelatex -interaction nonstopmode %t" TeX-run-TeX nil
+         (latex-mode doctex-mode)
+         :help "Run LaTeX"))))
 
-(use-package company-auctex :ensure t)
+(use-package company-auctex)
 
 (provide 'nema-latex)
 
