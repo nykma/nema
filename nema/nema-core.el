@@ -29,7 +29,7 @@
 (set-locale-environment "UTF-8")
 
 
-(setq require-final-newline t)
+;; (setq require-final-newline t)
 
 ;; PATH settings
 (setenv "PATH"
