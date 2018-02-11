@@ -48,7 +48,16 @@
 ;; Key config layers
 (require 'nema-keymapping)
 (require 'nema-hydra)
-;; (require 'my-keymapping)
+
+;; Load all self configs in ~/.emacs.d/my
+(let ((loaded (mapcar #'car load-history)))
+  (dolist  (file (directory-files "~/.emacs.d/my" t ".+\\.elc?$"))
+    (unless (catch 'load-error
+              (dolist (done loaded)
+                (when (equal file done) (throw 'load-error t)))
+              nil)
+      (load (file-name-sans-extension file))
+      (push file loaded))))
 
 ;;; DON'T EDIT --- Auto generated stuff goes here --- DON'T EDIT
 (custom-set-variables
@@ -57,7 +66,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(better-defaults auctex dockerfile-mode docker multiple-cursors projectile-rails yaml-mode rinari multi-term emmet-mode web-mode delight rjsx-mode elpy tide js2-mode ace-window hydra tabbar moe-theme org-bullets apib-mode markdown-mode pyim php-extras ruby-ext htmlize rake ruby-tools ruby-refactor ruby-test-mode rspec-mode rubocop bundler robe rbenv exec-path-from-shell flycheck-rust cargo racer toml-mode rust-mode company-auctex enh-ruby-mode paredit rainbow-delimiters rainbow-delimiters-mode pack powerline use-package yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex zenburn-theme)))
+   '(smart-mode-line nyan-mode smart-tabs-mode auctex dockerfile-mode docker multiple-cursors projectile-rails yaml-mode rinari multi-term emmet-mode web-mode delight rjsx-mode elpy tide js2-mode ace-window hydra tabbar moe-theme org-bullets apib-mode markdown-mode pyim php-extras ruby-ext htmlize rake ruby-tools ruby-refactor ruby-test-mode rspec-mode rubocop bundler robe rbenv exec-path-from-shell flycheck-rust cargo racer toml-mode rust-mode company-auctex enh-ruby-mode paredit rainbow-delimiters rainbow-delimiters-mode pack powerline use-package yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

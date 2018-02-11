@@ -4,17 +4,17 @@
 
 (use-package projectile
   :delight '(:eval
-	     (if (projectile-project-p)
-		 (concat " |" (projectile-project-name) "|")
-	       "")
-	     )
-  :ensure t
+             (if (projectile-project-p)
+         	 (concat " |" (projectile-project-name) "|")
+               "")
+             )
   :config
   (projectile-mode))
 
 (use-package counsel-projectile
   :ensure t
   :delight
+
   :config
   (counsel-projectile-mode))
 
