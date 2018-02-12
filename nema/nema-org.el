@@ -4,19 +4,20 @@
 ;;; Code:
 
 (use-package htmlize
-  :ensure t
   :defer t)
 
 (use-package org-bullets
-  :ensure t
   :hook (org-mode . org-bullets-mode))
 
-;; XeLaTeX config for CJK PDF exporting
-;; use =Source Han Serif= for main font and =Inziu Iosevka= for monospace font
-;; SEEALSO: https://kuanyui.github.io/2014/05/10/emacs-org-mode-xelatex-output-chinese-pdf
-(setq org-latex-classes
-      '(("article"
-         "
+(use-package org
+  :config
+  (require 'org-install)
+  ;; XeLaTeX config for CJK PDF exporting
+  ;; use =Source Han Serif= for main font and =Inziu Iosevka= for monospace font
+  ;; SEEALSO: https://kuanyui.github.io/2014/05/10/emacs-org-mode-xelatex-output-chinese-pdf
+  (setq org-latex-classes
+        '(("article"
+           "
 \\documentclass[12pt,a4paper]{article}
 \\usepackage[margin=2cm]{geometry}
 \\usepackage{fontspec}
@@ -39,48 +40,47 @@
   pagebackref=true,
   linktoc=all,}
 "
-         ("\\section{%s}" . "\\section*{%s}")
-         ("\\subsection{%s}" . "\\subsection*{%s}")
-         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-         ("\\paragraph{%s}" . "\\paragraph*{%s}")
-         ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
-        ))
-;; [FIXME]
-;; 原本是不要讓 org 插入 hypersetup（因為 org-mode 這部份設計成沒辦法自訂，或許可以去 report 一下？）
-;; 改成自行插入，但這樣 pdfcreator 沒辦法根據 Emacs 版本插入，pdfkeyword 也會無效...幹。
-(setq org-latex-with-hyperref t)
-;; 把預設的 fontenc 拿掉
-;; 經過測試 XeLaTeX 輸出 PDF 時有 fontenc[T1]的話中文會無法顯示。
-;; hyperref 也拿掉，改從 classes 處就插入，原因見上面 org-latex-with-hyperref 的說明。
-(setq org-latex-default-packages-alist
-      '(("" "hyperref" nil)
-        ("AUTO" "inputenc" t)
-        ("" "fixltx2e" nil)
-        ("" "graphicx" t)
-        ("" "longtable" nil)
-        ("" "float" nil)
-        ("" "wrapfig" nil)
-        ("" "rotating" nil)
-        ("normalem" "ulem" t)
-        ("" "amsmath" t)
-        ("" "textcomp" t)
-        ("" "marvosym" t)
-        ("" "wasysym" t)
-        ("" "multicol" t)  ; 這是我另外加的，因為常需要多欄位文件版面。
-        ("" "amssymb" t)
-        "\\tolerance=1000"))
-;; Use XeLaTeX to export PDF in Org-mode
-(setq org-latex-pdf-process
-      '("xelatex -interaction nonstopmode -output-directory %o %f"
-        "xelatex -interaction nonstopmode -output-directory %o %f"
-        "xelatex -interaction nonstopmode -output-directory %o %f"))
-;; 指定你要用什麼外部 app 來開 pdf 之類的檔案
-(setq org-file-apps '((auto-mode . emacs)
-                      ("\\.mm\\'" . default)
-                      ("\\.x?html?\\'" . "xdg-open %s")
-                      ("\\.pdf\\'" . emacs)
-                      ("\\.jpg\\'" . emacs)))
-
+           ("\\section{%s}" . "\\section*{%s}")
+           ("\\subsection{%s}" . "\\subsection*{%s}")
+           ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+           ("\\paragraph{%s}" . "\\paragraph*{%s}")
+           ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+          ))
+  ;; [FIXME]
+  ;; 原本是不要讓 org 插入 hypersetup（因為 org-mode 這部份設計成沒辦法自訂，或許可以去 report 一下？）
+  ;; 改成自行插入，但這樣 pdfcreator 沒辦法根據 Emacs 版本插入，pdfkeyword 也會無效...幹。
+  (setq org-latex-with-hyperref t)
+  ;; 把預設的 fontenc 拿掉
+  ;; 經過測試 XeLaTeX 輸出 PDF 時有 fontenc[T1]的話中文會無法顯示。
+  ;; hyperref 也拿掉，改從 classes 處就插入，原因見上面 org-latex-with-hyperref 的說明。
+  (setq org-latex-default-packages-alist
+        '(("" "hyperref" nil)
+          ("AUTO" "inputenc" t)
+          ("" "fixltx2e" nil)
+          ("" "graphicx" t)
+          ("" "longtable" nil)
+          ("" "float" nil)
+          ("" "wrapfig" nil)
+          ("" "rotating" nil)
+          ("normalem" "ulem" t)
+          ("" "amsmath" t)
+          ("" "textcomp" t)
+          ("" "marvosym" t)
+          ("" "wasysym" t)
+          ("" "multicol" t)  ; 這是我另外加的，因為常需要多欄位文件版面。
+          ("" "amssymb" t)
+          "\\tolerance=1000"))
+  ;; Use XeLaTeX to export PDF in Org-mode
+  (setq org-latex-pdf-process
+        '("xelatex -interaction nonstopmode -output-directory %o %f"
+          "xelatex -interaction nonstopmode -output-directory %o %f"
+          "xelatex -interaction nonstopmode -output-directory %o %f"))
+  ;; 指定你要用什麼外部 app 來開 pdf 之類的檔案
+  (setq org-file-apps '((auto-mode . emacs)
+                        ("\\.mm\\'" . default)
+                        ("\\.x?html?\\'" . "xdg-open %s")
+                        ("\\.pdf\\'" . emacs)
+                        ("\\.jpg\\'" . emacs))))
 
 (provide 'nema-org)
 
