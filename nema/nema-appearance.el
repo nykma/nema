@@ -3,6 +3,9 @@
 "Appearance and UI settings"
 ;;; Code:
 
+;; Hide welcome buffer
+(setq inhibit-startup-screen t)
+
 ;; Font
 ;; ~/.Xresources:
 ;; Emacs.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*
