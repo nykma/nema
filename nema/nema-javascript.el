@@ -28,6 +28,11 @@ See also: https://github.com/ananthakumaran/tide"
   :ensure t
   :mode "\\.\\(js\\|tsx\\)\\'")
 
+;; Vue mode
+(use-package vue-mode
+  :config
+  (setq mmm-submode-decoration-level 3)) ;; high coloring
+
 (provide 'nema-javascript)
 
 ;;; nema-javascript.el ends here

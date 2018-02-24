@@ -9,6 +9,12 @@
   :delight
   :hook ((sgml-mode css-mode web-mode rjsx-mode) . emmet-mode))
 
+(use-package pug-mode)
+
+(use-package css-mode)
+(use-package scss-mode)
+(use-package less-css-mode)
+
 (provide 'nema-web)
 
 ;;; nema-web.el ends here
