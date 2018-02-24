@@ -3,11 +3,12 @@
 
 
 (use-package projectile
-  :delight '(:eval
-             (if (projectile-project-p)
-         	 (concat " |" (projectile-project-name) "|")
-               "")
-             )
+  ;; :delight '(:eval
+  ;;            (if (projectile-project-p)
+  ;;        	 (concat " |" (projectile-project-name) "|")
+  ;;              "")
+  ;;            )
+  :delight ""
   :config
   (projectile-mode))
 
