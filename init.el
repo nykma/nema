@@ -13,6 +13,7 @@
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/nema")
+(add-to-list 'load-path "~/.emacs.d/vendor")
 
 ;; Core layers
 (require 'nema-core)
@@ -40,6 +41,7 @@
 (require 'nema-web)
 (require 'nema-markup)
 (require 'nema-docker)
+(require 'nema-dired)
 
 ;; misc
 (require 'nema-twitter)
@@ -68,8 +70,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(package-selected-packages
-   '(editorconfig scss-mode pug-mode vue-mode twittering-mode smart-mode-line nyan-mode smart-tabs-mode auctex dockerfile-mode docker multiple-cursors projectile-rails yaml-mode rinari multi-term emmet-mode web-mode delight rjsx-mode elpy tide js2-mode ace-window hydra tabbar moe-theme org-bullets apib-mode markdown-mode pyim php-extras ruby-ext htmlize rake ruby-tools ruby-refactor ruby-test-mode rspec-mode rubocop bundler robe rbenv exec-path-from-shell flycheck-rust cargo racer toml-mode rust-mode company-auctex enh-ruby-mode paredit rainbow-delimiters rainbow-delimiters-mode pack powerline use-package yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex zenburn-theme)))
+   (quote
+    (flycheck-rtags ivy-rtags company-rtags rtags editorconfig scss-mode pug-mode vue-mode twittering-mode smart-mode-line nyan-mode smart-tabs-mode auctex dockerfile-mode docker multiple-cursors projectile-rails yaml-mode rinari multi-term emmet-mode web-mode delight rjsx-mode elpy tide js2-mode ace-window hydra tabbar moe-theme org-bullets apib-mode markdown-mode pyim php-extras ruby-ext htmlize rake ruby-tools ruby-test-mode rspec-mode rubocop bundler robe rbenv exec-path-from-shell flycheck-rust cargo racer toml-mode rust-mode company-auctex enh-ruby-mode paredit rainbow-delimiters rainbow-delimiters-mode pack powerline use-package yasnippet-snippets counsel-projectile ivy-projectile projectile hc-zenburn-theme php-mode yasnippet company-restclient company restclient flycheck magit counsel swiper ivy mwim which-key smex zenburn-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

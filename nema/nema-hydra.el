@@ -20,20 +20,18 @@
 	  (split-window-below)
 	  (windmove-down))
     "Horizonal")
-   ("=" balance-windows "Balance")
+   ("=" balance-windows "Bal")
    ("a" ace-window "Ace")
-   ("s" ace-swap-window "Swap")
+   ("s" ace-swap-window "Swp")
    ("d" ace-delete-window "Close")
-   ("o" ace-maximize-window "Maxmize" :color blue)
+   ("o" ace-maximize-window "Max" :color blue)
 
-   ("b" ivy-switch-buffer "Buffer")
+   ("b" ivy-switch-buffer "Buf")
    ("F" counsel-find-file "Open")
-   ("p" counsel-projectile-switch-project "Project")
-   ("f" counsel-projectile-find-file "File in project")
-   ("t" multi-term "Terminal")
-   ("S" swiper "Search")
-
-   ("q" nil "Quit")))
+   ("p" counsel-projectile-switch-project "Proj")
+   ("f" counsel-projectile-find-file "In proj")
+   ("t" multi-term "Term")
+   ("S" swiper "Search")))
 
 (provide 'nema-hydra)
 ;;; nema-hydra.el ends here
