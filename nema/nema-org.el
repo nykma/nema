@@ -13,7 +13,7 @@
   :config
   (require 'org-install)
   ;; XeLaTeX config for CJK PDF exporting
-  ;; use =Source Han Serif= for main font and =Inziu Iosevka= for monospace font
+  ;; use `Source Han Serif' for main font and `Inziu Iosevka' for monospace font
   ;; SEEALSO: https://kuanyui.github.io/2014/05/10/emacs-org-mode-xelatex-output-chinese-pdf
   (setq org-latex-classes
         '(("article"

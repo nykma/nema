@@ -67,7 +67,9 @@
 ;; multiple-cursors
 (use-package multiple-cursors
   :bind (("C-S-c" . mc/edit-lines)
+         ("C-M-<" . mc/skip-to-previous-like-this)
 	 ("C->" . mc/mark-next-like-this-symbol)
+         ("C-M->" . mc/skip-to-next-like-this)
 	 ("C-<" . mc/mark-previous-like-this-symbol)
 	 ("C-c C->" . mc/mark-all-symbols-like-this)))
 

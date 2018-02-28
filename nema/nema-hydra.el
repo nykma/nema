@@ -1,8 +1,9 @@
 ;;; nema-hydra --- Keep doing things
+;;; Commentary:
+"Keep doing things"
 ;;; Code:
 
-(use-package hydra
-  :ensure t)
+(use-package hydra)
 
 (global-set-key
  (kbd "M-o")
@@ -31,7 +32,7 @@
    ("p" counsel-projectile-switch-project "Proj")
    ("f" counsel-projectile-find-file "In proj")
    ("t" multi-term "Term")
-   ("S" swiper "Search")))
+   ("q" nil)))
 
 (provide 'nema-hydra)
 ;;; nema-hydra.el ends here

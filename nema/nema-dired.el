@@ -23,19 +23,6 @@
   (set-buffer-modified-p nil))
 (add-hook 'dired-after-readin-hook 'dired-directory-sort)
 
-;; 按 q 回到上層目錄，並自動把 cursor 移動到前一個目錄處
-(defun my-dired-backward ()
-  "Go back to the parent directory (..), and the cursor will be moved to where
-          the previous directory."
-  (interactive)
-  (let* ((DIR (buffer-name)))
-    (if (equal DIR "*Find*")
-        (quit-window t)
-      (progn (find-alternate-file "..")
-             (re-search-forward DIR nil :no-error)
-             (revert-buffer)))))
-(define-key dired-mode-map (kbd "q") 'my-dired-backward)
-
 ;;使用 KB, MB 等方式顯示檔案大小（這個應該是 Unix 限定...Windows 我不
 ;;知該怎麼辦）。
 (setq dired-listing-switches "-alh")
