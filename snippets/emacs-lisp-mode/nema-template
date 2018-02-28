@@ -5,7 +5,7 @@
 # --
 ;;; nema-${1:module} --- ${2:Module descriptions}
 ;;; Commentary:
-"${2:Some description}"
+"$2"
 ;;; Code:
 
 $0

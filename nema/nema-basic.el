@@ -71,5 +71,10 @@
 	 ("C-<" . mc/mark-previous-like-this-symbol)
 	 ("C-c C->" . mc/mark-all-symbols-like-this)))
 
+(use-package editorconfig
+  :delight
+  :config
+  (editorconfig-mode t))
+
 (provide 'nema-basic)
 ;;; nema-basic.el ends here

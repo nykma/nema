@@ -1,12 +1,12 @@
-;;; nema-flycheck --- syntax checker
+;;; nema-flycheck --- Syntax checker
+;;; Commentary:
+"Syntax checker"
 ;;; Code:
 
 (use-package flycheck
-  :ensure t
-  :defer t
   :delight
-  :config
-  (add-hook 'after-init-hook 'global-flycheck-mode))
+  :init
+  (global-flycheck-mode))
 
 (provide 'nema-flycheck)
 ;;; nema-flycheck.el ends here
