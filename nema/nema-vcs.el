@@ -1,4 +1,7 @@
-;;; nema-vcs - Version control tools
+;;; nema-vcs --- Version control tools
+;;; Commentary:
+"Version control tools"
+;;; Code:
 
 ;; magit - Magit git
 (use-package magit
@@ -6,6 +9,9 @@
   ;; :config
   ;; (setq magit-no-confirm t)
   )
+
+(use-package magit-gitflow
+  :hook ((magit-mode . turn-on-magit-gitflow)))
 
 
 (provide 'nema-vcs)
