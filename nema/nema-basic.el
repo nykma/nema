@@ -34,8 +34,15 @@
   (setq ivy-initial-inputs-alist nil))
 
 ;; swiper - show all overview of searches
-(use-package swiper
-  :bind (("\C-s" . swiper)))
+;; (use-package swiper
+  ;; :bind (("\C-s" . swiper)))
+
+(use-package anzu
+  :bind (("C-M-%" . 'anzu-query-replace-at-cursor)
+         ("M-%" . 'anzu-query-replace-regexp))
+  :delight
+  :init
+  (global-anzu-mode +1))
 
 ;; counsel - enhanced default common commands
 (use-package counsel
