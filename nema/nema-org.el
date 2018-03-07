@@ -10,6 +10,8 @@
   :hook (org-mode . org-bullets-mode))
 
 (use-package org
+  :bind (("C-c a" . org-agenda)
+         ("C-c c" . org-capture))
   :config
   (require 'org-install)
   ;; XeLaTeX config for CJK PDF exporting
@@ -80,7 +82,9 @@
                         ("\\.mm\\'" . default)
                         ("\\.x?html?\\'" . "xdg-open %s")
                         ("\\.pdf\\'" . emacs)
-                        ("\\.jpg\\'" . emacs))))
+                        ("\\.jpg\\'" . emacs)))
+  ;; Log clock when a job is done.
+  (setq org-log-done 'clock))
 
 (provide 'nema-org)
 

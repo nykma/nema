@@ -31,7 +31,8 @@
   (setq ivy-re-builders-alist
       '((counsel-M-x . ivy--regex-fuzzy) ; Only counsel-M-x use flx fuzzy search
         (t . ivy--regex-plus)))
-  (setq ivy-initial-inputs-alist nil))
+  (setq ivy-initial-inputs-alist nil)
+  (use-package ivy-hydra))
 
 ;; swiper - show all overview of searches
 ;; (use-package swiper
