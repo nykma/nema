@@ -1,0 +1,11 @@
+#+TITLE: NEMA - Nayuki's EMAcs config
+#+AUTHOR: Nyk Ma <i@nyk.ma>
+
+* Usage
+
+#+BEGIN_SRC sh
+cd
+mv .emacs.d .emacs.d.old
+git clone https://github.com/nykma/nema.git .emacs.d
+emacs -nw
+#+END_SRC
