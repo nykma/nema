@@ -1,4 +1,6 @@
 ;;; nema-basic --- Must-have plugins and configs
+;;; Commentary:
+"Must-have plugins and configs"
 ;;; Code:
 
 ;; delight - Chage minor mode indicator in mode line
@@ -34,16 +36,17 @@
   (setq ivy-initial-inputs-alist nil)
   (use-package ivy-hydra))
 
-;; swiper - show all overview of searches
-;; (use-package swiper
-  ;; :bind (("\C-s" . swiper)))
+;; (use-package anzu
+;;   :bind (("C-M-%" . 'anzu-query-replace-at-cursor)
+;;          ("M-%" . 'anzu-query-replace-regexp))
+;;   :delight
+;;   :init
+;;   (global-anzu-mode +1))
 
-(use-package anzu
-  :bind (("C-M-%" . 'anzu-query-replace-at-cursor)
-         ("M-%" . 'anzu-query-replace-regexp))
-  :delight
-  :init
-  (global-anzu-mode +1))
+;; swiper - show all overview of searches
+(use-package swiper
+  :bind (("\C-s" . swiper)))
+
 
 ;; counsel - enhanced default common commands
 (use-package counsel
