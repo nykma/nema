@@ -67,8 +67,20 @@
 	 ("C-e" . mwim-end-of-code-or-line)))
 
 ;; ace-jump-mode - cursor quick jump
-(use-package ace-jump-mode
-  :bind (("C-." . ace-jump-mode)))
+;; (use-package ace-jump-mode
+;;   :bind (("C-." . ace-jump-mode)))
+
+;; avy - jump to char
+(use-package avy
+  :bind (("C-:" . avy-goto-char)
+         ("C-'" . avy-goto-char-timer)
+         ("M-g f" . avy-goto-line)
+         ("M-g w" . avy-goto-word-1)
+         ("C-c C-j" . avy-resume))
+  :config
+  (setq avy-background t
+        avy-all-windows t
+        avy-timeout-seconds 0.3))
 
 ;; ace-window - Quickly switch windows
 (use-package ace-window
