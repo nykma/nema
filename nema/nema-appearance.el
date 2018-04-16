@@ -6,16 +6,6 @@
 ;; Hide welcome buffer
 (setq inhibit-startup-screen t)
 
-;; Font
-;; ~/.Xresources:
-;; Emacs.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*
-(when (display-graphic-p)
-  (let ((nema/cjk-font "-gnu-Unifont-Medium-R-Normal-Sans-16-*-*-*-*-*-*"))
-    (dolist (charset '(kana han cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font) charset
-		      (font-spec :name nema/cjk-font)))
-    ))
-
 ;; Powerline
 ;; (use-package powerline)
 
@@ -40,18 +30,38 @@
   ;; (load-theme 'hc-zenburn t))
 
 ;; moe-theme
-(use-package moe-theme
+;; (use-package moe-theme
+;;   :config
+;;   (setq moe-theme-highlight-buffer-id t)
+;;   (moe-theme-set-color 'cyan)
+;;   ;; (powerline-moe-theme) ;; This must appear AFTER =use-package powerline=
+;;   (moe-dark))
+
+(use-package doom-themes
   :config
-  (setq moe-theme-highlight-buffer-id t)
-  (moe-theme-set-color 'cyan)
-  ;; (powerline-moe-theme) ;; This must appear AFTER =use-package powerline=
-  (moe-dark)
-  ;; smart-mode-line
-  (use-package smart-mode-line
-    :config
-    (setq sml/theme 'dark
-          sml/no-confirm-load-theme t)
-    (sml/setup)))
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled)
+  (load-theme 'doom-peacock t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config))
+
+;; smart-mode-line
+(use-package smart-mode-line
+  :config
+  (setq sml/theme 'dark
+        sml/no-confirm-load-theme t)
+  (sml/setup))
+
+;; Font
+;; ~/.Xresources:
+;; Emacs.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*
+(when (display-graphic-p)
+  (let ((nema/cjk-font "-gnu-Unifont-Medium-R-Normal-Sans-16-*-*-*-*-*-*"))
+    (dolist (charset '(kana han cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font) charset
+		      (font-spec :name nema/cjk-font)))
+    ))
 
 (provide 'nema-appearance)
 

@@ -101,5 +101,8 @@
   :config
   (editorconfig-mode t))
 
+(use-package neotree
+  :bind (("C-c p TAB" . neotree-toggle)))
+
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
