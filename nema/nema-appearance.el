@@ -37,6 +37,13 @@
 ;;   ;; (powerline-moe-theme) ;; This must appear AFTER =use-package powerline=
 ;;   (moe-dark))
 
+;; icons
+;; (use-package all-the-icons
+;;   :config
+  ;; (all-the-icons-install-fonts)
+  ;; )
+
+
 (use-package doom-themes
   :config
   ;; Global settings (defaults)
@@ -44,6 +51,7 @@
         doom-themes-enable-italic t) ; if nil, italics is universally disabled)
   (load-theme 'doom-peacock t)
   (doom-themes-visual-bell-config)
+  (doom-themes-neotree-config)
   (doom-themes-org-config))
 
 ;; smart-mode-line
@@ -60,8 +68,7 @@
   (let ((nema/cjk-font "-gnu-Unifont-Medium-R-Normal-Sans-16-*-*-*-*-*-*"))
     (dolist (charset '(kana han cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
-		      (font-spec :name nema/cjk-font)))
-    ))
+		      (font-spec :name nema/cjk-font)))))
 
 (provide 'nema-appearance)
 
