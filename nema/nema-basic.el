@@ -101,8 +101,17 @@
   :config
   (editorconfig-mode t))
 
+;; tree style file manager
 (use-package neotree
   :bind (("C-c p TAB" . neotree-toggle)))
+
+;; Code folding
+(use-package origami
+  :bind (("<backtab>" . origami-recursively-toggle-node) ;; Shift + Tab
+         ("<C-tab>" . origami-show-only-node) ;; Ctrl + Tab
+         ("C-c TAB" . origami-open-all-nodes))
+  :config
+  (global-origami-mode))
 
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
