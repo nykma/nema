@@ -39,6 +39,7 @@
 (require 'nema-markdown)
 (require 'nema-javascript)
 (require 'nema-python)
+(require 'nema-rust)
 (require 'nema-web)
 (require 'nema-markup)
 (require 'nema-lua)

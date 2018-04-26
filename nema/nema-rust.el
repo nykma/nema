@@ -3,25 +3,23 @@
 "Rust enhance tools."
 ;;; Code:
 
-(use-package rust-mode
-  :ensure t)
+(use-package rust-mode)
 
 (use-package toml-mode
-  :ensure t
   :mode "/\\(Cargo.lock\\|\\.cargo/config\\)\\'")
 
 (use-package racer
-  :ensure t
-  :init (progn
-	  (add-hook 'rust-mode-hook '(racer-mode))
-	  ))
+  :defer t
+  :hook ((rust-mode . racer-mode)
+         (racer-mode . eldoc-mode)))
 
-(use-package cargo
-  :ensure t)
+(use-package cargo)
 
 (use-package flycheck-rust
-  :ensure t
-  :init (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+  :config
+  (with-eval-after-load 'rust-mode
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+  )
 
 (provide 'nema-rust)
 
