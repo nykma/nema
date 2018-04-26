@@ -5,8 +5,10 @@
 
 ;;; Code:
 
-;;; move customize-set-variable out of this file
+;;; move customize-set-variable out of init.el
 (setq custom-file "~/.emacs.d/custom.el")
+(unless (file-exists-p custom-file)
+  (write-region "" nil custom-file))    ; Touch this file
 (load custom-file)
 
 (require 'package)
@@ -64,7 +66,7 @@
 
 ;; Load all self configs in ~/.emacs.d/my
 (let ((loaded (mapcar #'car load-history)))
-  (dolist  (file (directory-files "~/.emacs.d/my" t ".+\\.elc?$"))
+  (dolist (file (directory-files "~/.emacs.d/my" t ".+\\.elc?$"))
     (unless (catch 'load-error
               (dolist (done loaded)
                 (when (equal file done) (throw 'load-error t)))
