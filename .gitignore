@@ -18,6 +18,8 @@ smex-items
 /my
 !/my/.keep
 
+/custom.el
+
 /network-security.data
 /recentf
 /eshell

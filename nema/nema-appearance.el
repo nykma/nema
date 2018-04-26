@@ -49,7 +49,7 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled)
-  (load-theme 'doom-peacock t)
+  (load-theme 'doom-peacock)
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
   (doom-themes-org-config))
@@ -57,8 +57,7 @@
 ;; smart-mode-line
 (use-package smart-mode-line
   :config
-  (setq sml/theme 'dark
-        sml/no-confirm-load-theme t)
+  (setq sml/theme 'respectful)
   (sml/setup))
 
 ;; Font
