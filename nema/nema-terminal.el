@@ -5,7 +5,7 @@
 
 (use-package multi-term
   :config
-  (setq multi-term-program "/bin/bash"))
+  (setq multi-term-program "/usr/bin/fish"))
 
 (provide 'nema-terminal)
 
