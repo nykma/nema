@@ -1,8 +1,8 @@
 ;;; nema-restclient --- REST client
 ;;; Code:
 
-(package-install 'restclient)
-(package-install 'company-restclient)
+(use-package restclient)
+(use-package company-restclient)
 
 (provide 'nema-restclient)
 
