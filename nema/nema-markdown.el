@@ -3,13 +3,11 @@
 "markdown-mode enhancement"
 ;;; Code:
 
-(use-package markdown-mode
-  :ensure t)
+(use-package markdown-mode)
 
 (use-package apib-mode
   :mode
-  ("\\.apib\\'" . apib-mode)
-  :ensure t)
+  ("\\.apib\\'" . apib-mode))
 
 (provide 'nema-markdown)
 
