@@ -51,6 +51,7 @@
 (require 'nema-lua)
 (require 'nema-docker)
 (require 'nema-c)
+(require 'nema-elixir)
 
 ;; misc
 (require 'nema-dired)
