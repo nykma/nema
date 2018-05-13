@@ -4,7 +4,6 @@
 ;;; Code:
 
 (use-package paredit
-  :ensure t
   :delight
   :config
   ;; SEEALSO: https://www.emacswiki.org/emacs/ParEdit

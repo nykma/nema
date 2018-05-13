@@ -8,14 +8,12 @@
   ;;        	 (concat " |" (projectile-project-name) "|")
   ;;              "")
   ;;            )
-  :delight ""
+  :delight
   :config
   (projectile-mode))
 
 (use-package counsel-projectile
-  :ensure t
   :delight
-
   :config
   (counsel-projectile-mode))
 

@@ -1,8 +1,7 @@
 ;;; nema-python --- PYTHON mode
 ;;; Code:
 
-(use-package elpy
-  :ensure t)
+(use-package elpy)
 
 (provide 'nema-python)
 

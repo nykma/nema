@@ -4,7 +4,6 @@
 ;;; Code:
 
 (use-package js2-mode
-  :ensure t
   :mode "\\.\\(js\\)\\'"
   :config
   (setq js2-mode-show-strict-warnings nil
@@ -23,12 +22,10 @@ See also: https://github.com/ananthakumaran/tide"
   (tide-hl-identifier-mode t))
 
 (use-package tide
-  :ensure t
   :mode "\\.\\(ts\\)\\'"
   :hook (typescript-mode . nema/tide/setup))
 
 (use-package rjsx-mode
-  :ensure t
   :mode "\\.\\(jsx\\|tsx\\)\\'")
 
 ;; Vue mode
