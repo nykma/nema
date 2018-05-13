@@ -113,5 +113,11 @@
   :config
   (global-origami-mode))
 
+;; Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
+(use-package smartparens
+  :delight
+  :config
+  (smartparens-global-mode t))
+
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
