@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: it do ... end
-# key: it
-# --
-
-it '${2:should ${1:do something}}' do
-  $0
-end

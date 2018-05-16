@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: Git commit message - Refactor
-# key: gitrefa
-# --
-[|] ${1:where/code/is/refactored}
-
-${2:* ${3:$1}}
-$0

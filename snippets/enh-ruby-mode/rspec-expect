@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: expect(...).to ...
-# key: exp
-# --
-
-expect(${1:something}).to $0

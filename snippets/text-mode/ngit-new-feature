@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: Git commit message - new feature
-# key: gitnew
-# --
-[+] ${1:where/feature/is/added}
-
-${2:* ${3:$1}}
-$0

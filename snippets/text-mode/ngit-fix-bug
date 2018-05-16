@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: Git commit message - Bug fixed
-# key: gitfix
-# --
-[!] ${1:where/bug/is/located}
-
-${2:* ${3:$1}}
-$0

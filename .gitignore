@@ -17,6 +17,7 @@ smex-items
 
 /my
 !/my/.keep
+!/my/snippets/.keep
 
 /custom.el
 
