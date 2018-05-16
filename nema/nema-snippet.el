@@ -8,7 +8,7 @@
   :config
   (yas-global-mode 1)
   (use-package yasnippet-snippets)
-  (setq yas-snippet-dirs (list (concat user-emacs-directory "my/snippets") yasnippet-snippets-dir)))
+  (setq yas-snippet-dirs `(,(concat user-emacs-directory "my/snippets") ,yasnippet-snippets-dir)))
 
 ;; Temporarily generate and use snippets
 (use-package auto-yasnippet
