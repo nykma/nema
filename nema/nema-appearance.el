@@ -60,15 +60,6 @@
   (setq sml/theme 'respectful)
   (sml/setup))
 
-;; Font
-;; ~/.Xresources:
-;; Emacs.font: -*-tamzenforpowerline-medium-*-*-*-16-*-*-*-*-*-*-*
-(when (display-graphic-p)
-  (let ((nema/cjk-font "-gnu-Unifont-Medium-R-Normal-Sans-16-*-*-*-*-*-*"))
-    (dolist (charset '(kana han cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font) charset
-		      (font-spec :name nema/cjk-font)))))
-
 (provide 'nema-appearance)
 
 ;;; nema-appearance.el ends here
