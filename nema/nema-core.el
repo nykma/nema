@@ -5,10 +5,10 @@
 
 ;; reduce the frequency of garbage collection by making it happen on
 ;; each 50MB of allocated data (the default is on every 0.76MB)
-(setq gc-cons-threshold 50000000)
+(setq gc-cons-threshold (* 50 1024 1024))
 
 ;; warn when opening files bigger than 100MB
-(setq large-file-warning-threshold 100000000)
+(setq large-file-warning-threshold (* 100 1024 1024))
 
 ;; Packges
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)

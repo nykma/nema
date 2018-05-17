@@ -1,7 +1,8 @@
 ;;; nema --- Nayuki's EMAcs distro
 ;;; Commentary:
 
-"Nayuki's .emacs.d, heavily inspired by Spacemacs, prelude and kuanyui/.emacs.d"
+"Nayuki's .emacs.d.
+Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 
 ;;; Code:
 
@@ -18,8 +19,14 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/nema")
-(add-to-list 'load-path "~/.emacs.d/vendor")
+;; Core config files
+(add-to-list 'load-path
+             (expand-file-name "nema" user-emacs-directory))
+
+;; Third party libraries which are not hosted on MELPA
+;; i.e. dired+
+(add-to-list 'load-path
+             (expand-file-name "vendor" user-emacs-directory))
 
 ;; Core layers
 (require 'nema-core)
