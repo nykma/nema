@@ -1,10 +1,13 @@
 ;;; nema --- Nayuki's EMAcs distro
+;; -*- lexical-binding: t -*-
 ;;; Commentary:
 
 "Nayuki's .emacs.d.
 Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 
 ;;; Code:
+
+(setq debug-on-error t)
 
 ;;; move customize-set-variable out of init.el
 (setq custom-file "~/.emacs.d/custom.el")
@@ -34,9 +37,9 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-appearance)
 
 ;; General purpose layers
+(require 'nema-snippet)
 (require 'nema-completion)
 (require 'nema-vcs)
-(require 'nema-snippet)
 (require 'nema-flycheck)
 (require 'nema-project)
 (require 'nema-im)

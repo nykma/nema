@@ -10,16 +10,18 @@
 
 (use-package racer
   :defer t
+  :requires (rust-mode)
   :hook ((rust-mode . racer-mode)
          (racer-mode . eldoc-mode)))
 
-(use-package cargo)
+(use-package cargo
+  :requires (rust-mode))
 
 (use-package flycheck-rust
+  :requires (rust-mode flycheck)
   :config
   (with-eval-after-load 'rust-mode
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-  )
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
 
 (provide 'nema-rust)
 
