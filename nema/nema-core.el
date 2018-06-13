@@ -74,7 +74,7 @@ e.g. ruby main.rb => ruby main.rb:directory_name"
   `(file-name-nondirectory buffer-file-name))
 
 ;; auto pair
-;; (electric-pair-mode t)
+(electric-pair-mode t)
 
 (provide 'nema-core)
 ;;; nema-core.el ends here

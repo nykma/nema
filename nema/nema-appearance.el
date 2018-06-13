@@ -44,15 +44,21 @@
   ;; )
 
 
-(use-package doom-themes
+;; (use-package doom-themes
+;;   :config
+;;   ;; Global settings (defaults)
+;;   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+;;         doom-themes-enable-italic t) ; if nil, italics is universally disabled)
+;;   (load-theme 'doom-peacock t)
+;;   (doom-themes-visual-bell-config)
+;;   (doom-themes-neotree-config)
+;;   (doom-themes-org-config))
+
+(use-package darkokai-theme
   :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled)
-  (load-theme 'doom-peacock)
-  (doom-themes-visual-bell-config)
-  (doom-themes-neotree-config)
-  (doom-themes-org-config))
+  (setq darkokai-mode-line-padding 1
+        darkokai-use-variable-pitch nil)
+  (load-theme 'darkokai t))
 
 ;; smart-mode-line
 (use-package smart-mode-line
