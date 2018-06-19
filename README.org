@@ -16,15 +16,15 @@ emacs -nw
 
 * Hotkey cheatsheet
 
-| Hotkey      | Command                         | Location          | Comment                                            |
-| =C-c g g=   | =magit-status=                  | =nema-vcs.el=     | Magit                                              |
-| =C-'=       | =avy-goto-char-timer=           | =nema-basic.el=   | Cursor jump to location                            |
-| =C->=       | =mc/mark-next-like-this-symbol= | =nema-basic.el=   | Multi cursor                                       |
-| =C-c p TAB= | =neotree-toggle=                | =nema-basic.el=   | NeoTree                                            |
-| =C-TAB=     | =origami-show-only-node=        | =nema-basic.el=   | Code folding                                       |
-| =M-o=       | Common window functions         | =nema-hydra.el=   | Focus changing, window creation/deletion and so on |
-| =C-c & w=   | =aya-create=                    | =nema-snippet.el= | Create and use a snippet when editing              |
-| =C-x c f=   | =nema/core/config-open-init-el= | =nema-core.el=    | Edit =init.el=                                     |
+| Hotkey               | Command                         | Location          | Comment                                            |
+| =C-c g g=            | =magit-status=                  | =nema-vcs.el=     | Magit                                              |
+| =Control-Apostrophe= | =avy-goto-char-timer=           | =nema-basic.el=   | Cursor jump to location                            |
+| =C->=                | =mc/mark-next-like-this-symbol= | =nema-basic.el=   | Multi cursor                                       |
+| =C-c p TAB=          | =neotree-toggle=                | =nema-basic.el=   | NeoTree                                            |
+| =C-TAB=              | =origami-show-only-node=        | =nema-basic.el=   | Code folding                                       |
+| =M-o=                | Common window functions         | =nema-hydra.el=   | Focus changing, window creation/deletion and so on |
+| =C-c & w=            | =aya-create=                    | =nema-snippet.el= | Create and use a snippet when editing              |
+| =C-x c f=            | =nema/core/config-open-init-el= | =nema-core.el=    | Edit =init.el=                                     |
 
 * Customize
   There are many ways to hack this. You can
