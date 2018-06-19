@@ -25,9 +25,9 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-;; (use-package hc-zenburn-theme
-  ;; :config
-  ;; (load-theme 'hc-zenburn t))
+(use-package hc-zenburn-theme
+  :config
+  (load-theme 'hc-zenburn t))
 
 ;; moe-theme
 ;; (use-package moe-theme
@@ -54,11 +54,15 @@
 ;;   (doom-themes-neotree-config)
 ;;   (doom-themes-org-config))
 
-(use-package darkokai-theme
-  :config
-  (setq darkokai-mode-line-padding 1
-        darkokai-use-variable-pitch nil)
-  (load-theme 'darkokai t))
+;; (use-package darkokai-theme
+;;   :config
+;;   (setq darkokai-mode-line-padding 1
+;;         darkokai-use-variable-pitch nil)
+;;   (load-theme 'darkokai t))
+
+;; (use-package zenburn-theme
+;;   :config
+;;   (load-theme 'zenburn t))
 
 ;; smart-mode-line
 (use-package smart-mode-line
