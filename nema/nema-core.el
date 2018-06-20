@@ -29,7 +29,8 @@
 ;; better defaults
 (use-package better-defaults)
 
-(set-locale-environment "UTF-8")
+;; (set-locale-environment "UTF-8")
+(set-language-environment "UTF-8")
 
 (setq require-final-newline nil
       visible-bell nil)
