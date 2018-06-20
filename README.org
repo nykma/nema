@@ -37,11 +37,19 @@ emacs -nw
        (i.e. IRC login info or Mail account) or some machine-specific configs (i.e. if you have a HiDPI laptop
        and a workstation with normal DPI displays) without syncing across with =git=.
 
-
 * Known issues
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
      of Elisp-enabled themes. Use =emacs= or =emacs -nw= instead, and press =y= if prompted.
      When =.emacs.d/custom.el= is built, you can use server mode without problem.
+
+* TODOs [0/2]
+** TODO [0/3] Sample =my/= configs for:
+   - [ ] ExWM
+   - [ ] erc
+   - [ ] WanderLust
+** TODO =.spacemacs=-like external config file
+   So that enable/disable layers might be easier and may avoid touching this git repo.
+   Wait do I really need this?
 
 * Thanks to
 - [[https://github.com/emacs-tw/emacs-101-beginner-survival-guide][emacs-tw/emacs-101-beginner-survival-guide]] who gave me courage to build my very own config from scratch.
