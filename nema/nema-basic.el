@@ -83,6 +83,7 @@
 
 ;; ace-window - Quickly switch windows
 (use-package ace-window
+  :bind (("C-M-o" . ace-window))
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
