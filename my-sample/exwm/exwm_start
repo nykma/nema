@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# this makes it work in Ubuntu
+# To eliminate `No protocol specified' error
+xhost +SI:localuser:$USER
+## you might need to append the TTY you are working on
+xinit
+
+# wmname LG3D
+
+# Remap caps lock to left control. This is not strictly speaking
+# exwm related, but it's handy
+setxkbmap -option 'caps:ctrl_modifier'
+
+# Set fallback cursor
+xsetroot -cursor_name left_ptr
+
+# Set key repeat
+xset r rate 200 100
+
+# If Emacs is started in server mode, `emacsclient` is a convenient way to edit
+# files in place (used by e.g. `git commit`)
+export VISUAL=emacsclient
+export EDITOR="$VISUAL"
+
+# Finally launch emacs and enable exwm
+exec dbus-launch --exit-with-session emacs

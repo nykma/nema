@@ -43,8 +43,8 @@ emacs -nw
      When =.emacs.d/custom.el= is built, you can use server mode without problem.
 
 * TODOs [0/2]
-** TODO [0/3] Sample =my/= configs for:
-   - [ ] ExWM
+** TODO [1/3] Sample =my/= configs for:
+   - [X] EXWM
    - [ ] erc
    - [ ] WanderLust
 ** TODO =.spacemacs=-like external config file

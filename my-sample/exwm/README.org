@@ -1,0 +1,21 @@
+* EXWM config sample
+** Files
+*** =exwm_start=
+    Copy =exwm_start= in your global PATH (i.e. =/usr/local/bin/=) and =chmod 755= it. It acts like =.xinitrc=.
+
+    #+BEGIN_QUOTE
+    If you're using Arch/Manjaro, you may need to =pacman -S xorg-xhost= to eliminate "No protocol specified" error.
+    #+END_QUOTE
+*** =exwm.desktop=
+    Copy =exwm.desktop= in =/usr/share/xsessions/= (for Arch/Manjaro?) or =/usr/local/xsessions/= (for Ubuntu/Debian?).
+
+    Now you can find "EXWM" option in your login screen (DM).
+*** =exwm.el=
+    You can copy or symlink =exwm.el= into your =.emacs.d/my/=.
+** Known issues
+*** Starting takes tooo much time
+    Because the exwm loading process is in the last part of my =init.el=. You can raise this process manually if necessary.
+
+    For example, =(require)= it immediately after =nema-basic=.
+** Thanks to
+   [[https://github.com/syl20bnr/spacemacs/pull/3321/commits/c0ee03f6d80b88a5f25fd0175ae5fba5a4c4dd8d][This spacemacs pull request]].
