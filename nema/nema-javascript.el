@@ -22,8 +22,9 @@ See also: https://github.com/ananthakumaran/tide"
   (tide-hl-identifier-mode t))
 
 (use-package tide
-  :mode "\\.\\(ts\\)\\'"
-  :hook (typescript-mode . nema/tide/setup))
+  ;; :mode "\\.\\(ts\\)\\'"
+  :hook (typescript-mode . nema/tide/setup)
+  )
 
 (use-package rjsx-mode
   :mode "\\.\\(jsx\\|tsx\\)\\'")
