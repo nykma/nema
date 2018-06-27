@@ -36,7 +36,7 @@ emacs -nw
      - Your snippets will be saved and loaded in =.emacs.d/my/snippets/**/*=. See =nema-snippet.el= for more
        information.
      - =.emacs.d/my/**/*= is in =.gitignore= list. So you can save sensitive data
-       (i.e. IRC login info or Mail account) or some machine-specific configs (i.e. if you have a HiDPI laptop
+       (e.g. IRC login info or Mail account) or some machine-specific configs (e.g. if you have a HiDPI laptop
        and a workstation with normal DPI displays) without syncing across with =git=.
 
 * Known issues
