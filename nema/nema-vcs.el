@@ -5,7 +5,8 @@
 
 ;; magit - Magit git
 (use-package magit
-  :bind (("C-c g g" . magit-status))
+  :bind (("C-c g g" . magit-status)
+         ("C-c g b" . magit-blame))
   ;; :config
   ;; (setq magit-no-confirm t)
   )
