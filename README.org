@@ -45,9 +45,9 @@ emacs -nw
      When =.emacs.d/custom.el= is built, you can use server mode without problem.
 
 * TODOs [0/2]
-** TODO [1/3] Sample =my/= configs for:
+** TODO [2/3] Sample =my/= configs for:
    - [X] EXWM
-   - [ ] erc
+   - [X] erc
    - [ ] WanderLust
 ** TODO =.spacemacs=-like external config file
    So that enable/disable layers might be easier and may avoid touching this git repo.
