@@ -14,6 +14,11 @@
 (use-package magit-gitflow
   :hook ((magit-mode . turn-on-magit-gitflow)))
 
+(use-package diff-hl
+  :config
+  (global-diff-hl-mode)
+  (diff-hl-flydiff-mode)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
 (provide 'nema-vcs)
 ;;; nema-vcs.el ends here
