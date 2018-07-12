@@ -106,12 +106,12 @@
   :bind (("C-c p TAB" . neotree-toggle)))
 
 ;; Code folding
-(use-package origami
-  :bind (("<backtab>" . origami-recursively-toggle-node) ;; Shift + Tab
-         ("<C-tab>" . origami-show-only-node) ;; Ctrl + Tab
-         ("C-c TAB" . origami-open-all-nodes))
-  :config
-  (global-origami-mode))
+;; (use-package origami
+;;   :bind (("<backtab>" . origami-recursively-toggle-node) ;; Shift + Tab
+;;          ("<C-tab>" . origami-show-only-node) ;; Ctrl + Tab
+;;          ("C-c TAB" . origami-open-all-nodes))
+;;   :config
+;;   (global-origami-mode))
 
 ;; Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
 ;; (use-package smartparens
