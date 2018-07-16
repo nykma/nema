@@ -54,6 +54,7 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-org)
 (require 'nema-markdown)
 (require 'nema-javascript)
+(require 'nema-java)
 (require 'nema-python)
 (require 'nema-rust)
 (require 'nema-web)

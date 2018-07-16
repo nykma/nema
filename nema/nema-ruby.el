@@ -25,10 +25,7 @@
 		      rake
 		      )))
   (dolist (pkg ruby-packages)
-    (unless (package-installed-p pkg)
-      (unless package-archive-contents (package-refresh-contents))
-      (package-install pkg)
-      (require pkg))))
+    (eval `(use-package ,pkg))))
 
 (use-package inf-ruby
   :config
@@ -38,8 +35,7 @@
 (use-package projectile-rails
   :delight 'projectile-rails-mode
   :config
-  (projectile-rails-global-mode)
-  )
+  (projectile-rails-global-mode))
 
 (use-package rinari)
 
