@@ -36,12 +36,13 @@
   (setq ivy-initial-inputs-alist nil)
   (use-package ivy-hydra))
 
-;; (use-package anzu
-;;   :bind (("C-M-%" . 'anzu-query-replace-at-cursor)
-;;          ("M-%" . 'anzu-query-replace-regexp))
-;;   :delight
-;;   :init
-;;   (global-anzu-mode +1))
+(use-package anzu
+  ;; :bind (("C-M-%" . 'anzu-query-replace-at-cursor)
+  ;;        ("M-%" . 'anzu-query-replace-regexp))
+  :delight
+  ;; :init
+  ;; (global-anzu-mode +1)
+  )
 
 ;; swiper - show all overview of searches
 (use-package swiper
