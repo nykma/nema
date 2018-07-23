@@ -103,7 +103,7 @@
 
 ;; tree style file manager
 (use-package neotree
-  :bind (("C-c p TAB" . neotree-toggle)))
+  :bind (("C-c C-p TAB" . neotree-toggle)))
 
 ;; Code folding
 ;; (use-package origami
