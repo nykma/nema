@@ -25,6 +25,13 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
+(use-package highlight-indent-guides
+  :hook (prog-mode . highlight-indent-guides-mode)
+  :config
+  (setq highlight-indent-guides-method 'character
+        highlight-indent-guides-character ?\|
+        highlight-indent-guides-responsive 'top))
+
 (use-package hc-zenburn-theme
   :config
   (load-theme 'hc-zenburn t))
