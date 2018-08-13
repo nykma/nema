@@ -10,12 +10,22 @@
   ;;            )
   :delight
   :config
-  (projectile-mode))
+  (setq projectile-file-exists-remote-cache-expire (* 10 60))
+  (projectile-mode)
+  (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
+  (projectile-register-project-type 'npm '("package.json")
+                                    :compile "npm install"
+                                    :test "npm test"
+                                    :run "npm start")
+  (projectile-register-project-type 'yarn '("yarn.lock")
+                                    :compile "yarn"
+                                    :test "yarn test"
+                                    :run "yarn start"))
 
-(use-package counsel-projectile
-  :delight
-  :config
-  (counsel-projectile-mode))
+;; (use-package counsel-projectile
+;;   :config
+;;   (counsel-projectile-mode)
+;;   (define-key counsel-projectile-mode-map (kbd "C-c C-p") 'counsel-projectile-command-map))
 
 (provide 'nema-project)
 
