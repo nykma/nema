@@ -16,50 +16,53 @@ emacs -nw
 
 * Hotkey cheatsheet
 
-| Hotkey               | Command                         | Location          | Comment                                            |
-|----------------------+---------------------------------+-------------------+----------------------------------------------------|
-| =C-c g g=            | =magit-status=                  | =nema-vcs.el=     | Magit                                              |
-| =C-c g b=            | =magit-blame=                   | =nema-vcs.el=     | =git blame= current buffer                         |
-| =Control-Apostrophe= | =avy-goto-char-timer=           | =nema-basic.el=   | Cursor jump to location                            |
-| =C->=                | =mc/mark-next-like-this-symbol= | =nema-basic.el=   | Multi cursor                                       |
-| =C-c C-p TAB=        | =neotree-toggle=                | =nema-basic.el=   | NeoTree                                            |
-| =C-TAB=              | =origami-show-only-node=        | =nema-basic.el=   | Code folding                                       |
-| =M-o=                | Common window functions         | =nema-hydra.el=   | Focus changing, window creation/deletion and so on |
-| =C-c & w=            | =aya-create=                    | =nema-snippet.el= | Create and use a snippet when editing              |
-| =C-M-o=              | =ace-window=                    | =nema-basic.el=   | Window switch                                      |
+| Hotkey        | Command                         | Location          | Comment                                            |
+|---------------+---------------------------------+-------------------+----------------------------------------------------|
+| =C-c g g=     | =magit-status=                  | =nema-vcs.el=     | Magit                                              |
+| =C-c g b=     | =magit-blame=                   | =nema-vcs.el=     | =git blame= current buffer                         |
+| C-'           | =avy-goto-char-timer=           | =nema-basic.el=   | Cursor jump to location                            |
+| =C->=         | =mc/mark-next-like-this-symbol= | =nema-basic.el=   | Multi cursor                                       |
+| =C-c C-p TAB= | =neotree-toggle=                | =nema-basic.el=   | NeoTree                                            |
+| =C-TAB=       | =origami-show-only-node=        | =nema-basic.el=   | Code folding                                       |
+| =M-o=         | Common window functions         | =nema-hydra.el=   | Focus changing, window creation/deletion and so on |
+| =C-c & w=     | =aya-create=                    | =nema-snippet.el= | Create and use a snippet when editing              |
+| =C-M-o=       | =ace-window=                    | =nema-basic.el=   | Window switch                                      |
 
 * Customize
-  There are many ways to hack this. You can
-  1. Fork me, then modify the =.emacs.d/nema/*.el= files (it's yours!), or
-  2. Write your ELisp in =.emacs.d/my/*.el=. They will be loaded after all =nema-*= modules are loaded.
-     - Your snippets will be saved and loaded in =.emacs.d/my/snippets/**/*=. See =nema-snippet.el= for more
-       information.
-     - =.emacs.d/my/**/*= is in =.gitignore= list. So you can save sensitive data
-       (e.g. IRC login info or Mail account) or some machine-specific configs (e.g. if you have a HiDPI laptop
-       and a workstation with normal DPI displays) without syncing across with =git=.
+** =customize-group=
+   There is a customize group called =nema= to give you a few customization options:
+     - =nema-emacs-completion-engine= :: Choose between ='ivy=, ='helm= and none.
+** Besides
+ There are many ways to hack this. You can
+ 1. Write your ELisp in =.emacs.d/my/*.el=. They will be loaded after all =nema-*= modules are loaded.
+    - Your snippets will be saved and loaded in =.emacs.d/my/snippets/**/*=. (See =nema-snippet.el=)
+    - =.emacs.d/my/**/*= is in =.gitignore= list. So you can save sensitive data
+      (e.g. IRC login info or Mail account) or some machine-specific configs (e.g. if you have a HiDPI laptop
+      and a workstation with normal DPI displays) without syncing across with VCS. (See =my-sample/*.el=)
+ 2. Fork me, then modify the =.emacs.d/nema/*.el= files (since it's yours now).
 
 * Known issues
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
      of Elisp-enabled themes. Use =emacs= or =emacs -nw= instead, and press =y= if prompted.
      When =.emacs.d/custom.el= is built, you can use server mode without problem.
 
-* TODOs [0/2]
+* TODOs [1/2]
 ** TODO [2/3] Sample =my/= configs for:
    - [X] EXWM
    - [X] erc
    - [ ] WanderLust
-** TODO =.spacemacs=-like external config file
-   So that enable/disable layers might be easier and may avoid touching this git repo.
-   Wait do I really need this?
+** DONE =customize-group=
+   CLOSED: [2018-08-13 一 17:04]
 
 * Thanks to
 - [[https://github.com/emacs-tw/emacs-101-beginner-survival-guide][emacs-tw/emacs-101-beginner-survival-guide]] who gave me courage to build my very own config from scratch.
 - [[https://github.com/kuanyui/.emacs.d][kuanyui/.emacs.d]] and [[https://github.com/purcell/emacs.d][purcell/emacs.d]] who provided a good project structure for reference.
-- [[https://github.com/bbatsov/prelude][bbatsov/prelude]] who gave me ideas of how to do theme loading
+- [[https://github.com/bbatsov/prelude][bbatsov/prelude]] who gave me ideas of how to do theme reloading properly
 
 * License
   GPLv3 for
   - Initialization and core files
   - Layer files (=nema-*.el=)
+  - =my-sample/*.el=
 
   See =LICENSE= file
