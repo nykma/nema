@@ -26,7 +26,6 @@ emacs -nw
 | =C-TAB=              | =origami-show-only-node=        | =nema-basic.el=   | Code folding                                       |
 | =M-o=                | Common window functions         | =nema-hydra.el=   | Focus changing, window creation/deletion and so on |
 | =C-c & w=            | =aya-create=                    | =nema-snippet.el= | Create and use a snippet when editing              |
-| =C-x c f=            | =nema/core/config-open-init-el= | =nema-core.el=    | Edit =init.el=                                     |
 | =C-M-o=              | =ace-window=                    | =nema-basic.el=   | Window switch                                      |
 
 * Customize
