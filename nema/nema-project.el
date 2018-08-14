@@ -1,7 +1,6 @@
 ;;; nema-project --- Project management
 ;;; Code:
 
-
 (use-package projectile
   ;; :delight '(:eval
   ;;            (if (projectile-project-p)
@@ -22,10 +21,14 @@
                                     :test "yarn test"
                                     :run "yarn start"))
 
-;; (use-package counsel-projectile
-;;   :config
-;;   (counsel-projectile-mode)
-;;   (define-key counsel-projectile-mode-map (kbd "C-c C-p") 'counsel-projectile-command-map))
+(pcase nema-emacs-completion-engine
+  ;; ('ivy (use-package counsel-projectile
+  ;;         :config
+  ;;         (counsel-projectile-mode)))
+  ('helm (use-package helm-projectile
+           :config
+           (helm-projectile-on))
+         (use-package helm-ag)))
 
 (provide 'nema-project)
 

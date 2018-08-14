@@ -27,10 +27,10 @@
    ("d" ace-delete-window "Close")
    ("o" ace-maximize-window "Max" :color blue)
 
-   ("b" ivy-switch-buffer "Buf")
-   ("F" counsel-find-file "Open")
-   ("p" counsel-projectile-switch-project "Proj")
-   ("f" counsel-projectile-find-file "In proj")
+   ;; ("b" ivy-switch-buffer "Buf")
+   ;; ("F" counsel-find-file "Open")
+   ;; ("p" counsel-projectile-switch-project "Proj")
+   ;; ("f" counsel-projectile-find-file "In proj")
    ("t" multi-term "Term")
    ("q" nil)))
 

@@ -9,12 +9,6 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 
 (setq debug-on-error t)
 
-;;; move customize-set-variable out of init.el
-(setq custom-file "~/.emacs.d/custom.el")
-(unless (file-exists-p custom-file)
-  (write-region "" nil custom-file))    ; Touch this file
-(load custom-file)
-
 (require 'package)
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -31,8 +25,17 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (add-to-list 'load-path
              (expand-file-name "vendor" user-emacs-directory))
 
+(require 'nema-customize-group)
+
+;;; move customize-set-variable out of init.el
+(setq custom-file "~/.emacs.d/custom.el")
+(unless (file-exists-p custom-file)
+  (write-region "" nil custom-file))    ; Touch this file
+(load custom-file)
+
 ;; Core layers
 (require 'nema-core)
+
 (require 'nema-basic)
 (require 'nema-appearance)
 
@@ -73,7 +76,7 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 ;; (require 'my-scripts)
 
 ;; Key config layers
-(require 'nema-keymapping)
+;; (require 'nema-keymapping)
 (require 'nema-hydra)
 
 ;; Load all self configs in ~/.emacs.d/my
