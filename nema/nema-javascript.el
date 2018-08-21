@@ -13,19 +13,6 @@
         js2-mode-show-parse-errors nil) ;; use flycheck & ESLint instead
   )
 
-(defun nema/tide/setup ()
-  "Setup process of tide.
-See also: https://github.com/ananthakumaran/tide"
-  (interactive)
-  (tide-setup)
-  ;; (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (tide-hl-identifier-mode t))
-
-(use-package tide
-  ;; :mode "\\.\\(ts\\)\\'"
-  :hook (typescript-mode . nema/tide/setup)
-  )
-
 (use-package rjsx-mode
   :mode "\\.\\(jsx\\|tsx\\)\\'")
 
@@ -34,6 +21,25 @@ See also: https://github.com/ananthakumaran/tide"
   :mode "\\.vue\\'"
   :config
   (setq mmm-submode-decoration-level 3)) ;; high coloring
+
+(if nema-use-lsp
+  ;; JS, TS and Flow support
+  ;; Install: npm i -g javascript-typescript-langserver
+  (use-package lsp-javascript-typescript
+    :commands lsp-javascript-typescript-enable
+    :hook ((typescript-mode js2-mode) . lsp-javascript-typescript-enable))
+  ;; else
+  (defun nema/tide/setup ()
+    "Setup process of tide.
+See also: https://github.com/ananthakumaran/tide"
+    (interactive)
+    (tide-setup)
+    ;; (setq flycheck-check-syntax-automatically '(save mode-enabled))
+    (tide-hl-identifier-mode t))
+
+  (use-package tide
+    ;; :mode "\\.\\(ts\\)\\'"
+    :hook (typescript-mode . nema/tide/setup)))
 
 (provide 'nema-javascript)
 
