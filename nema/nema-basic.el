@@ -6,7 +6,9 @@
 ;; quelpa - For those packages which are not in MELPA
 (use-package quelpa
   :config
-  (use-package quelpa-use-package))
+  (use-package quelpa-use-package)
+  (setq use-package-ensure-function 'quelpa
+        quelpa-update-melpa-p nil))
 
 ;; delight - Chage minor mode indicator in mode line
 (use-package delight
