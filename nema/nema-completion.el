@@ -27,7 +27,13 @@
     :delight
     :config
     (setq lsp-inhibit-message t
-          lsp-message-project-root-warning t))
+          lsp-message-project-root-warning t)
+    (defun nema/lsp/restart-server ()
+      "Restart LSP server."
+      (interactive)
+      (lsp-restart-workspace)
+      (revert-buffer t t)
+      (message "LSP server restarted.")))
   (use-package lsp-ui
     :after lsp-mode
     :bind
@@ -42,8 +48,7 @@
     :defines company-backends
     :functions company-backend-with-yas
     :init
-    (cl-pushnew (nema--company-backend-with-yas 'company-lsp) company-backends)
-    ))
+    (cl-pushnew (nema--company-backend-with-yas 'company-lsp) company-backends)))
 
 (provide 'nema-completion)
 
