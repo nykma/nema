@@ -3,6 +3,13 @@
 "Must-have plugins and configs"
 ;;; Code:
 
+;; quelpa - For those packages which are not in MELPA
+(use-package quelpa
+  :config
+  (use-package quelpa-use-package)
+  (setq quelpa-update-melpa-p nil)
+  (quelpa-use-package-activate-advice))
+
 ;; delight - Chage minor mode indicator in mode line
 (use-package delight
   :config

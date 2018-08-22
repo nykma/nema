@@ -20,11 +20,6 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (add-to-list 'load-path
              (expand-file-name "nema" user-emacs-directory))
 
-;; Third party libraries which are not hosted on MELPA
-;; i.e. dired+
-(add-to-list 'load-path
-             (expand-file-name "vendor" user-emacs-directory))
-
 (require 'nema-customize-group)
 
 ;;; move customize-set-variable out of init.el
@@ -66,6 +61,7 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-docker)
 (require 'nema-c)
 (require 'nema-elixir)
+(require 'nema-dart)
 
 ;; misc
 (require 'nema-dired)

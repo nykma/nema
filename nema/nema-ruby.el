@@ -2,21 +2,8 @@
 "Ruby packages and settings"
 ;;; Code:
 
-;; SEEALSO: spacemacs/layers/+lang/ruby/packages.el
-(use-package enh-ruby-mode
-  :mode (("Appraisals\\'" . enh-ruby-mode)
-	 ("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
-	 ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
-  :interpreter "ruby"
-  :config
-  (setq enh-ruby-deep-indent-paren nil
-	enh-ruby-hanging-paren-deep-indent-level 2
-	ruby-insert-encoding-magic-comment nil))
-
-
 (let ((ruby-packages '(bundler
 		      rbenv
-		      robe
 		      rubocop
 		      rspec-mode
 		      ruby-test-mode
@@ -38,6 +25,33 @@
   (projectile-rails-global-mode))
 
 (use-package rinari)
+
+(if nema-use-lsp
+    ;; https://github.com/emacs-lsp/lsp-ruby
+    ;; Install: gem install solargraph
+    ;; FIXME: has some problems of rendering docs
+    (use-package lsp-ruby
+      :quelpa (lsp-ruby :fetcher github :repo "emacs-lsp/lsp-ruby")
+      :after lsp-mode
+      :commands lsp-ruby-enable
+      :hook (ruby-mode . lsp-ruby-enable)
+      :init
+      (defconst lsp-ruby--get-root
+        (lsp-make-traverser
+         #'(lambda (dir)
+             (directory-files dir nil "\\(Rakefile\\|Gemfile\\)")))))
+  ;; else
+  ;; SEEALSO: spacemacs/layers/+lang/ruby/packages.el
+  (use-package enh-ruby-mode
+    :mode (("Appraisals\\'" . enh-ruby-mode)
+	   ("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
+	   ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
+    :interpreter "ruby"
+    :config
+    (setq enh-ruby-deep-indent-paren nil
+	  enh-ruby-hanging-paren-deep-indent-level 2
+	  ruby-insert-encoding-magic-comment nil))
+  (use-package robe))
 
 (provide 'nema-ruby)
 
