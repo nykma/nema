@@ -51,6 +51,7 @@ emacs -nw
   2. Something about LSP mode:
      - Ruby: First time you open a =.rb= file, the LSP server may not be started properly. You can
        switch to that file buffer and =M-x nema/lsp/restart-server= to make it work.
+     - PHP: Same with ruby.
 
 * TODOs [1/2]
 ** TODO [2/3] Sample =my/= configs for:
