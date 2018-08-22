@@ -45,6 +45,9 @@ emacs -nw
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
      of Elisp-enabled themes. Use =emacs= or =emacs -nw= instead, and press =y= if prompted.
      When =.emacs.d/custom.el= is built, you can use server mode without problem.
+  2. Something about LSP mode:
+     - Ruby: First time you open a =.rb= file, the LSP server may not be started properly. You can
+       switch to that file buffer and =M-x nema/lsp/restart-server= to make it work.
 
 * TODOs [1/2]
 ** TODO [2/3] Sample =my/= configs for:
