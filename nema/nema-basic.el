@@ -3,6 +3,13 @@
 "Must-have plugins and configs"
 ;;; Code:
 
+;; quelpa - For those packages which are not in MELPA
+(use-package quelpa
+  :config
+  (use-package quelpa-use-package)
+  (setq quelpa-update-melpa-p nil)
+  (quelpa-use-package-activate-advice))
+
 ;; delight - Chage minor mode indicator in mode line
 (use-package delight
   :config
@@ -19,40 +26,47 @@
 ;;   :config
 ;;   (smex-initialize))
 
-;; ivy - Completion
-;; SEEALSO: https://www.reddit.com/r/emacs/comments/6xc0im/ivy_counsel_swiper_company_helm_smex_and_evil/
-(use-package ivy
-  :delight
-  :config
-  (ivy-mode t)
-  (setq enable-recursive-minibuffers t)
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-display-style 'fancy)
-  (setq ivy-format-function 'ivy-format-function-line)
-  ;; TODO testing out the fuzzy search
-  (setq ivy-re-builders-alist
-      '((counsel-M-x . ivy--regex-fuzzy) ; Only counsel-M-x use flx fuzzy search
-        (t . ivy--regex-plus)))
-  (setq ivy-initial-inputs-alist nil)
-  (use-package ivy-hydra))
+(pcase nema-emacs-completion-engine
+  ;; ivy - Completion
+  ;; SEEALSO: https://www.reddit.com/r/emacs/comments/6xc0im/ivy_counsel_swiper_company_helm_smex_and_evil/
+  ('ivy (use-package ivy
+          :delight
+          :config
+          (ivy-mode t)
+          (setq enable-recursive-minibuffers t)
+          (setq ivy-use-virtual-buffers t)
+          (setq ivy-display-style 'fancy)
+          (setq ivy-format-function 'ivy-format-function-line)
+          ;; TODO testing out the fuzzy search
+          (setq ivy-re-builders-alist
+                '((counsel-M-x . ivy--regex-fuzzy) ; Only counsel-M-x use flx fuzzy search
+                  (t . ivy--regex-plus)))
+          (setq ivy-initial-inputs-alist nil)
+          ;; Add C-o quick menu in ivy selection
+          (use-package ivy-hydra)
+          ;; swiper - show all overview of searches
+          (use-package swiper
+            :bind (("\C-s" . swiper)))
+          ;; counsel - enhanced default common commands
+          (use-package counsel
+            :bind (("M-x" . counsel-M-x)
+	           ("C-x C-f" . counsel-find-file)))))
+  ;; Helm - Completion
+  ('helm (use-package helm
+           :delight
+           :bind (("M-x" . helm-M-x)
+                  ("C-x C-f" . helm-find-files))
+           :config
+           (require 'helm-config)
+           (helm-mode 1))))
 
 (use-package anzu
   ;; :bind (("C-M-%" . 'anzu-query-replace-at-cursor)
-  ;;        ("M-%" . 'anzu-query-replace-regexp))
+
   :delight
   ;; :init
   ;; (global-anzu-mode +1)
   )
-
-;; swiper - show all overview of searches
-(use-package swiper
-  :bind (("\C-s" . swiper)))
-
-
-;; counsel - enhanced default common commands
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-	 ("C-x C-f" . counsel-find-file)))
 
 ;; which-key
 (use-package which-key

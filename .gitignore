@@ -32,3 +32,8 @@ projectile.cache
 /rake.cache
 /image-dired
 /tramp
+/quelpa
+
+# LSP
+/eclipse.jdt.ls
+/workspace
