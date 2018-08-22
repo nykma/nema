@@ -30,8 +30,11 @@ emacs -nw
 
 * Customize
 ** =customize-group=
-   There is a customize group called =nema= to give you a few customization options:
+   There is a customize group called =nema= to give you a few customization options. Remember to restart emacs
+   if anything is changed.
      - =nema-emacs-completion-engine= :: Choose between ='ivy=, ='helm= and none.
+     - =nema-use-lsp= :: Use LSP or not. Remember to follow toolchain installation instructions in language
+       layer files.
 ** Besides
  There are many ways to hack this. You can
  1. Write your ELisp in =.emacs.d/my/*.el=. They will be loaded after all =nema-*= modules are loaded.
@@ -56,6 +59,7 @@ emacs -nw
    - [ ] WanderLust
 ** DONE =customize-group=
    CLOSED: [2018-08-13 一 17:04]
+** TODO "battery save" switch when using LSP
 
 * Thanks to
 - [[https://github.com/emacs-tw/emacs-101-beginner-survival-guide][emacs-tw/emacs-101-beginner-survival-guide]] who gave me courage to build my very own config from scratch.
