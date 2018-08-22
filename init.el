@@ -66,6 +66,7 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-docker)
 (require 'nema-c)
 (require 'nema-elixir)
+(require 'nema-dart)
 
 ;; misc
 (require 'nema-dired)
