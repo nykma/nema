@@ -24,7 +24,7 @@
 
 (when nema-use-lsp
   (use-package lsp-mode
-    :delight
+    ;; :delight
     :config
     (setq lsp-inhibit-message t
           lsp-message-project-root-warning t)
