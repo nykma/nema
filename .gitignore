@@ -33,3 +33,6 @@ projectile.cache
 /image-dired
 /tramp
 /quelpa
+
+# LSP
+/eclipse.jdt.ls
