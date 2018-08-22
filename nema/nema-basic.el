@@ -7,8 +7,8 @@
 (use-package quelpa
   :config
   (use-package quelpa-use-package)
-  (setq use-package-ensure-function 'quelpa
-        quelpa-update-melpa-p nil))
+  (setq quelpa-update-melpa-p nil)
+  (quelpa-use-package-activate-advice))
 
 ;; delight - Chage minor mode indicator in mode line
 (use-package delight
