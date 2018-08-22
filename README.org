@@ -10,7 +10,7 @@ A not-so-hurt-yet-still-make-kind-of-sense emacs configuration framework, c/w a 
 #+BEGIN_SRC sh
 cd ~
 mv .emacs.d .emacs.d.old
-git clone --depth=1 https://github.com/nykma/nema.git .emacs.d
+git clone https://github.com/nykma/nema.git .emacs.d
 emacs -nw
 #+END_SRC
 
@@ -32,9 +32,9 @@ emacs -nw
 ** =customize-group=
    There is a customize group called =nema= to give you a few customization options. Remember to restart emacs
    if anything is changed.
-     - =nema-emacs-completion-engine= :: Choose between ='ivy=, ='helm= and none.
+     - =nema-emacs-completion-engine= :: Choose between =ivy=, =helm= and none. Default to =ivy=
      - =nema-use-lsp= :: Use LSP or not. Remember to follow toolchain installation instructions in language
-       layer files.
+       layer files. Default to =nil=.
 ** Besides
  There are many ways to hack this. You can
  1. Write your ELisp in =.emacs.d/my/*.el=. They will be loaded after all =nema-*= modules are loaded.
@@ -53,19 +53,20 @@ emacs -nw
        switch to that file buffer and =M-x nema/lsp/restart-server= to make it work.
      - PHP: Same with ruby.
 
-* TODOs [1/2]
+* TODOs [1/3]
 ** TODO [2/3] Sample =my/= configs for:
    - [X] EXWM
    - [X] erc
    - [ ] WanderLust
 ** DONE =customize-group=
    CLOSED: [2018-08-13 一 17:04]
-** TODO "battery save" switch when using LSP
+** TODO "Battery Save" mode switch when using LSP
 
 * Thanks to
 - [[https://github.com/emacs-tw/emacs-101-beginner-survival-guide][emacs-tw/emacs-101-beginner-survival-guide]] who gave me courage to build my very own config from scratch.
 - [[https://github.com/kuanyui/.emacs.d][kuanyui/.emacs.d]] and [[https://github.com/purcell/emacs.d][purcell/emacs.d]] who provided a good project structure for reference.
-- [[https://github.com/bbatsov/prelude][bbatsov/prelude]] who gave me ideas of how to do theme reloading properly
+- [[https://github.com/bbatsov/prelude][bbatsov/prelude]] who gave me ideas of how to do theme reloading properly.
+- [[https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-lsp.el][seagle0128/.emacs.d]] for almost all of LSP configs.
 
 * License
   GPLv3 for
