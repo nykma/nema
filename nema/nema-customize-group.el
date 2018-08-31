@@ -26,6 +26,14 @@ Disabled by default."
   :group 'nema
   :type '(boolean))
 
+(defcustom nema-mode-line 'smart-mode-line
+  "Mode line to use.
+Default is `smart-mode-line'"
+  :tag "Mode line"
+  :group 'nema
+  :type '(choice (const :tag "Smart mode line" smart-mode-line)
+                 (const :tag "Doom modeline" doom-modeline)))
+
 (provide 'nema-customize-group)
 
 ;;; nema-customize-group.el ends here

@@ -44,13 +44,6 @@
 ;;   ;; (powerline-moe-theme) ;; This must appear AFTER =use-package powerline=
 ;;   (moe-dark))
 
-;; icons
-;; (use-package all-the-icons
-;;   :config
-  ;; (all-the-icons-install-fonts)
-  ;; )
-
-
 ;; (use-package doom-themes
 ;;   :config
 ;;   ;; Global settings (defaults)
@@ -71,11 +64,22 @@
 ;;   :config
 ;;   (load-theme 'zenburn t))
 
-;; smart-mode-line
-(use-package smart-mode-line
-  :config
-  (setq sml/theme 'respectful)
-  (sml/setup))
+(pcase nema-mode-line
+  ('smart-mode-line
+   (use-package smart-mode-line
+     :config
+     (setq sml/no-confirm-load-theme t
+           sml/theme 'respectful)
+     (sml/setup)))
+  ('doom-modeline
+   (use-package doom-modeline
+     :hook (after-init . doom-modeline-init)
+     :config
+     (use-package all-the-icons
+       ;; Remember to run
+       ;; (all-the-icons-install-fonts)
+       ;; after requiring this package
+       ))))
 
 (provide 'nema-appearance)
 
