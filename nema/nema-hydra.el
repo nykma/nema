@@ -31,7 +31,7 @@
    ;; ("F" counsel-find-file "Open")
    ;; ("p" counsel-projectile-switch-project "Proj")
    ;; ("f" counsel-projectile-find-file "In proj")
-   ("t" multi-term "Term")
+   ("t" aweshell-new "Term")
    ("q" nil)))
 
 (provide 'nema-hydra)
