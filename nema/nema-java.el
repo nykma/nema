@@ -5,6 +5,8 @@
 
 (use-package kotlin-mode)
 
+(use-package groovy-mode)
+
 (if nema-use-lsp
     ;; wget http://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz
     ;; tar -xf jdt-language-server-latest.tar.gz -C ~/.emacs.d/eclipse.jdt.ls/server/
