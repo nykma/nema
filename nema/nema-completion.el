@@ -27,7 +27,11 @@
     ;; :delight
     :config
     (setq lsp-inhibit-message t
-          lsp-message-project-root-warning t)
+          lsp-message-project-root-warning t
+          lsp-response-timeout 20
+          lsp-enable-eldoc nil
+          lsp-message-project-root-warning t ;; Avoid warning when editing single file
+          )
     (defun nema/lsp/restart-server ()
       "Restart LSP server."
       (interactive)
