@@ -12,7 +12,7 @@
 		      rake
 		      )))
   (dolist (pkg ruby-packages)
-    (eval `(use-package ,pkg))))
+    (eval `(use-package ,pkg :delight))))
 
 (use-package inf-ruby
   :config
@@ -34,6 +34,7 @@
       :quelpa (lsp-ruby :fetcher github :repo "emacs-lsp/lsp-ruby")
       :after lsp-mode
       :commands lsp-ruby-enable
+
       :hook (ruby-mode . lsp-ruby-enable)
       :init
       (defconst lsp-ruby--get-root
