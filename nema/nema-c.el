@@ -32,6 +32,9 @@
 ;;   :config
 ;;   (global-semantic-idle-scheduler-mode))
 
+;; cmake
+(use-package cmake-mode)
+
 (provide 'nema-c)
 
 ;;; nema-c.el ends here
