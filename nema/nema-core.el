@@ -10,10 +10,17 @@
 ;; warn when opening files bigger than 100MB
 (setq large-file-warning-threshold (* 100 1024 1024))
 
-;; Packges
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+;; Packges: If not customized in custom.el
+(let* ((old-package-archives (eval (car (get 'package-archives 'standard-value)))))
+  (unless (eq old-package-archives package-archives)
+    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+    (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+    (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)))
+
+;; (unless (eq 1 (length package-archives)) ;; dirty hack
+;;   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;;   (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+;;   (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t))
 
 ;; use-package
 (unless (or package-archive-contents (package-installed-p 'use-package))
