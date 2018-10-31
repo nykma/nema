@@ -34,6 +34,17 @@ Default is `smart-mode-line'"
   :type '(choice (const :tag "Smart mode line" smart-mode-line)
                  (const :tag "Doom modeline" doom-modeline)))
 
+(defcustom nema-theme 'moe-theme
+  "Color theme for the whole Emacs.
+Default is `moe-theme'"
+  :tag "Theme"
+  :group 'nema
+  :type '(choice (const :tag "moe-theme.el" moe-theme)
+                 (const :tag "Zenburn (high contrast)" hc-zenburn-theme)
+                 (const :tag "Zenburn" zenburn)
+                 (const :tag "Doom themes: peacock" doom-themes)
+                 (const :tag "Darkokai" darkokai-theme)))
+
 (provide 'nema-customize-group)
 
 ;;; nema-customize-group.el ends here

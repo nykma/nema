@@ -35,6 +35,7 @@ emacs -nw
      - =nema-emacs-completion-engine= :: Choose between =ivy=, =helm= and none. Default to =ivy=
      - =nema-use-lsp= :: Use LSP or not. Remember to follow toolchain installation instructions in language
        layer files. Default to =nil=.
+     - =nema-theme= :: Choose one theme from given pre-defined themes list.
 ** Besides
  There are many ways to hack this. You can
  1. Write your ELisp in =.emacs.d/my/*.el=. They will be loaded after all =nema-*= modules are loaded.

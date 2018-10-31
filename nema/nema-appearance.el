@@ -33,44 +33,45 @@
         highlight-indent-guides-character ?\|
         highlight-indent-guides-responsive 'top))
 
-(use-package hc-zenburn-theme
-  :config
-  (load-theme 'hc-zenburn t))
-
-;; moe-theme
-;; (use-package moe-theme
-;;   :config
-;;   (setq moe-theme-highlight-buffer-id t)
-;;   (moe-theme-set-color 'cyan)
-;;   ;; (powerline-moe-theme) ;; This must appear AFTER =use-package powerline=
-;;   (moe-dark))
-
-;; (use-package doom-themes
-;;   :config
-;;   ;; Global settings (defaults)
-;;   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-;;         doom-themes-enable-italic t) ; if nil, italics is universally disabled)
-;;   (load-theme 'doom-peacock t)
-;;   (doom-themes-visual-bell-config)
-;;   (doom-themes-neotree-config)
-;;   (doom-themes-org-config))
-
-;; (use-package darkokai-theme
-;;   :config
-;;   (setq darkokai-mode-line-padding 1
-;;         darkokai-use-variable-pitch nil)
-;;   (load-theme 'darkokai t))
-
-;; (use-package zenburn-theme
-;;   :config
-;;   (load-theme 'zenburn t))
+(pcase nema-theme
+  ('moe-theme
+   (use-package moe-theme
+     :config
+     (setq moe-theme-highlight-buffer-id t)
+     (moe-theme-set-color 'cyan)
+     ;; (powerline-moe-theme) ;; This must appear AFTER =use-package powerline=
+     (moe-dark)))
+  ('hc-zenburn-theme
+   (use-package hc-zenburn-theme
+     :config
+     (load-theme 'hc-zenburn t)))
+  ('zenburn-theme
+   (use-package zenburn-theme
+     :config
+     (load-theme 'zenburn t)))
+  ('doom-themes
+   (use-package doom-themes
+     :config
+     ;; Global settings (defaults)
+     (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+           doom-themes-enable-italic t) ; if nil, italics is universally disabled)
+     (load-theme 'doom-peacock t)
+     (doom-themes-visual-bell-config)
+     (doom-themes-neotree-config)
+     (doom-themes-org-config)))
+  ('darkokai-theme
+   (use-package darkokai-theme
+     :config
+     (setq darkokai-mode-line-padding 1
+           darkokai-use-variable-pitch nil)
+     (load-theme 'darkokai t))))
 
 (pcase nema-mode-line
   ('smart-mode-line
    (use-package smart-mode-line
      :config
      (setq sml/no-confirm-load-theme t
-           sml/theme 'respectful)
+           sml/theme 'dark)
      (sml/setup)))
   ('doom-modeline
    (use-package doom-modeline
