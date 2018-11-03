@@ -43,7 +43,8 @@ Default is `moe-theme'"
                  (const :tag "Zenburn (high contrast)" hc-zenburn-theme)
                  (const :tag "Zenburn" zenburn)
                  (const :tag "Doom themes: peacock" doom-themes)
-                 (const :tag "Darkokai" darkokai-theme)))
+                 (const :tag "Darkokai" darkokai-theme)
+                 (const :tag "Fluc UI" flucui-themes)))
 
 (provide 'nema-customize-group)
 

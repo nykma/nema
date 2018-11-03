@@ -64,7 +64,11 @@
      :config
      (setq darkokai-mode-line-padding 1
            darkokai-use-variable-pitch nil)
-     (load-theme 'darkokai t))))
+     (load-theme 'darkokai t)))
+  ('flucui-themes
+   (use-package flucui-themes
+     :config
+     (flucui-themes-load-style 'dark))))
 
 (pcase nema-mode-line
   ('smart-mode-line
