@@ -46,6 +46,14 @@ Default is `moe-theme'"
                  (const :tag "Darkokai" darkokai-theme)
                  (const :tag "Fluc UI" flucui-themes)))
 
+(defcustom nema-theme-style 'dark
+  "Use dark or light style of color theme (if the theme supports).
+Default is `dark'"
+  :tag "Theme"
+  :group 'nema
+  :type '(choice (const :tag "Light" light)
+                 (const :tag "Dark" dark)))
+
 (provide 'nema-customize-group)
 
 ;;; nema-customize-group.el ends here

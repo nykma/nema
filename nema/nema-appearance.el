@@ -40,7 +40,9 @@
      (setq moe-theme-highlight-buffer-id t)
      (moe-theme-set-color 'cyan)
      ;; (powerline-moe-theme) ;; This must appear AFTER =use-package powerline=
-     (moe-dark)))
+     (if (eq 'dark nema-theme-style)
+         (moe-dark)
+       (moe-light))))
   ('hc-zenburn-theme
    (use-package hc-zenburn-theme
      :config
@@ -55,7 +57,9 @@
      ;; Global settings (defaults)
      (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
            doom-themes-enable-italic t) ; if nil, italics is universally disabled)
-     (load-theme 'doom-peacock t)
+     (if (eq 'dark nema-theme-style)
+         (load-theme 'doom-one t)
+       (load-theme 'doom-one-light t))
      (doom-themes-visual-bell-config)
      (doom-themes-neotree-config)
      (doom-themes-org-config)))
@@ -68,14 +72,14 @@
   ('flucui-themes
    (use-package flucui-themes
      :config
-     (flucui-themes-load-style 'dark))))
+     (flucui-themes-load-style nema-theme-style))))
 
 (pcase nema-mode-line
   ('smart-mode-line
    (use-package smart-mode-line
      :config
      (setq sml/no-confirm-load-theme t
-           sml/theme 'dark)
+           sml/theme 'respectful)
      (sml/setup)))
   ('doom-modeline
    (use-package doom-modeline
