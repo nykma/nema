@@ -89,7 +89,12 @@
        ;; Remember to run
        ;; (all-the-icons-install-fonts)
        ;; after requiring this package
-       ))))
+       )))
+  ('awesome-tray
+   (use-package awesome-tray
+     :quelpa (awesome-tray :fetcher github :repo "manateelazycat/awesome-tray")
+     :config
+     (awesome-tray-mode 1))))
 
 (provide 'nema-appearance)
 

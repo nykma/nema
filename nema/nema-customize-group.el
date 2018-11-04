@@ -32,7 +32,8 @@ Default is `smart-mode-line'"
   :tag "Mode line"
   :group 'nema
   :type '(choice (const :tag "Smart mode line" smart-mode-line)
-                 (const :tag "Doom modeline" doom-modeline)))
+                 (const :tag "Doom modeline" doom-modeline)
+                 (const :tag "Awesome Tray" awesome-tray)))
 
 (defcustom nema-theme 'moe-theme
   "Color theme for the whole Emacs.
