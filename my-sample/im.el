@@ -12,7 +12,8 @@
   (setq default-input-method "pyim"
         pyim-default-scheme 'ziranma-shuangpin  ;; 输入法方案。参考 `pyim-schemes' 变量
         pyim-page-length 7
-        pyim-page-tooltip 'child-frame)
+        pyim-page-tooltip 'child-frame
+        pyim-page-tooltip 'posframe)
   :bind
   (("M-j" . pyim-convert-code-at-point)))
 
