@@ -94,7 +94,11 @@
    (use-package awesome-tray
      :quelpa (awesome-tray :fetcher github :repo "manateelazycat/awesome-tray")
      :config
-     (awesome-tray-mode 1))))
+     (awesome-tray-mode 1)))
+  ('telephone-line
+   (use-package telephone-line
+     :config
+     (telephone-line-mode 1))))
 
 (provide 'nema-appearance)
 
