@@ -154,5 +154,12 @@
 ;;   :config
 ;;   (smartparens-global-mode t))
 
+;; Popup window manager
+(use-package popwin
+  :delight
+  :config
+  (popwin-mode 1)
+  (global-set-key (kbd "C-z") popwin:keymap))
+
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
