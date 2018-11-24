@@ -15,12 +15,11 @@
     (append (if (consp backend) backend (list backend))
             '(:with company-yasnippet)))
   ;; Popup documentation for completion candidates
-  (when (display-graphic-p)
-    (use-package company-quickhelp
-      ;; :bind (:map company-active-map
-                  ;; ("M-h" . company-quickhelp-manual-begin))
-      :hook (global-company-mode . company-quickhelp-mode)
-      :config (setq company-quickhelp-delay 0.8))))
+  (use-package company-quickhelp
+    ;; :bind (:map company-active-map
+    ;; ("M-h" . company-quickhelp-manual-begin))
+    :hook (global-company-mode . company-quickhelp-mode)
+    :config (setq company-quickhelp-delay 0.5)))
 
 (when nema-use-lsp
   (use-package lsp-mode
