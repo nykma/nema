@@ -13,10 +13,18 @@
         js2-mode-show-parse-errors nil) ;; use flycheck & ESLint instead
   )
 
+(use-package typescript-mode
+  :config
+  ;; Typescript REPL
+  ;; $ npm i -g tsun
+  (use-package ts-comint))
+
+;; Angular 2+ support
+(use-package ng2-mode)
+
 (use-package rjsx-mode
   :mode "\\.\\(jsx\\|tsx\\)\\'")
 
-;; Vue mode
 (use-package vue-mode
   :mode "\\.vue\\'"
   :config
