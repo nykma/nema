@@ -161,5 +161,15 @@
   (popwin-mode 1)
   (global-set-key (kbd "C-z") popwin:keymap))
 
+;; Better help page
+(use-package helpful
+  :bind
+  (("C-h f" . helpful-callable)
+   ("C-h v" . helpful-variable)
+   ("C-h k" . helpful-key)
+   ("C-c C-d" . helpful-at-point)
+   ("C-h F" . helpful-function)
+   ("C-h C" . helpful-command)))
+
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
