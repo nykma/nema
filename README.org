@@ -67,6 +67,14 @@ emacs -nw
    #+BEGIN_SRC bash
    $ gem install solargraph
    #+END_SRC
+
+** JavaScript, TypeScript
+   [[https://github.com/sourcegraph/javascript-typescript-langserver][sourcegraph/javascript-typescript-langserver]]
+
+   #+BEGIN_SRC bash
+   $ npm i -g javascript-typescript-langserver
+   #+END_SRC
+
 * Known issues
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
      of Elisp-enabled themes. Use =emacs= or =emacs -nw= instead, and press =y= if prompted.

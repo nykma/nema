@@ -24,7 +24,10 @@
 (when nema-use-lsp
   (use-package lsp-mode
     ;; :delight
-    :hook ((ruby-mode php-mode) . lsp)
+    :hook ((ruby-mode
+            php-mode
+            js-mode typescript-mode js2-mode rjsx-mode
+            ) . lsp)
     :init
     (setq lsp-inhibit-message t
           lsp-message-project-root-warning t
@@ -43,11 +46,11 @@
       (revert-buffer t t)
       (message "LSP server restarted.")))
   (use-package lsp-ui
-    :after lsp-mode
     :bind
     (:map lsp-ui-mode-map
           ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-          ([remap xref-find-references] . lsp-ui-peek-find-references))
+          ([remap xref-find-references] . lsp-ui-peek-find-references)
+          ("C-c u" . lsp-ui-imenu))
     :hook (lsp-mode . lsp-ui-mode)
     :config
     (setq scroll-margin 0))

@@ -30,19 +30,7 @@
   :config
   (setq mmm-submode-decoration-level 3)) ;; high coloring
 
-(if nema-use-lsp
-  ;; JS, TS and Flow support
-  ;; Install: npm i -g javascript-typescript-langserver
-  (use-package lsp-javascript-typescript
-    :commands (lsp-javascript-typescript-enable)
-    :hook ((typescript-mode js2-mode javascript-mode) . lsp-javascript-typescript-enable)
-    :config
-    (with-eval-after-load 'projectile
-        (setq projectile-project-root-files-top-down-recurring
-              (append '("package.json")
-                      projectile-project-root-files-top-down-recurring))))
-
-  ;; else
+(unless nema-use-lsp
   (defun nema/tide/setup ()
     "Setup process of tide.
 See also: https://github.com/ananthakumaran/tide"
