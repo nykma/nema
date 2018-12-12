@@ -24,13 +24,18 @@
 (when nema-use-lsp
   (use-package lsp-mode
     ;; :delight
-    :config
+    :hook ((ruby-mode php-mode) . lsp)
+    :init
     (setq lsp-inhibit-message t
           lsp-message-project-root-warning t
+          lsp-auto-guess-root t
           lsp-response-timeout 20
           lsp-enable-eldoc nil
           lsp-message-project-root-warning t ;; Avoid warning when editing single file
+          lsp-clients-php-server-command `("php" ,(expand-file-name "~/.config/composer/vendor/felixfbecker/language-server/bin/php-language-server.php"))
           )
+    :config
+    (require 'lsp-clients)
     (defun nema/lsp/restart-server ()
       "Restart LSP server."
       (interactive)
