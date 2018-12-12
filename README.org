@@ -34,8 +34,7 @@ emacs -nw
    There is a customize group called =nema= to give you a few customization options. Remember to restart emacs
    if anything is changed.
      - =nema-emacs-completion-engine= :: Choose between =ivy=, =helm= and none. Default to =ivy=
-     - =nema-use-lsp= :: Use LSP or not. Remember to follow toolchain installation instructions in language
-       layer files. Default to =nil=.
+     - =nema-use-lsp= :: Use LSP or not. Remember to follow toolchain installation instructions below. Default to =nil=
      - =nema-theme= :: Choose one theme from given pre-defined themes list.
      - =nema-theme-style= :: Switch between dark and light mode of your theme (if supported).
 ** Besides
@@ -47,14 +46,31 @@ emacs -nw
       and a workstation with normal DPI displays) without syncing across with VCS. (See =my-sample/*.el=)
  2. Fork me, then modify the =.emacs.d/nema/*.el= files (since it's yours now).
 
+* LSP server installation
+** PHP
+   [[https://github.com/felixfbecker/php-language-server][felixfbecker/php-language-server]]
+
+   #+BEGIN_SRC bash
+   $ composer global require felixfbecker/language-server
+   $ cd ~/.config/composer # or ~/.composer , depends on your system package setting
+   $ composer run-script --working-dir=vendor/felixfbecker/language-server parse-stubs
+   #+END_SRC
+
+   #+BEGIN_QUOTE
+   If your global composer root dir is not =~/.config/composer= ,
+   you may need to set a new path of =lsp-clients-php-server-command=
+   #+END_QUOTE
+
+** Ruby
+   [[https://www.solargraph.org/][Solargraph]]
+
+   #+BEGIN_SRC bash
+   $ gem install solargraph
+   #+END_SRC
 * Known issues
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
      of Elisp-enabled themes. Use =emacs= or =emacs -nw= instead, and press =y= if prompted.
      When =.emacs.d/custom.el= is built, you can use server mode without problem.
-  2. Something about LSP mode:
-     - Ruby: First time you open a =.rb= file, the LSP server may not be started properly. You can
-       switch to that file buffer and =M-x nema/lsp/restart-server= to make it work.
-     - PHP: Same with ruby.
 
 * TODOs [1/3]
 ** TODO [2/3] Sample =my/= configs for:
