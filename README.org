@@ -89,6 +89,13 @@ emacs -nw
    $ go get -u github.com/sourcegraph/go-langserver
    #+END_SRC
 
+** Rust
+   Use =rustup= to install components
+
+   #+BEGIN_SRC bash
+   $ rustup component add rls-preview rust-analysis rust-src
+   #+END_SRC
+
 * Known issues
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
      of Elisp-enabled themes. Use =emacs= or =emacs -nw= instead, and press =y= if prompted.

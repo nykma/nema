@@ -29,6 +29,7 @@
             python-mode
             js-mode typescript-mode js2-mode rjsx-mode
             go-mode
+            rust-mode
             ) . lsp)
     :init
     (setq lsp-inhibit-message t
