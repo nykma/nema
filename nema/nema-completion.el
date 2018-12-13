@@ -31,6 +31,7 @@
             go-mode
             rust-mode
             c-mode c++-mode objc-mode
+            dart-mode
             ) . lsp)
     :init
     (setq lsp-inhibit-message t

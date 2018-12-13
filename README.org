@@ -99,6 +99,11 @@ emacs -nw
 ** C / C++ / Obj-C
    =clangd= should be bundled with your =clang= package. To check, use =which clangd= .
 
+** Dart
+   [[https://github.com/natebosch/dart_language_server][natebosch/dart_language_server]]
+   #+BEGIN_SRC bash
+   $ pub global activate dart_language_server
+   #+END_SRC
 * Known issues
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
      of Elisp-enabled themes. Use =emacs= or =emacs -nw= instead, and press =y= if prompted.
