@@ -30,6 +30,7 @@
             js-mode typescript-mode js2-mode rjsx-mode
             go-mode
             rust-mode
+            c-mode c++-mode objc-mode
             ) . lsp)
     :init
     (setq lsp-inhibit-message t
@@ -42,6 +43,7 @@
           )
     :config
     (require 'lsp-clients)
+    (lsp-clients-register-clangd) ;; Need to call this manually. See lsp-mode/lsp-clients.el
     (defun nema/lsp/restart-server ()
       "Restart LSP server."
       (interactive)
