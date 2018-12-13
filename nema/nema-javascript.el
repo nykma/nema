@@ -38,7 +38,6 @@ See also: https://github.com/ananthakumaran/tide"
     (tide-setup)
     ;; (setq flycheck-check-syntax-automatically '(save mode-enabled))
     (tide-hl-identifier-mode t))
-
   (use-package tide
     ;; :mode "\\.\\(ts\\)\\'"
     :hook (typescript-mode . nema/tide/setup)))

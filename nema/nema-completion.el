@@ -26,6 +26,7 @@
     ;; :delight
     :hook ((ruby-mode
             php-mode
+            python-mode
             js-mode typescript-mode js2-mode rjsx-mode
             ) . lsp)
     :init

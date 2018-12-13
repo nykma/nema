@@ -75,12 +75,19 @@ emacs -nw
    $ npm i -g javascript-typescript-langserver
    #+END_SRC
 
+** Python
+   [[https://github.com/palantir/python-language-server][palantir/python-language-server]]
+
+   #+BEGIN_SRC bash
+   $ pip install 'python-language-server[all]'
+   #+END_SRC
+
 * Known issues
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
      of Elisp-enabled themes. Use =emacs= or =emacs -nw= instead, and press =y= if prompted.
      When =.emacs.d/custom.el= is built, you can use server mode without problem.
-  2. If errors like `lsp--current-region-or-pos` always pop up when you move cursors,
-     turn off `lsp-ui-sideline` in =(customize-group 'lsp-ui)=.
+  2. If errors like =lsp--current-region-or-pos is not a function= continuously pop up when you move cursors,
+     turn off =lsp-ui-sideline= mode in =(customize-group 'lsp-ui)=.
 
 * TODOs [1/3]
 ** TODO [2/3] Sample =my/= configs for:
