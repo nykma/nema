@@ -82,6 +82,13 @@ emacs -nw
    $ pip install 'python-language-server[all]'
    #+END_SRC
 
+** Golang
+   [[https://github.com/sourcegraph/go-langserver][sourcegraph/go-langserver]]
+
+   #+BEGIN_SRC bash
+   $ go get -u github.com/sourcegraph/go-langserver
+   #+END_SRC
+
 * Known issues
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
      of Elisp-enabled themes. Use =emacs= or =emacs -nw= instead, and press =y= if prompted.
