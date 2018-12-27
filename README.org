@@ -47,6 +47,13 @@ emacs -nw
  2. Fork me, then modify the =.emacs.d/nema/*.el= files (since it's yours now).
 
 * LSP server installation
+** Java
+   Emacs client provided by [[https://github.com/emacs-lsp/lsp-java][emacs-lsp/lsp-java]]
+   #+BEGIN_SRC bash
+   $ wget http://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz
+   $ tar -xf jdt-language-server-latest.tar.gz -C ~/.emacs.d/eclipse.jdt.ls/server/
+   #+END_SRC
+
 ** PHP
    [[https://github.com/felixfbecker/php-language-server][felixfbecker/php-language-server]]
 

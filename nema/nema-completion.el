@@ -34,6 +34,7 @@
             c-mode c++-mode objc-mode
             dart-mode
             elixir-mode
+            java-mode
             ) . lsp)
     :init
     (setq lsp-inhibit-message t
