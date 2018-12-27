@@ -104,6 +104,15 @@ emacs -nw
    #+BEGIN_SRC bash
    $ pub global activate dart_language_server
    #+END_SRC
+
+** Elixir
+   [[https://github.com/JakeBecker/elixir-ls][JakeBecker/elixir-ls]]
+
+   1. Download [[https://github.com/JakeBecker/elixir-ls/releases][precompiled release]]
+   2. Extract it somewhere (e.g. =~/.elixir-ls-server/=)
+   3. =chmod 755 ~/.elixir-ls-server/language_server.sh=
+   4. In Emacs, =M-x customize-variable lsp-clients-elixir-server-executable=, change it to =~/.elixir-ls-server/language_server.sh= and save.
+
 * Known issues
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
      of Elisp-enabled themes. Use =emacs= or =emacs -nw= instead, and press =y= if prompted.
