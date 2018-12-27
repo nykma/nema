@@ -24,13 +24,31 @@
 (when nema-use-lsp
   (use-package lsp-mode
     ;; :delight
-    :config
+    :commands (lsp)
+    :hook ((ruby-mode
+            php-mode
+            python-mode
+            js-mode typescript-mode js2-mode rjsx-mode
+            go-mode
+            rust-mode
+            c-mode c++-mode objc-mode
+            dart-mode
+            elixir-mode
+            java-mode
+            ) . lsp)
+    :init
     (setq lsp-inhibit-message t
-          lsp-message-project-root-warning t
+          lsp-enable-snippet t
+          lsp-auto-guess-root t
           lsp-response-timeout 20
           lsp-enable-eldoc nil
+          lsp-auto-configure t
+          lsp-prefer-flymake nil
           lsp-message-project-root-warning t ;; Avoid warning when editing single file
           )
+    :config
+    (require 'lsp-clients)
+    ;; (lsp-clients-register-clangd) ;; Need to call this manually. See lsp-mode/lsp-clients.el
     (defun nema/lsp/restart-server ()
       "Restart LSP server."
       (interactive)
@@ -38,20 +56,16 @@
       (revert-buffer t t)
       (message "LSP server restarted.")))
   (use-package lsp-ui
-    :after lsp-mode
+    :commands (lsp-ui)
     :bind
     (:map lsp-ui-mode-map
           ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-          ([remap xref-find-references] . lsp-ui-peek-find-references))
+          ([remap xref-find-references] . lsp-ui-peek-find-references)
+          ("C-c u" . lsp-ui-imenu))
     :hook (lsp-mode . lsp-ui-mode)
     :config
     (setq scroll-margin 0))
-  (use-package company-lsp
-    :after company
-    :defines company-backends
-    :functions company-backend-with-yas
-    :init
-    (cl-pushnew (nema--company-backend-with-yas 'company-lsp) company-backends)))
+  (use-package company-lsp :commands (company-lsp)))
 
 (provide 'nema-completion)
 

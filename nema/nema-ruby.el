@@ -25,23 +25,18 @@
   (projectile-rails-global-mode))
 
 (use-package rinari)
+;; https://github.com/emacs-lsp/lsp-ruby
+;; Install: gem install solargraph
+;; FIXME: has some problems of rendering docs
+;; (use-package lsp-ruby
+;;   :quelpa (lsp-ruby :fetcher github :repo "emacs-lsp/lsp-ruby")
+;;   :after lsp-mode
+;;   :commands lsp-ruby-enable
+;;   :hook (ruby-mode . (lambda ()
+;;                        (require 'lsp-ruby)
+;;                        (lsp))))
 
-(if nema-use-lsp
-    ;; https://github.com/emacs-lsp/lsp-ruby
-    ;; Install: gem install solargraph
-    ;; FIXME: has some problems of rendering docs
-    (use-package lsp-ruby
-      :quelpa (lsp-ruby :fetcher github :repo "emacs-lsp/lsp-ruby")
-      :after lsp-mode
-      :commands lsp-ruby-enable
-
-      :hook (ruby-mode . lsp-ruby-enable)
-      :init
-      (defconst lsp-ruby--get-root
-        (lsp-make-traverser
-         #'(lambda (dir)
-             (directory-files dir nil "\\(Rakefile\\|Gemfile\\)")))))
-  ;; else
+(unless nema-use-lsp
   ;; SEEALSO: spacemacs/layers/+lang/ruby/packages.el
   (use-package enh-ruby-mode
     :mode (("Appraisals\\'" . enh-ruby-mode)

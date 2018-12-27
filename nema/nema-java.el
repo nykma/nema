@@ -8,11 +8,7 @@
 (use-package groovy-mode)
 
 (if nema-use-lsp
-    ;; wget http://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz
-    ;; tar -xf jdt-language-server-latest.tar.gz -C ~/.emacs.d/eclipse.jdt.ls/server/
-    (use-package lsp-java
-      :commands (lsp-java-enable)
-      :hook (java-mode . lsp-java-enable)))
+    (use-package lsp-java))
 
 (provide 'nema-java)
 
