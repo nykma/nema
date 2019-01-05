@@ -72,7 +72,11 @@
   ('flucui-themes
    (use-package flucui-themes
      :config
-     (flucui-themes-load-style nema-theme-style))))
+     (flucui-themes-load-style nema-theme-style)))
+  ('srcery-theme
+   (use-package srcery-theme
+     :config
+     (load-theme 'srcery t))))
 
 (pcase nema-mode-line
   ('smart-mode-line
