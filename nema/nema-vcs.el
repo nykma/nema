@@ -6,7 +6,8 @@
 ;; magit - Magit git
 (use-package magit
   :bind (("C-c g g" . magit-status)
-         ("C-c g b" . magit-blame))
+         ("C-c g b" . magit-blame)
+         ("C-c g d" . magit-diff-buffer-file))
   ;; :config
   ;; (setq magit-no-confirm t)
   )
