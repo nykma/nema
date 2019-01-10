@@ -1,0 +1,8 @@
+* TODOs [1/3]
+** TODO [2/3] Sample =my/= configs for:
+   - [X] EXWM
+   - [X] erc
+   - [ ] WanderLust
+** DONE =customize-group=
+   CLOSED: [2018-08-13 一 17:04]
+** TODO "Battery Save" mode switch when using LSP

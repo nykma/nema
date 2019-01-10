@@ -157,9 +157,10 @@
 ;; Popup window manager
 (use-package popwin
   :delight
+  :bind-keymap
+  ("C-z" . popwin:keymap)
   :config
-  (popwin-mode 1)
-  (global-set-key (kbd "C-z") popwin:keymap))
+  (popwin-mode 1))
 
 ;; Better help page
 (use-package helpful
