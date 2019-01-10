@@ -39,7 +39,7 @@ Default is `smart-mode-line'"
           (const :tag "Awesome Tray" awesome-tray)
           (const :tag "Telephone Line" telephone-line)))
 
-(defcustom nema-theme 'moe-theme
+(defcustom nema-theme 'srcery-theme
   "Color theme for the whole Emacs.
 Default is `moe-theme'"
   :tag "Theme"
