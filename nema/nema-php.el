@@ -4,9 +4,15 @@
 ;;; Code:
 
 (use-package php-mode
-  :defer t
+  :mode "\\.php\\'"
   :config
   (eval-after-load 'php-mode '(require 'php-ext)))
+
+(use-package phpunit
+  :commands (phpunit-mode)
+  :hook (php-mode . phpunit-mode)
+  :config
+  (require 'phpunit-mode))
 
 ;; Follow https://github.com/emacs-lsp/lsp-php#php-language-server
 ;; for instructions of installing flixfbecker/language-server.
