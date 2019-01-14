@@ -9,6 +9,7 @@
   :hook (org-mode . org-bullets-mode))
 
 (use-package org
+  :pin org
   ;; :bind (("C-c a" . org-agenda)
   ;;        ("C-c c" . org-capture))
   :config
@@ -52,6 +53,10 @@
                         ("\\.jpg\\'" . emacs)))
   ;; Log clock when a job is done.
   (setq org-log-done 'clock))
+
+(use-package org-plus-contrib
+  :pin org
+  :no-require t)
 
 (provide 'nema-org)
 
