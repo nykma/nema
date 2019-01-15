@@ -27,62 +27,12 @@
 ;;   (smex-initialize))
 
 (pcase nema-emacs-completion-engine
-  ;; ivy - Completion
-  ;; SEEALSO: https://www.reddit.com/r/emacs/comments/6xc0im/ivy_counsel_swiper_company_helm_smex_and_evil/
-  ('ivy
-   (use-package ivy
-     :delight
-     :config
-     (ivy-mode t)
-     (setq enable-recursive-minibuffers t)
-     (setq ivy-use-virtual-buffers t)
-     (setq ivy-display-style 'fancy)
-     (setq ivy-format-function 'ivy-format-function-line)
-     ;; TODO testing out the fuzzy search
-     (setq ivy-re-builders-alist
-           '((counsel-M-x . ivy--regex-fuzzy) ; Only counsel-M-x use flx fuzzy search
-             (t . ivy--regex-plus)))
-     (setq ivy-initial-inputs-alist nil)
-     ;; Add C-o quick menu in ivy selection
-     (use-package ivy-hydra)
-     ;; swiper - show all overview of searches
-     (use-package swiper
-       :bind (("\C-s" . swiper)))
-     ;; counsel - enhanced default common commands
-     (use-package counsel
-       :bind (("M-x" . counsel-M-x)
-	      ("C-x C-f" . counsel-find-file)))))
+  ('ivy (require 'nema-ivy))
   ;; Helm - Completion
-  ('helm
-   (use-package helm
-     :delight
-     :bind (("M-x" . helm-M-x)
-            ("C-x C-f" . helm-find-files))
-     :config
-     (require 'helm-config)
-     (helm-mode 1))
-   (use-package helm-swoop
-     ;; See also: https://github.com/ShingoFukuyama/helm-swoop
-     :bind
-     (("M-i" . helm-swoop)
-      ("M-I" . helm-swoop-back-to-last-point)
-      ("C-c M-i" . helm-multi-swoop)
-      ("C-x M-i" . helm-multi-swoop-all)
-      :map isearch-mode-map
-      ("M-i" . helm-swoop-from-isearch)
-      :map helm-swoop-map
-      ("M-i" . helm-multi-swoop-all-from-helm-swoop)
-      ("M-m" . helm-multi-swoop-current-mode-from-helm-swoop))
-     :config
-     ;; Save buffer when helm-multi-swoop-edit complete
-     (setq helm-multi-swoop-edit-save t)
-
-     ;; If this value is t, split window inside the current window
-     (setq helm-swoop-split-with-multiple-windows t))))
+  ('helm (require 'nema-helm)))
 
 (use-package anzu
   ;; :bind (("C-M-%" . 'anzu-query-replace-at-cursor)
-
   :delight
   ;; :init
   ;; (global-anzu-mode +1)
