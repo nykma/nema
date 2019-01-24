@@ -41,7 +41,7 @@ Default is `smart-mode-line'"
 
 (defcustom nema-theme 'srcery-theme
   "Color theme for the whole Emacs.
-Default is `moe-theme'"
+Default is `srcery-theme'"
   :tag "Theme"
   :group 'nema
   :type '(choice
