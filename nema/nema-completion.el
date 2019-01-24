@@ -21,9 +21,6 @@
     :hook (global-company-mode . company-quickhelp-mode)
     :config (setq company-quickhelp-delay 0.5)))
 
-(when nema-use-lsp
-  (require 'nema-lsp))
-
 (provide 'nema-completion)
 
 ;;; nema-completion.el ends here
