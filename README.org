@@ -24,7 +24,6 @@ emacs -nw
 | C-'           | =avy-goto-char-timer=           | =nema-basic.el=   | Cursor jump to location                        |
 | =C->=         | =mc/mark-next-like-this-symbol= | =nema-basic.el=   | Multi cursor (find next symbol)                |
 | =C-C=         | =mc/edit-lines=                 | =nema-basic.el=   | Multi cursor (add one cursor each line)        |
-| =C-c C-p TAB= | =neotree-toggle=                | =nema-basic.el=   | NeoTree                                        |
 | =M-o=         | Common window functions         | =nema-hydra.el=   | Focus changing, window creation/deletion, etc. |
 | =C-c & w=     | =aya-create=                    | =nema-snippet.el= | Create and use a snippet when editing          |
 | =C-M-o=       | =ace-window=                    | =nema-basic.el=   | Powerful window switch                         |
