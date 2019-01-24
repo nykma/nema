@@ -57,6 +57,9 @@
 ;; Debugger
 ;; See https://github.com/yyoncho/dap-mode for usage
 (use-package dap-mode
+  :after (lsp-mode)
+  :hook ((lsp-mode . dap-mode)
+         (lsp-mode . dap-ui-mode))
   :config
   (setq dap--breakpoints-file (expand-file-name ".cache/dap-breakpoints" user-emacs-directory)))
 
