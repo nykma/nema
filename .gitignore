@@ -38,7 +38,6 @@ projectile.cache
 # LSP
 /eclipse.jdt.ls
 /workspace
-/.lsp-session-*
 
 # Magit/Forge
 /forge-database.sqlite
