@@ -15,7 +15,7 @@
 Default is `ivy'."
   :tag "Emacs completion engine"
   :group 'nema
-  :type `(choice
+  :type '(choice
           (const :tag "Ivy" ivy)
           (const :tag "Helm" helm)
           (const :tag "Don't use" nil)))
@@ -37,7 +37,8 @@ Default is `smart-mode-line'"
           (const :tag "Smart mode line" smart-mode-line)
           (const :tag "Doom modeline" doom-modeline)
           (const :tag "Awesome Tray" awesome-tray)
-          (const :tag "Telephone Line" telephone-line)))
+          (const :tag "Telephone Line" telephone-line)
+          (const :tag "Powerline" powerline)))
 
 (defcustom nema-theme 'srcery-theme
   "Color theme for the whole Emacs.

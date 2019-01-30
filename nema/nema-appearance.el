@@ -6,8 +6,6 @@
 ;; Hide welcome buffer
 (setq inhibit-startup-screen t)
 
-;; Powerline
-;; (use-package powerline)
 
 ;; Nyan mode
 ;; (use-package nyan-mode
@@ -21,6 +19,7 @@
 ;; Paren mode
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
+
 (use-package rainbow-delimiters
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
@@ -33,13 +32,15 @@
         highlight-indent-guides-character ?\|
         highlight-indent-guides-responsive 'top))
 
-(pcase nema-theme
+(defun nema/reload-theme (_args)
+  "Reload theme with setting of `nema-theme'"
+  (interactive "P")
+  (pcase nema-theme
   ('moe-theme
    (use-package moe-theme
      :config
      (setq moe-theme-highlight-buffer-id t)
      (moe-theme-set-color 'cyan)
-     ;; (powerline-moe-theme) ;; This must appear AFTER =use-package powerline=
      (if (eq 'dark nema-theme-style)
          (moe-dark)
        (moe-light))))
@@ -76,33 +77,45 @@
   ('srcery-theme
    (use-package srcery-theme
      :config
-     (load-theme 'srcery t))))
+     (load-theme 'srcery t)))))
 
-(pcase nema-mode-line
-  ('smart-mode-line
-   (use-package smart-mode-line
-     :config
-     (setq sml/no-confirm-load-theme t
-           sml/theme 'respectful)
-     (sml/setup)))
-  ('doom-modeline
-   (use-package doom-modeline
-     :hook (after-init . doom-modeline-init)
-     :config
-     (use-package all-the-icons
-       ;; Remember to run
-       ;; (all-the-icons-install-fonts)
-       ;; after requiring this package
-       )))
-  ('awesome-tray
-   (use-package awesome-tray
-     :quelpa (awesome-tray :fetcher github :repo "manateelazycat/awesome-tray")
-     :config
-     (awesome-tray-mode 1)))
-  ('telephone-line
-   (use-package telephone-line
-     :config
-     (telephone-line-mode 1))))
+(defun nema/reload-modeline (_args)
+  "Reload mode line with settings of `nema-mode-line'"
+  (interactive "P")
+  (pcase nema-mode-line
+    ('smart-mode-line
+     (use-package smart-mode-line
+       :config
+       (setq sml/no-confirm-load-theme t
+             sml/theme 'respectful)
+       (sml/setup)))
+    ('doom-modeline
+     (use-package doom-modeline
+       :hook (after-init . doom-modeline-init)
+       :config
+       (use-package all-the-icons
+         ;; Remember to run
+         ;; (all-the-icons-install-fonts)
+         ;; after requiring this package
+         )))
+    ('awesome-tray
+     (use-package awesome-tray
+       :quelpa (awesome-tray :fetcher github :repo "manateelazycat/awesome-tray")
+       :config
+       (awesome-tray-mode 1)))
+    ('telephone-line
+     (use-package telephone-line
+       :config
+       (telephone-line-mode 1)))
+    ('powerline
+     (use-package powerline
+       :config
+       (if (eq nema-theme 'moe-theme)
+           ;; This must appear AFTER =use-package powerline=
+           (powerline-moe-theme))))))
+
+(nema/reload-theme ())
+(nema/reload-modeline ())
 
 (provide 'nema-appearance)
 
