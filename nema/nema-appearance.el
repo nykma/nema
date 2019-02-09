@@ -77,7 +77,13 @@
   ('srcery-theme
    (use-package srcery-theme
      :config
-     (load-theme 'srcery t)))))
+     (load-theme 'srcery t)))
+  ('kaolin-themes
+   (use-package kaolin-themes
+     :config
+     (if (eq 'dark nema-theme-style)
+         (load-theme 'kaolin-galaxy t)
+       (load-theme 'kaolin-light t))))))
 
 (defun nema/reload-modeline (_args)
   "Reload mode line with settings of `nema-mode-line'"

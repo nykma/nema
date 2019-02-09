@@ -52,7 +52,8 @@ Default is `srcery-theme'"
           (const :tag "Doom themes: peacock" doom-themes)
           (const :tag "Darkokai" darkokai-theme)
           (const :tag "Fluc UI" flucui-themes)
-          (const :tag "Srcery" srcery-theme)))
+          (const :tag "Srcery" srcery-theme)
+          (const :tag "Kaolin" kaolin-themes)))
 
 (defcustom nema-theme-style 'dark
   "Use dark or light style of color theme (if the theme supports).
