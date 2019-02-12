@@ -10,8 +10,13 @@
          ("C-c g d" . magit-diff-buffer-file))
   :config
   ;; (setq magit-no-confirm t)
-  ;; Intergration with GitHub / GitLab
-  (use-package forge))
+  )
+
+;; Intergration with GitHub / GitLab / BitBucket / Gitea / Gogs
+;; See my-sample/forge.el for usage
+(use-package forge
+    :config
+    (setq forge-database-file (expand-file-name ".cache/forge-database.sqlite" user-emacs-directory)))
 
 (use-package magit-gitflow
   :hook ((magit-mode . turn-on-magit-gitflow)))

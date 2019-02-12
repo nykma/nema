@@ -36,7 +36,9 @@
 (set-language-environment "UTF-8")
 
 (setq require-final-newline nil
-      visible-bell nil)
+      visible-bell nil
+      ;; where system sensitive data is saved
+      auth-sources '("~/.authinfo.gpg"))
 
 ;; PATH should be better set in emacs daemon environment
 ;; i.e. systemd service config file
