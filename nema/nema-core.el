@@ -38,15 +38,16 @@
 (setq require-final-newline nil
       visible-bell nil)
 
-;; PATH settings
-(setenv "PATH"
-	(concat
-	 (format "%s/%s:" (getenv "HOME") ".cargo/bin")
-	 (format "%s/%s:" (getenv "HOME") ".rbenv/shims")
-         (format "%s/%s:" (getenv "HOME") ".rbenv/bin")
-	 (format "%s/%s:" (getenv "HOME") ".cabal/bin")
-	 (format "%s/%s:" (getenv "HOME") ".config/composer/vendor/bin")
-	 (getenv "PATH")))
+;; PATH should be better set in emacs daemon environment
+;; i.e. systemd service config file
+;; Here's a sample of appending it at runtime:
+;; (setenv "PATH"
+;; 	(concat
+;; 	 (format "%s/%s:" (getenv "HOME") ".cargo/bin")
+;; 	 (format "%s/%s:" (getenv "HOME") ".rbenv/shims")
+;; 	 (format "%s/%s:" (getenv "HOME") ".cabal/bin")
+;; 	 (format "%s/%s:" (getenv "HOME") ".config/composer/vendor/bin")
+;; 	 (getenv "PATH")))
 
 ;; Config
 (defun nema/core/config-reload ()
