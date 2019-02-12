@@ -8,11 +8,13 @@
   :config
   (eval-after-load 'php-mode '(require 'php-ext)))
 
-(use-package phpunit
-  :commands (phpunit-mode)
-  :hook (php-mode . phpunit-mode)
-  :config
-  (require 'phpunit-mode))
+;; This package causes too much trouble
+;; (use-package phpunit
+;;   :no-require
+;;   :commands (phpunit-mode)
+;;   :hook (php-mode . phpunit-mode)
+;;   :init
+;;   (require 'phpunit-mode))
 
 ;; Follow https://github.com/emacs-lsp/lsp-php#php-language-server
 ;; for instructions of installing flixfbecker/language-server.
