@@ -19,7 +19,7 @@
 \\AtBeginEnvironment{quote}{\\quotefont\\small}
 \\XeTeXlinebreaklocale ``zh''
 \\XeTeXlinebreakskip = 0pt plus 1pt
-\\linespread{1.36}
+\\linespread{1.0}
 \\hypersetup{
   colorlinks=true,
   linkcolor=[rgb]{0,0.37,0.53},
@@ -50,17 +50,18 @@
 ;; 改成自行插入，但這樣 pdfcreator 沒辦法根據 Emacs 版本插入，pdfkeyword 也會無效...幹。
 (setq org-latex-with-hyperref t)
 
-;; 把預設的 fontenc 拿掉
-;; 經過測試 XeLaTeX 輸出 PDF 時有 fontenc[T1]的話中文會無法顯示。
+;; Export source code using minted
+(setq org-latex-listings 'minted)
+
 (setq org-latex-default-packages-alist
       '(("" "nopageno" t)
         ("" "hyperref" t)
         ("" "fontspec" t)
         ("" "etoolbox" t) ;; Quote 部份的字型設定
         ("margin=2cm" "geometry" nil)
-        ("AUTO" "inputenc" t)
-        ("" "fixltx2e" nil)
-        ("" "graphicx" t)
+        ;; ("AUTO" "inputenc" t)
+        ;; ("" "fixltx2e" nil)
+        ("dvipdfmx" "graphicx" t)
         ("" "longtable" nil)
         ("" "float" nil)
         ("" "wrapfig" nil)
@@ -73,4 +74,5 @@
         ("" "multicol" t)  ; 這是我另外加的，因為常需要多欄位文件版面。
         ("" "amssymb" t)
         ("" "fancyhdr" nil) ;; 页眉页脚
+        ("cache=false" "minted" nil) ;; Code color
         "\\tolerance=1000"))

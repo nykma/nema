@@ -42,21 +42,43 @@
   (require 'org-protocol)
   ;; Use XeLaTeX to export PDF in Org-mode
   (setq org-latex-pdf-process
-        '("xelatex -interaction nonstopmode -output-directory %o %f"
-          "xelatex -interaction nonstopmode -output-directory %o %f"
-          "xelatex -interaction nonstopmode -output-directory %o %f"))
+        '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+          ))
   ;; 指定你要用什麼外部 app 來開 pdf 之類的檔案
-  (setq org-file-apps '((auto-mode . emacs)
-                        ("\\.mm\\'" . default)
-                        ("\\.x?html?\\'" . "xdg-open %s")
-                        ("\\.pdf\\'" . emacs)
-                        ("\\.jpg\\'" . emacs)))
+  ;; (setq org-file-apps '((auto-mode . emacs)
+  ;;                       ("\\.mm\\'" . default)
+  ;;                       ("\\.x?html?\\'" . "xdg-open %s")
+  ;;                       ("\\.pdf\\'" . emacs)
+  ;;                       ("\\.jpg\\'" . emacs)))
   ;; Log clock when a job is done.
   (setq org-log-done 'clock))
+
+;; PDF viewer
+(use-package pdf-tools)
 
 (use-package org-plus-contrib
   :pin org
   :no-require t)
+
+;; Org babel extensions
+;; HTTP client
+;; usage: BEGIN_SRC http :pretty
+(use-package ob-http
+  :config
+  (add-to-list 'org-babel-load-languages '(http . t)))
+
+;; render html into PNG using Chrome
+;; usage: BEGIN_SRC html-chrome :file test
+(use-package ob-html-chrome
+  :config
+  ;; (add-to-list 'org-babel-load-languages '(html-chrome . t))
+  (setq org-babel-html-chrome-chrome-executable "/usr/bin/chromium"))
+
+;; Async src_block execution
+;; usage: begin_src sh :async
+(use-package ob-async)
 
 (provide 'nema-org)
 
