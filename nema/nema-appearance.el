@@ -83,7 +83,13 @@
      :config
      (if (eq 'dark nema-theme-style)
          (load-theme 'kaolin-galaxy t)
-       (load-theme 'kaolin-light t))))))
+       (load-theme 'kaolin-light t))))
+  ('alect-themes
+   (use-package alect-themes
+     :config
+     (if (eq 'dark nema-theme-style)
+         (load-theme 'alect-dark t)
+       (load-theme 'alect-light t))))))
 
 (defun nema/reload-modeline (_args)
   "Reload mode line with settings of `nema-mode-line'"
