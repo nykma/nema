@@ -57,6 +57,12 @@
 (use-package treemacs-projectile
   :after treemacs projectile)
 
+(use-package lsp-treemacs
+  :if nema-use-lsp
+  :no-require t
+  :quelpa (lsp-treemacs :fetcher github :repo "emacs-lsp/lsp-treemacs")
+  :after treemacs lsp-mode)
+
 ;; (use-package treemacs-icons-dired
 ;;   :hook ((dired-mode . treemacs-icons-dired-mode))
 ;;   :after treemacs dired)
