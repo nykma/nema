@@ -92,7 +92,7 @@
        (load-theme 'alect-light t))))))
 
 (defun nema/reload-modeline (_args)
-  "Reload mode line with settings of `nema-mode-line'"
+  "Reload mode line with settings of `nema-mode-line'."
   (interactive "P")
   (pcase nema-mode-line
     ('smart-mode-line
@@ -103,13 +103,18 @@
        (sml/setup)))
     ('doom-modeline
      (use-package doom-modeline
-       :hook (after-init . doom-modeline-init)
+       :hook (after-init . doom-modeline-mode)
        :config
-       (use-package all-the-icons
-         ;; Remember to run
-         ;; (all-the-icons-install-fonts)
-         ;; after requiring this package
-         )))
+       (setq doom-modeline-icon nil
+             doom-modeline-height 18
+             doom-modeline-github nil
+             doom-modeline-lsp t)
+       (if doom-modeline-icon ;; Demo only
+           (use-package all-the-icons
+             ;; Remember to run
+             ;; (all-the-icons-install-fonts)
+             ;; after requiring this package
+             ))))
     ('awesome-tray
      (use-package awesome-tray
        :quelpa (awesome-tray :fetcher github :repo "manateelazycat/awesome-tray")

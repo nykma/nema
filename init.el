@@ -7,7 +7,8 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 
 ;;; Code:
 
-(setq debug-on-error t)
+;; If you meet something wrong,
+;; (setq debug-on-error t)
 
 (require 'package)
 ;; Added by Package.el.  This must come before configurations of
