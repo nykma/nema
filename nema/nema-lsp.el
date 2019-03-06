@@ -47,7 +47,8 @@
         ("C-c u" . lsp-ui-imenu))
   :hook (lsp-mode . lsp-ui-mode)
   :config
-  (setq scroll-margin 0))
+  (setq scroll-margin 0
+        lsp-ui-doc-use-webkit (featurep 'xwidget-internal)))
 
 ;; LSP as completion backend
 (use-package company-lsp
