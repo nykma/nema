@@ -6,6 +6,8 @@
 ;; Reduce the frequency of garbage collection by making it happen on
 ;; each 50MB of allocated data (the default is on every 0.76MB)
 (setq gc-cons-threshold (* 50 1024 1024))
+;; Don’t compact font caches during GC.
+(setq inhibit-compacting-font-caches t)
 
 ;; warn when opening files bigger than 100MB
 (setq large-file-warning-threshold (* 100 1024 1024))
