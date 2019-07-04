@@ -5,7 +5,11 @@
 
 ;; (use-package cc-mode)
 
-(unless nema-use-lsp
+(if nema-use-lsp
+    (use-package ccls
+      :hook ((c-mode c++-mode objc-mode) . (lambda () (require 'ccls) (lsp)))
+      :config (setq ccls-executable "/usr/bin/ccls"))
+  ;; else
   ;; https://github.com/Andersbakken/rtags
   (use-package rtags)
   (if (fboundp 'company-mode)
