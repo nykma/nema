@@ -6,7 +6,8 @@
 (use-package php-mode
   :mode "\\.php\\'"
   :config
-  (eval-after-load 'php-mode '(require 'php-ext)))
+  ;; (eval-after-load 'php-mode '(require 'php-ext))
+  )
 
 ;; This package causes too much trouble
 ;; (use-package phpunit
