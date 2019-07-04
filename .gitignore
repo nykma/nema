@@ -38,6 +38,10 @@ projectile.cache
 # LSP
 /eclipse.jdt.ls
 /workspace
+/lsp-cache
 
 # Magit/Forge
 /forge-database.sqlite
+
+# cURL cookie jar(?)
+/request
