@@ -13,7 +13,7 @@
             js-mode typescript-mode js2-mode rjsx-mode
             go-mode
             rust-mode
-            c-mode c++-mode objc-mode
+            ;; c-mode c++-mode objc-mode ;; <- handled in nema-c.el
             dart-mode
             elixir-mode
             java-mode
@@ -28,13 +28,7 @@
           )
     :config
     (use-package lsp-java)
-    (require 'lsp-clients)
-    (defun nema/lsp/restart-server ()
-      "Restart LSP server."
-      (interactive)
-      (lsp-restart-workspace)
-      (revert-buffer t t)
-      (message "LSP server restarted.")))
+    (require 'lsp-clients))
 
 ;; Display LSP output
 (use-package lsp-ui
@@ -63,6 +57,10 @@
          (lsp-mode . dap-ui-mode))
   :config
   (setq dap--breakpoints-file (expand-file-name ".cache/dap-breakpoints" user-emacs-directory)))
+
+;; Helm intergration
+(if (eq nema-emacs-completion-engine 'helm)
+  (use-package helm-lsp))
 
 (provide 'nema-lsp)
 
