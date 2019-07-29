@@ -29,6 +29,9 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
   (write-region "" nil custom-file))    ; Touch this file
 (load custom-file)
 
+;;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 ;; Core layers
 (require 'nema-core)
 
