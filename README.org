@@ -38,6 +38,7 @@ emacs -nw
      - =nema-use-lsp= :: Use LSP or not. Remember to follow toolchain installation instructions below. Default to =nil=
      - =nema-theme= :: Choose one theme from given pre-defined themes list.
      - =nema-theme-style= :: Switch between dark and light mode of your theme (if supported).
+     - =nema-mode-line= :: Choose which mode line to use.
 ** Besides
  There are many ways to hack this. You can
  1. Write your ELisp in =.emacs.d/my/*.el=. They will be loaded after all =nema-*= modules are loaded.
@@ -50,84 +51,11 @@ emacs -nw
  2. Fork me, then modify the =.emacs.d/nema/*.el= files (since it's yours now).
 
 * LSP server installation
-** Java
-   Emacs client provided by [[https://github.com/emacs-lsp/lsp-java][emacs-lsp/lsp-java]]
-
-   #+BEGIN_SRC bash
-   $ wget http://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz
-   $ tar -xf jdt-language-server-latest.tar.gz -C ~/.emacs.d/eclipse.jdt.ls/server/
-   #+END_SRC
-
-** PHP
-   [[https://github.com/felixfbecker/php-language-server][felixfbecker/php-language-server]]
-
-   #+BEGIN_SRC bash
-   $ composer global require felixfbecker/language-server
-   $ cd ~/.config/composer # or ~/.composer , depends on your system package setting
-   $ composer run-script --working-dir=vendor/felixfbecker/language-server parse-stubs
-   #+END_SRC
-
-   #+BEGIN_QUOTE
-   If your global composer root dir is not =~/.config/composer= ,
-   you may need to set a new path of =lsp-clients-php-server-command=
-   #+END_QUOTE
-
-** Ruby
-   [[https://www.solargraph.org/][Solargraph]]
-
-   #+BEGIN_SRC bash
-   $ gem install solargraph
-   #+END_SRC
-
-** JavaScript, TypeScript
-   [[https://github.com/sourcegraph/javascript-typescript-langserver][sourcegraph/javascript-typescript-langserver]]
-
-   #+BEGIN_SRC bash
-   $ npm i -g javascript-typescript-langserver
-   #+END_SRC
-
-** Python
-   [[https://github.com/palantir/python-language-server][palantir/python-language-server]]
-
-   #+BEGIN_SRC bash
-   $ pip install 'python-language-server[all]'
-   #+END_SRC
-
-** Golang
-   [[https://github.com/sourcegraph/go-langserver][sourcegraph/go-langserver]]
-
-   #+BEGIN_SRC bash
-   $ go get -u github.com/sourcegraph/go-langserver
-   #+END_SRC
-
-** Rust
-   Use =rustup= to install components
-
-   #+BEGIN_SRC bash
-   $ rustup component add rls-preview rust-analysis rust-src
-   #+END_SRC
-
-** C / C++ / Obj-C
-   =clangd= should be bundled with your =clang= package. To check, use =which clangd= .
-
-** Dart
-   [[https://github.com/natebosch/dart_language_server][natebosch/dart_language_server]]
-   #+BEGIN_SRC bash
-   $ pub global activate dart_language_server
-   #+END_SRC
-
-** Elixir
-   [[https://github.com/JakeBecker/elixir-ls][JakeBecker/elixir-ls]]
-
-   1. Download [[https://github.com/JakeBecker/elixir-ls/releases][precompiled release]]
-   2. Extract it somewhere (e.g. =~/.elixir-ls-server/=)
-   3. =chmod 755 ~/.elixir-ls-server/language_server.sh=
-   4. In Emacs, =M-x customize-variable lsp-clients-elixir-server-executable=, change it to =~/.elixir-ls-server/language_server.sh= and save.
-
+See [[https://github.com/emacs-lsp/lsp-mode#supported-languages][emacs-lsp/lsp-mode#supported-languages]]
 * Known issues
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
-     of Elisp-enabled themes. Use =emacs= or =emacs -nw= instead, and press =y= if prompted.
-     When =.emacs.d/custom.el= is built, you can use server mode without problem.
+     of Elisp-enabled themes warning or native plugin compilation. Use =emacs= or =emacs -nw= instead,
+     and press =y= if prompted. When =.emacs.d/custom.el= is built, you can use server mode without problem.
 
 * Many thanks to
 

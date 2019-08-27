@@ -59,7 +59,7 @@ Default is `srcery-theme'"
 (defcustom nema-theme-style 'dark
   "Use dark or light style of color theme (if the theme supports).
 Default is `dark'"
-  :tag "Theme"
+  :tag "Theme style"
   :group 'nema
   :type '(choice
           (const :tag "Light" light)
