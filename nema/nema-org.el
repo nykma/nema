@@ -77,6 +77,16 @@
   (define-key pdf-view-mode-map (kbd "t") 'pdf-annot-add-text-annotation)
   (define-key pdf-view-mode-map (kbd "D") 'pdf-annot-delete))
 
+;; Live preview
+(use-package maple-preview
+  :quelpa (:fetcher github :repo "honmaple/emacs-maple-preview" :files ("*.el" "index.html" "static"))
+  :commands (maple-preview-mode)
+  :config
+  (setq maple-preview:allow-modes '(org-mode markdown-mode html-mode web-mode)
+        maple-preview:host "localhost"
+        maple-preview:port 8999
+        maple-preview:websocket-port 8081
+        maple-preview:auto t))
 
 (use-package org-plus-contrib
   :pin org
