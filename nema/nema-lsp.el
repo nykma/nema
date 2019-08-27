@@ -17,6 +17,7 @@
             dart-mode
             elixir-mode
             java-mode
+            ng2-html ng2-ts
             ) . lsp)
     :init
     (setq lsp-enable-snippet t
