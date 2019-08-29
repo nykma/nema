@@ -38,6 +38,9 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-basic)
 (require 'nema-appearance)
 
+(if nema-use-evil
+    (require 'nema-evil))
+
 ;; General purpose layers
 (require 'nema-snippet)
 (require 'nema-completion)

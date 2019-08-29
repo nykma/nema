@@ -20,6 +20,13 @@ Default is `ivy'."
           (const :tag "Helm" helm)
           (const :tag "Don't use" nil)))
 
+(defcustom nema-use-evil nil
+  "Use evil-mode.
+Disabled by default."
+  :tag "Evil"
+  :group 'nema
+  :type '(boolean))
+
 (defcustom nema-use-lsp nil
   "Use LSP (Language Server Protocol) as code completion backend.
 Disabled by default."
