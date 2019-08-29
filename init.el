@@ -38,9 +38,6 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-basic)
 (require 'nema-appearance)
 
-(if nema-use-evil
-    (require 'nema-evil))
-
 ;; General purpose layers
 (require 'nema-snippet)
 (require 'nema-completion)
@@ -82,8 +79,9 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 ;; (add-to-list 'load-path "~/.emacs.d/scripts)
 ;; (require 'my-scripts)
 
-;; Key config layers
-;; (require 'nema-keymapping)
+;; Key bindings
+(if nema-use-evil
+    (require 'nema-evil))
 (require 'nema-hydra)
 
 ;; Load all self configs in ~/.emacs.d/my

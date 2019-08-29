@@ -34,6 +34,8 @@ emacs -nw
 ** =customize-group=
    There is a customize group called =nema= to give you a few customization options. Remember to restart emacs
    if anything is changed.
+     - =nema-use-evil= :: Whether or not to use evil-mode. Default to =nil=.
+          My evil-mode intergration is at a very basic level (since I don't use evil-mode). Any pull request is welcomed.
      - =nema-emacs-completion-engine= :: Choose between =ivy=, =helm= and none. Default to =ivy=
      - =nema-use-lsp= :: Use LSP or not. Remember to follow toolchain installation instructions below. Default to =nil=
      - =nema-theme= :: Choose one theme from given pre-defined themes list.
@@ -48,7 +50,7 @@ emacs -nw
       and a workstation with normal DPI displays) without syncing across with VCS.
     - I've written some maybe-useful scripts in =my-sample/*.el=. Symlink (or copy) them into your =my/= folder to
       enable them.
- 2. Fork me, then modify the =.emacs.d/nema/*.el= files (since it's yours now).
+ 2. Fork me.
 
 * LSP server installation
 See [[https://github.com/emacs-lsp/lsp-mode#supported-languages][emacs-lsp/lsp-mode#supported-languages]]
