@@ -61,7 +61,7 @@
   :config
   ;; Copied from http://pragmaticemacs.com/emacs/more-pdf-tools-tweaks/
   ;; initialise
-  (pdf-tools-install)
+  (pdf-tools-install t)
   ;; open pdfs scaled to fit page
   (setq-default pdf-view-display-size 'fit-page)
   ;; automatically annotate highlights
