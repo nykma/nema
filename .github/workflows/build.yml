@@ -13,6 +13,7 @@ jobs:
         mkdir ../.emacs.d && cp -R ./* ../.emacs.d
     - name: Run emacs
       run: |
+        export HOME=$PWD/..
         emacs -nw --batch --eval '(let ((debug-on-error t)
                               (url-show-status nil)
                               (user-emacs-directory default-directory)
