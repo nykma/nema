@@ -1,4 +1,4 @@
-name: CI
+name: Smoke test
 on: [push]
 jobs:
   build:
@@ -7,7 +7,7 @@ jobs:
     - uses: actions/checkout@master
     - name: Install system dependencies
       run: |
-        apt update && apt install build-essential emacs-nox git
+        sudo apt update && sudo apt install build-essential emacs-nox
         export HOME=$PWD/..
         mkdir ../.emacs.d && cp -R ./* ../.emacs.d
         emacs -nw --batch --eval '(let ((debug-on-error t)
