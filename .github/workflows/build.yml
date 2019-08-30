@@ -5,11 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Install system dependencies
+    - name: Install dependencies
       run: |
-        sudo apt update && sudo apt install build-essential emacs-nox
+        sudo apt update && sudo apt install build-essential software-properties-common
+        sudo add-apt-repository ppa:kelleyk/emacs && sudo apt update && sudo apt install emacs26
         export HOME=$PWD/..
         mkdir ../.emacs.d && cp -R ./* ../.emacs.d
+    - name: Run emacs
+      run: |
         emacs -nw --batch --eval '(let ((debug-on-error t)
                               (url-show-status nil)
                               (user-emacs-directory default-directory)
