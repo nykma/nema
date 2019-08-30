@@ -1,0 +1,19 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Install system dependencies
+      run: |
+        apt update && apt install build-essential emacs-nox git
+        export HOME=$PWD/..
+        mkdir ../.emacs.d && cp -R ./* ../.emacs.d
+        emacs -nw --batch --eval '(let ((debug-on-error t)
+                              (url-show-status nil)
+                              (user-emacs-directory default-directory)
+                              (user-init-file (expand-file-name "init.el"))
+                              (load-path (delq default-directory load-path)))
+                           (load-file user-init-file)
+                           (run-hooks (quote after-init-hook)))'
