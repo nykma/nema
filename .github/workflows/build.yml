@@ -7,16 +7,10 @@ jobs:
     - uses: actions/checkout@master
     - name: Install dependencies
       run: |
-        sudo apt update && sudo apt install build-essential software-properties-common ca-certificates
+        sudo apt update && sudo apt install build-essential software-properties-common
         sudo add-apt-repository ppa:kelleyk/emacs && sudo apt update && sudo apt install emacs26
-        export HOME=$PWD/..
         mkdir ../.emacs.d && cp -R ./* ../.emacs.d
-    - name: Add LetsEncrypt cert (for melpa and elpa)
-      run: |
-        wget https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem.txt -O letsencrypt.pem
-        openssl x509 -in letsencrypt.pem -inform PEM -out letsencrypt.crt
-        sudo mkdir -p /etc/ssl/certs && sudo cp letsencrypt.crt /etc/ssl/certs/
-        sudo update-ca-certificates
+        export HOME=$PWD/..
     - name: Run emacs
       run: |
         export HOME=$PWD/..
