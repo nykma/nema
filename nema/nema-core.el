@@ -18,7 +18,6 @@
     (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/"))) ;; Don't use https. May cause problem?
     (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
     (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-    (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
     (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)))
 
 ;; use-package
