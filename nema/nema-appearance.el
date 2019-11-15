@@ -33,6 +33,10 @@
 ;;         highlight-indent-guides-responsive 'top
 ;;         ))
 
+;; Emacs Macport: enable ligature
+(if (fboundp 'mac-auto-operator-composition-mode)
+    (mac-auto-operator-composition-mode))
+
 (defun nema/reload-theme (_args)
   "Reload theme with setting of `nema-theme'"
   (interactive "P")
