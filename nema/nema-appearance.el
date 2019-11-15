@@ -130,7 +130,8 @@
        :config
        (if (eq nema-theme 'moe-theme)
            ;; This must appear AFTER =use-package powerline=
-           (powerline-moe-theme))))))
+           (powerline-moe-theme)
+         (powerline-center-theme))))))
 
 (nema/reload-theme ())
 (nema/reload-modeline ())
