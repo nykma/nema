@@ -118,5 +118,13 @@
    ("C-h F" . helpful-function)
    ("C-h C" . helpful-command)))
 
+;; Undo tree, why not
+(use-package undo-tree
+  :delight
+  :config
+  (setq undo-tree-visualizer-timestamps t
+        undo-tree-visualizer-diff t)
+  (global-undo-tree-mode))
+
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
