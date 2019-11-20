@@ -3,7 +3,8 @@
 "Elixir mode"
 ;;; Code:
 
-(use-package elixir-mode)
+(use-package elixir-mode
+  :quelpa (elixir-mode :fetcher github :repo "nykma/emacs-elixir"))
 (use-package alchemist)
 
 (provide 'nema-elixir)
