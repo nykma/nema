@@ -50,6 +50,11 @@
   :after (lsp-mode company)
   :commands (company-lsp))
 
+;; Treemacs support
+(if (fboundp 'treemacs)
+    (use-package lsp-treemacs
+      :commands lsp-treemacs-error-list))
+
 ;; Debugger
 ;; See https://github.com/yyoncho/dap-mode for usage
 (use-package dap-mode
