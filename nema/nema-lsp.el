@@ -14,6 +14,7 @@
             go-mode
             rust-mode
             ;; c-mode c++-mode objc-mode ;; <- handled in nema-c.el
+            ;; swift-mode ;; <- handled in nema-swift.el
             dart-mode
             elixir-mode
             java-mode
