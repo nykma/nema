@@ -7,8 +7,8 @@
 
 (use-package groovy-mode)
 
-(if nema-use-lsp
-    (use-package lsp-java))
+(use-package lsp-java
+  :if nema-use-lsp)
 
 (provide 'nema-java)
 
