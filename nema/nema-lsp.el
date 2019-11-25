@@ -9,7 +9,7 @@
     :commands (lsp)
     :hook ((ruby-mode
             php-mode
-            python-mode
+            ;; python-mode ;; <- handled in nema-python.el
             js-mode typescript-mode js2-mode rjsx-mode
             go-mode
             rust-mode
