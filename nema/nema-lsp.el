@@ -63,7 +63,7 @@
   :hook ((lsp-mode . dap-mode)
          (lsp-mode . dap-ui-mode))
   :config
-  (setq dap--breakpoints-file (expand-file-name ".cache/dap-breakpoints" user-emacs-directory)))
+  (setq dap-breakpoints-file (expand-file-name ".cache/dap-breakpoints" user-emacs-directory)))
 
 ;; Helm intergration
 (if (eq nema-emacs-completion-engine 'helm)
