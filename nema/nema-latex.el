@@ -13,7 +13,13 @@
          (latex-mode doctex-mode)
          :help "Run LaTeX"))))
 
-(use-package company-auctex)
+(if nema-use-lsp
+    (progn
+      (setq lsp-clients-digestif-executable (expand-file-name "~/.luarocks/bin/digestif"))
+      (add-hook 'plain-tex-mode-hook #'lsp)
+      (add-hook 'latex-mode-hook #'lsp))
+  ;; else
+  (use-package company-auctex))
 
 (provide 'nema-latex)
 

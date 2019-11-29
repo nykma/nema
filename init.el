@@ -71,6 +71,7 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-clojure)
 (require 'nema-fsharp)
 (require 'nema-swift)
+(require 'nema-latex)
 
 ;; misc
 (require 'nema-dired)

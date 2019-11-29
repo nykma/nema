@@ -19,6 +19,7 @@
             elixir-mode
             java-mode
             ng2-html ng2-ts
+            ;; plain-tex-mode latex-mode ;; <- handled in nema-latex.el
             ) . lsp)
     :init
     (setq lsp-enable-snippet t
