@@ -4,7 +4,7 @@
 ;;; Code:
 
 (use-package elixir-mode
-  :quelpa (elixir-mode :fetcher github :repo "nykma/emacs-elixir"))
+  :quelpa (elixir-mode :fetcher github :repo "elixir-editors/emacs-elixir"))
 (use-package alchemist)
 
 (provide 'nema-elixir)
