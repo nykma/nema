@@ -15,14 +15,15 @@
 
   (defun nema--company-backend-with-yas (backend)
     (append (if (consp backend) backend (list backend))
-            '(:with company-yasnippet)))
+            '(:with company-yasnippet))))
 
-  ;; Popup documentation for completion candidates
-  (use-package company-quickhelp
-    ;; :bind (:map company-active-map
-    ;; ("M-h" . company-quickhelp-manual-begin))
-    :hook (global-company-mode . company-quickhelp-mode)
-    :config (setq company-quickhelp-delay 0.2)))
+;; Popup documentation for completion candidates
+(use-package company-quickhelp
+  ;; :bind (:map company-active-map
+  ;; ("M-h" . company-quickhelp-manual-begin))
+  :hook (global-company-mode . company-quickhelp-mode)
+  :config
+  (setq company-quickhelp-delay 0.2))
 
 (provide 'nema-completion)
 

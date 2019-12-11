@@ -40,6 +40,7 @@
     (eval-after-load 'php-mode '(require 'php-extras)))
   (use-package ac-php)
   (use-package company-php
+    :if (not nema-use-lsp)
     :hook
     (php-mode . (lambda ()
                   (ac-php-core-eldoc-setup)
