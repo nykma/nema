@@ -37,6 +37,27 @@
 (if (fboundp 'mac-auto-operator-composition-mode)
     (mac-auto-operator-composition-mode))
 
+;; Highlight TODO
+;; from doom-emacs
+(use-package hl-todo
+  :hook (prog-mode . hl-todo-mode)
+  :config
+  (setq hl-todo-highlight-punctuation ":"
+        hl-todo-keyword-faces
+        `(("TODO"       warning bold)
+          ("FIXME"      error bold)
+          ("HACK"       font-lock-constant-face bold)
+          ("REVIEW"     font-lock-keyword-face bold)
+          ("NOTE"       success bold)
+          ("DEPRECATED" font-lock-doc-face bold))))
+
+;; Visual feedback for some operations
+(use-package volatile-highlights
+  :delight
+  :quelpa (volatile-highlights :fetcher github :repo "k-talo/volatile-highlights.el")
+  :config
+  (volatile-highlights-mode t))
+
 (defun nema/reload-theme (_args)
   "Reload theme with setting of `nema-theme'"
   (interactive "P")
