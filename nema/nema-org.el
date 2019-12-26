@@ -46,12 +46,11 @@
           "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
           "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
           ))
-  ;; 指定你要用什麼外部 app 來開 pdf 之類的檔案
-  ;; (setq org-file-apps '((auto-mode . emacs)
-  ;;                       ("\\.mm\\'" . default)
-  ;;                       ("\\.x?html?\\'" . "xdg-open %s")
-  ;;                       ("\\.pdf\\'" . emacs)
-  ;;                       ("\\.jpg\\'" . emacs)))
+
+  ;; Auto numbering outline
+  (if (version<= "9.3" (org-version))
+      (add-hook 'org-mode-hook 'org-num-mode))
+
   ;; Log clock when a job is done.
   (setq org-log-done 'clock))
 
