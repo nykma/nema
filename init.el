@@ -24,7 +24,7 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-customize-group)
 
 ;;; move customize-set-variable out of init.el
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (unless (file-exists-p custom-file)
   (write-region "" nil custom-file))    ; Touch this file
 (load custom-file)
@@ -88,7 +88,7 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 
 ;; Load all self configs in ~/.emacs.d/my
 (let ((loaded (mapcar #'car load-history)))
-  (dolist (file (directory-files "~/.emacs.d/my" t ".+\\.elc?$"))
+  (dolist (file (directory-files (expand-file-name "my" user-emacs-directory) t ".+\\.elc?$"))
     (unless (catch 'load-error
               (dolist (done loaded)
                 (when (equal file done) (throw 'load-error t)))
