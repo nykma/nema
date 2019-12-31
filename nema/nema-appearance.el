@@ -49,7 +49,8 @@
           ("HACK"       font-lock-constant-face bold)
           ("REVIEW"     font-lock-keyword-face bold)
           ("NOTE"       success bold)
-          ("DEPRECATED" font-lock-doc-face bold))))
+          ("DEPRECATED" font-lock-doc-face bold)
+          ("DEBUG"      error bold))))
 
 ;; Visual feedback for some operations
 (use-package volatile-highlights
