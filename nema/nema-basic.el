@@ -3,6 +3,9 @@
 "Must-have plugins and configs"
 ;;; Code:
 
+(if (boundp 'save-place-file)
+    (setq save-place-file (expand-file-name ".cache/places" user-emacs-directory)))
+
 ;; quelpa - For those packages which are not in MELPA
 (use-package quelpa
   :config
