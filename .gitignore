@@ -45,3 +45,6 @@ projectile.cache
 
 # cURL cookie jar(?)
 /request
+
+# Nativ debug downloaded file
+/.extension

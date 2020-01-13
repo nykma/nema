@@ -70,6 +70,7 @@
   :hook ((lsp-mode . dap-mode)
          (lsp-mode . dap-ui-mode))
   :config
+  (require 'dap-gdb-lldb)
   (setq dap-breakpoints-file (expand-file-name ".cache/dap-breakpoints" user-emacs-directory)))
 
 ;; Helm intergration
