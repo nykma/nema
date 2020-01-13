@@ -31,7 +31,13 @@
           )
     :config
     (use-package lsp-java)
-    (require 'lsp-clients))
+    (require 'lsp-clients)
+    (dolist (dir '("[/\\\\]builddir$"
+                   "[/\\\\]\\.elixir_ls$"
+                   "[/\\\\]_build$"
+                   "[/\\\\]\\.ccls-cache$"
+                   "[/\\\\]deps$"))
+      (push dir lsp-file-watch-ignored)))
 
 ;; Display LSP output
 (use-package lsp-ui
