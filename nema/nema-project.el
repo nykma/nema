@@ -28,7 +28,8 @@
   ('helm (use-package helm-projectile
            :config
            (helm-projectile-on))
-         (use-package helm-ag)))
+         (use-package helm-ag)
+         (use-package helm-rg)))
 
 (provide 'nema-project)
 
