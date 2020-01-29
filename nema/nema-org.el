@@ -13,6 +13,7 @@
   ;; :bind (("C-c a" . org-agenda)
   ;;        ("C-c c" . org-capture))
   :config
+  (require 'org-capture)
   ;; "org-protocol:/sub-protocol:/" triggers actions associated with sub-protocol through the custom variable org-protocol-protocol-alist.
   ;; Linux setup (Gnome)
 
@@ -52,7 +53,13 @@
       (add-hook 'org-mode-hook 'org-num-mode))
 
   ;; Log clock when a job is done.
-  (setq org-log-done 'clock))
+  (setq org-log-done 'clock)
+
+  (setq org-id-track-globally t)
+  (setq org-id-locations-file (expand-file-name ".cache/org-id-locations" user-emacs-directory)))
+
+(use-package org-cliplink
+  :bind ("C-x p i" . org-cliplink))
 
 ;; PDF viewer
 (use-package pdf-tools
