@@ -45,7 +45,7 @@
   :commands (lsp-ui)
   :bind
   (:map lsp-ui-mode-map
-        ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+        ("M-." . lsp-ui-peek-find-definitions)
         ([remap xref-find-references] . lsp-ui-peek-find-references)
         ("C-c u" . lsp-ui-imenu))
   :hook (lsp-mode . lsp-ui-mode)
