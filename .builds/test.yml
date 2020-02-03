@@ -1,0 +1,10 @@
+image: archlinux
+packages:
+  - git
+  - emacs-nox
+sources:
+  - https://github.com/nykma/nema
+tasks:
+  - test: |
+      mv nema .emacs.d
+      emacs --script .emacs.d/init.el
