@@ -3,7 +3,8 @@
 "LaTeX enhance tools."
 ;;; Code:
 
-(use-package auctex
+(use-package tex
+  :ensure auctex
   :config
   (setq TeX-command-list
       '(("TeX" "%(PDF)%(tex) %`%S%(PDFout)%(mode)%' %t" TeX-run-TeX nil
@@ -11,7 +12,8 @@
          :help "Run plain TeX")
         ("LaTeX" "xelatex -interaction nonstopmode %t" TeX-run-TeX nil
          (latex-mode doctex-mode)
-         :help "Run LaTeX"))))
+         :help "Run LaTeX"))
+      TeX-auto-save t))
 
 (if nema-use-lsp
     (progn
