@@ -85,5 +85,8 @@ e.g. ruby main.rb => ruby main.rb:directory_name"
 ;; auto pair
 (electric-pair-mode t)
 
+;; Reset bookmark path
+(setq bookmark-file (expand-file-name ".cache/bookmarks" user-emacs-directory))
+
 (provide 'nema-core)
 ;;; nema-core.el ends here
