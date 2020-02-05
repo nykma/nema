@@ -13,13 +13,33 @@
       (with-eval-after-load 'evil
         (evil-set-initial-state 'org-brain-visualize-mode 'emacs)))
   :config
-  (push '("b" "Brain" plain (function org-brain-goto-end)
-          "* %i%?" :empty-lines 1)
-        org-capture-templates)
   (setq org-brain-visualize-default-choices 'all
         org-brain-title-max-length 12
         org-brain-include-file-entries nil
         org-brain-file-entries-use-title nil)
+
+  (when (fboundp 'org-capture)
+      (push '("b" "Brain" plain (function org-brain-goto-end)
+              "* %i%?" :empty-lines 1)
+            org-capture-templates)
+      ;; Prepare INBOX.org in brain path first.
+      (push `("i"
+              "Brain/Inbox"
+              entry
+              (file+olp ,(expand-file-name "INBOX.org" org-brain-path) "INBOX")
+              "* %? :captured:
+  :PROPERTIES:
+  :ID:           %(org-id-new)
+  :CAPTURED_AT:  %T
+  :END:
+
+#+begin_quote
+%i
+#+end_quote
+"
+              :empty-lines 1
+              )
+            org-capture-templates))
   (when (fboundp 'org-cliplink)
     (defun org-brain-cliplink-resource ()
       "Add a URL from the clipboard as an org-brain resource.
