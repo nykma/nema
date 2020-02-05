@@ -2,10 +2,16 @@
 #+AUTHOR: Nyk Ma <i@nyk.ma>
 
 * What's this?
+  :PROPERTIES:
+  :ID:       82195f31-e674-44a4-9ea8-cfd4c9e50f76
+  :END:
 
 A not-so-hurt-yet-still-make-kind-of-sense emacs configuration set, c/w a bunch of packages.
 
 * Usage
+  :PROPERTIES:
+  :ID:       a8261d26-9246-483e-947a-c025b30b1170
+  :END:
 
 #+BEGIN_SRC sh
 cd ~
@@ -15,6 +21,9 @@ emacs -nw
 #+END_SRC
 
 * Hotkey cheatsheet
+  :PROPERTIES:
+  :ID:       13729a39-5628-49a7-9f5c-eeb44f740985
+  :END:
 
 | Hotkey        | Command                         | Location          | Comment                                        |
 |---------------+---------------------------------+-------------------+------------------------------------------------|
@@ -31,7 +40,13 @@ emacs -nw
 | =C-z=         | =popwin:keymap=                 | =nema-basic.el=   | Popup window (acts like Quickfix in Vim)       |
 
 * Customize
+  :PROPERTIES:
+  :ID:       8ce125de-4d19-4799-8e7e-4f0b74cd24a1
+  :END:
 ** =customize-group=
+   :PROPERTIES:
+   :ID:       fae603d9-92ad-441b-b5d0-ea66585523af
+   :END:
    There is a customize group called =nema= to give you a few customization options. Remember to restart emacs
    if anything is changed.
      - =nema-use-evil= :: Whether or not to use evil-mode. Default to =nil=.
@@ -42,6 +57,9 @@ emacs -nw
      - =nema-theme-style= :: Switch between dark and light mode of your theme (if supported).
      - =nema-mode-line= :: Choose which mode line to use.
 ** Besides
+   :PROPERTIES:
+   :ID:       0ca56590-a5a1-47b9-9490-cdada286aa95
+   :END:
  There are many ways to hack this. You can
  1. Write your ELisp in =.emacs.d/my/*.el=. They will be loaded after all =nema-*= modules are loaded.
     - Your YAS snippets will be saved and loaded in =.emacs.d/my/snippets/**/*=. (See =nema-snippet.el=)
@@ -53,19 +71,31 @@ emacs -nw
  2. Fork me.
 
 * LSP server installation
+  :PROPERTIES:
+  :ID:       ef25f462-f4dc-4b9f-ade4-46263eeed5bf
+  :END:
 See [[https://github.com/emacs-lsp/lsp-mode#supported-languages][emacs-lsp/lsp-mode#supported-languages]]
 * Known issues
+  :PROPERTIES:
+  :ID:       2b934e9b-d6ed-4ea2-b4a6-11132f40955d
+  :END:
   1. If it is run at its first time, make sure not to use =emacs --server=, since it may prompt you
      of Elisp-enabled themes warning or native plugin compilation. Use =emacs= or =emacs -nw= instead,
      and press =y= if prompted. When =.emacs.d/custom.el= is built, you can use server mode without problem.
 
 * Many thanks to
+  :PROPERTIES:
+  :ID:       f4df7488-3c78-4286-8410-9be1cf233ab6
+  :END:
 
 - [[https://github.com/emacs-tw/emacs-101-beginner-survival-guide][emacs-tw/emacs-101-beginner-survival-guide]] who gave me courage to build my very own config from scratch.
 - [[https://github.com/kuanyui/.emacs.d][kuanyui/.emacs.d]] and [[https://github.com/purcell/emacs.d][purcell/emacs.d]] who provided a good project structure for reference.
 - [[https://github.com/bbatsov/prelude][bbatsov/prelude]] who gave me ideas of how to do theme reloading properly.
 
 * License
+  :PROPERTIES:
+  :ID:       3d7016a0-f323-4fcc-b480-ab16d6fefdb4
+  :END:
   GPLv3 for
   - Initialization and core files
   - Layer files (=nema-*.el=)
