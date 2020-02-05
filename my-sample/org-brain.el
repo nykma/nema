@@ -31,6 +31,18 @@ Suggest the URL title as a description for resource."
          (org-cliplink-retrieve-title-synchronously url)
          t)))
 
-    (define-key org-brain-visualize-mode-map (kbd "L") #'org-brain-cliplink-resource)))
+    (define-key org-brain-visualize-mode-map (kbd "L") #'org-brain-cliplink-resource))
+
+  ;; Auto insert UUID ID for every org entry (title). See also:
+  ;; https://stackoverflow.com/questions/13340616/assign-ids-to-every-entry-in-org-mode
+  (add-hook 'org-capture-prepare-finalize-hook 'org-id-get-create)
+  (defun nema/org-add-ids-to-headlines-in-file ()
+    "Add ID properties to all headlines in the current file which
+do not already have one."
+    (interactive)
+    (org-map-entries 'org-id-get-create))
+  (add-hook 'org-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'nema/org-add-ids-to-headlines-in-file nil 'local))))
 
 ;;; org-brain.el ends here
