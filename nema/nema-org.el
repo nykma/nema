@@ -10,8 +10,8 @@
 
 (use-package org
   :pin org
-  ;; :bind (("C-c a" . org-agenda)
-  ;;        ("C-c c" . org-capture))
+  :bind (("C-c a" . org-agenda)
+         ("C-c c" . org-capture))
   :config
   (require 'org-capture)
   ;; "org-protocol:/sub-protocol:/" triggers actions associated with sub-protocol through the custom variable org-protocol-protocol-alist.
@@ -49,8 +49,8 @@
           ))
 
   ;; Auto numbering outline
-  (if (version<= "9.3" (org-version))
-      (add-hook 'org-mode-hook 'org-num-mode))
+  ;; (if (version<= "9.3" (org-version))
+  ;;     (add-hook 'org-mode-hook 'org-num-mode))
 
   ;; Log clock when a job is done.
   (setq org-log-done 'clock)
@@ -58,8 +58,7 @@
   (setq org-id-track-globally t)
   (setq org-id-locations-file (expand-file-name ".cache/org-id-locations" user-emacs-directory)))
 
-(use-package org-cliplink
-  :bind ("C-x p i" . org-cliplink))
+(use-package org-cliplink)
 
 ;; PDF viewer
 (use-package pdf-tools
@@ -102,8 +101,8 @@
 ;; HTTP client
 ;; usage: BEGIN_SRC http :pretty
 (use-package ob-http
-  :config
-  (add-to-list 'org-babel-load-languages '(http . t)))
+  :hook (org-mode . (lambda ()
+                      (add-to-list 'org-babel-load-languages '(http . t)))))
 
 ;; render html into PNG using Chrome
 ;; usage: BEGIN_SRC html-chrome :file test
