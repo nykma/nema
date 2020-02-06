@@ -13,6 +13,10 @@
   :bind (("C-c a" . org-agenda)
          ("C-c c" . org-capture))
   :config
+  ;; Auto save all org files
+  ;; See https://www.gnu.org/software/emacs/manual/html_node/emacs/Auto-Save-Control.html#Auto-Save-Control
+  (add-hook 'auto-save-hook 'org-save-all-org-buffers)
+
   (require 'org-capture)
   ;; "org-protocol:/sub-protocol:/" triggers actions associated with sub-protocol through the custom variable org-protocol-protocol-alist.
   ;; Linux setup (Gnome)
