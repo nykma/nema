@@ -31,7 +31,9 @@
    ;; ("F" counsel-find-file "Open")
    ;; ("p" counsel-projectile-switch-project "Proj")
    ;; ("f" counsel-projectile-find-file "In proj")
-   ("t" aweshell-new "Term")
+   ("t" (lambda () (interactive)
+          (call-interactively nema-term))
+    "Term")
    ("q" nil)))
 
 (provide 'nema-hydra)
