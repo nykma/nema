@@ -16,6 +16,7 @@
   ;; Auto save all org files
   ;; See https://www.gnu.org/software/emacs/manual/html_node/emacs/Auto-Save-Control.html#Auto-Save-Control
   (add-hook 'auto-save-hook 'org-save-all-org-buffers)
+  (add-hook 'org-mode-hook (lambda () (company-mode -1)))
 
   (require 'org-capture)
   ;; "org-protocol:/sub-protocol:/" triggers actions associated with sub-protocol through the custom variable org-protocol-protocol-alist.
