@@ -28,6 +28,9 @@
 (use-package vue-mode
   :mode "\\.vue\\'"
   :config
+  (when (version<= "27.0" emacs-version)
+    (setq mmm-js-mode-enter-hook (lambda () (setq syntax-ppss-table nil)))
+    (setq mmm-typescript-mode-enter-hook (lambda () (setq syntax-ppss-table nil))))
   (setq mmm-submode-decoration-level 3)) ;; high coloring
 
 (unless nema-use-lsp
