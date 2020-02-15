@@ -6,8 +6,11 @@
 ;; Basiclly pasted from
 ;; https://github.com/Kungsgeten/org-brain
 (use-package org-brain
+  :bind (("C-c a" . org-brain-visualize)
+         :map org-mode-map
+         ("C-c w" . org-brain-refile))
   :init
-  ;; I do this in customize-variable
+  ;; Do this in customize-variable:
   ;; (setq org-brain-path "directory/path/where-i-want-org-brain")
   (if nema-use-evil
       (with-eval-after-load 'evil
@@ -40,6 +43,7 @@
               :empty-lines 1
               )
             org-capture-templates))
+
   (when (fboundp 'org-cliplink)
     (defun org-brain-cliplink-resource ()
       "Add a URL from the clipboard as an org-brain resource.
