@@ -32,7 +32,8 @@
 (pcase nema-emacs-completion-engine
   ('ivy (require 'nema-ivy))
   ;; Helm - Completion
-  ('helm (require 'nema-helm)))
+  ('helm (require 'nema-helm))
+  (t (ido-mode 1)))
 
 (use-package anzu
   ;; :bind (("C-M-%" . 'anzu-query-replace-at-cursor)
@@ -128,6 +129,14 @@
   (setq undo-tree-visualizer-timestamps t
         undo-tree-visualizer-diff t)
   (global-undo-tree-mode))
+
+;; Edit code comments using C-c ' , like org-mode
+(use-package comment-edit
+  :quelpa (comment-edit :fetcher github :repo "twlz0ne/comment-edit.el")
+  :bind (:map prog-mode-map
+              ("C-c '" . comment-edit))
+  :config
+  (setq comment-edit-default-mode 'markdown-mode))
 
 (provide 'nema-basic)
 ;;; nema-basic.el ends here

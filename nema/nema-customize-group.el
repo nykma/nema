@@ -18,7 +18,7 @@ Default is `ivy'."
   :type '(choice
           (const :tag "Ivy" ivy)
           (const :tag "Helm" helm)
-          (const :tag "Don't use" nil)))
+          (const :tag "ido" nil)))
 
 (defcustom nema-use-evil nil
   "Use evil-mode.
