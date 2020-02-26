@@ -131,12 +131,12 @@
   (global-undo-tree-mode))
 
 ;; Edit code comments using C-c ' , like org-mode
-(use-package comment-edit
-  :quelpa (comment-edit :fetcher github :repo "twlz0ne/comment-edit.el")
+(use-package separedit
+  :quelpa (separedit :fetcher github :repo "twlz0ne/separedit.el")
   :bind (:map prog-mode-map
-              ("C-c '" . comment-edit))
+              ("C-c '" . separedit))
   :config
-  (setq comment-edit-default-mode 'markdown-mode))
+  (setq separedit-default-mode 'markdown-mode))
 
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
