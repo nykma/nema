@@ -1,21 +1,48 @@
 ;;; nema-im --- Input method
 ;;; Commentary:
-"Chinese input method configuration 中文输入法配置"
+"Chinese input method configuration 中文输入法配置
+
+搭配环境变量 LC_CTYPE=en_US.UTF-8 可以让 Emacs 不使用 fcitx"
 ;;; Code:
 
+(use-package liberime-config
+  :quelpa (liberime-config
+           :fetcher github
+           :repo "merrickluo/liberime"
+           :files ("CMakeLists.txt" "Makefile" "src" "liberime-config.el"))
+  ;; :custom
+  ;; (librime-user-data-dir "~/.config/fcitx/rime")
+  :init
+  (add-hook 'liberime-after-start-hook
+            (lambda ()
+              (liberime-select-schema "double_pinyin"))))
+
 (use-package pyim
-  :defer t
-  :config
-  (use-package posframe) ;; 绘制选词框
-  (use-package pyim-basedict ;; 词典
-    :config (pyim-basedict-enable))
-  (setq default-input-method "pyim"
-        pyim-default-scheme 'ziranma-shuangpin  ;; 输入法方案。参考 `pyim-schemes' 变量
-        pyim-page-length 7
-        pyim-page-tooltip 'child-frame
-        pyim-page-tooltip 'posframe)
+  :demand t
   :bind
-  (("M-j" . pyim-convert-code-at-point)))
+  (("M-j" . pyim-convert-string-at-point)
+   ;; ("C-\\" . toggle-input-method)
+   )
+  :config
+  (setq default-input-method "pyim"
+        pyim-default-scheme 'rime
+        pyim-page-tooltip 'popup
+        pyim-page-length 6)
+
+  ;; 设置 pyim 探针设置，这是 pyim 高级功能设置，可以实现 *无痛* 中英文切换 :-)
+  ;; 我自己使用的中英文动态切换规则是：
+  ;; 1. 光标只有在注释里面时，才可以输入中文。
+  ;; 2. 光标前是汉字字符时，才能输入中文。
+  ;; 3. 使用 M-j 快捷键，强制将光标前的拼音字符串转换为中文。
+  (setq-default pyim-english-input-switch-functions
+                '(pyim-probe-dynamic-english
+                  pyim-probe-isearch-mode
+                  pyim-probe-program-mode
+                  pyim-probe-org-structure-template))
+
+  (setq-default pyim-punctuation-half-width-functions
+                '(pyim-probe-punctuation-line-beginning
+                  pyim-probe-punctuation-after-punctuation)))
 
 ;; (provide 'nema-im)
 ;;; nema-im.el ends here
