@@ -5,17 +5,20 @@
 搭配环境变量 LC_CTYPE=en_US.UTF-8 可以让 Emacs 不使用 fcitx"
 ;;; Code:
 
-(use-package liberime-config
-  :quelpa (liberime-config
+(use-package liberime
+  :quelpa (liberime
            :fetcher github
            :repo "merrickluo/liberime"
-           :files ("CMakeLists.txt" "Makefile" "src" "liberime-config.el"))
+           :files ("CMakeLists.txt" "Makefile" "src" "liberime.el" "liberime-config.el"))
   ;; :custom
-  ;; (librime-user-data-dir "~/.config/fcitx/rime")
+  ;; (liberime-user-data-dir "~/.config/fcitx/rime")
   :init
   (add-hook 'liberime-after-start-hook
             (lambda ()
-              (liberime-select-schema "double_pinyin"))))
+              (liberime-select-schema "double_pinyin")))
+  :config
+  (unless (file-exists-p (liberime-get-module-file))
+    (liberime-build)))
 
 (use-package pyim
   :demand t
