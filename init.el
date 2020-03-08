@@ -30,7 +30,7 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (load custom-file)
 
 ;;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
-(if (version<= "26" emacs-version)
+(when (version<=  "27" emacs-version)
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 
 ;; Core layers
