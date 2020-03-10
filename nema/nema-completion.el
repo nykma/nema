@@ -10,7 +10,7 @@
         company-show-numbers t
         company-idle-delay .2               ; decrease delay before autocompletion popup shows
         company-echo-delay 0                ; remove annoying blinking
-        company-minimum-prefix-length 2
+        company-minimum-prefix-length 1
         company-require-match nil)
 
   (defun nema--company-backend-with-yas (backend)

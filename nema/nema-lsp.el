@@ -7,61 +7,57 @@
 (use-package lsp-mode
     ;; :delight
     :commands (lsp)
-    :hook ((ruby-mode
-            php-mode
-            ;; python-mode ;; <- handled in nema-python.el
-            js-mode typescript-mode js2-mode rjsx-mode vue-mode
-            go-mode
-            rust-mode
-            ;; c-mode c++-mode objc-mode ;; <- handled in nema-c.el
-            ;; swift-mode ;; <- handled in nema-swift.el
-            dart-mode
-            elixir-mode
-            java-mode
-            ng2-html ng2-ts
-            ;; plain-tex-mode latex-mode ;; <- handled in nema-latex.el
-            ) . lsp)
+    :hook (((ruby-mode
+             php-mode
+             ;; python-mode ;; <- handled in nema-python.el
+             js-mode typescript-mode js2-mode rjsx-mode vue-mode
+             go-mode
+             rust-mode
+             ;; c-mode c++-mode objc-mode ;; <- handled in nema-c.el
+             ;; swift-mode ;; <- handled in nema-swift.el
+             dart-mode
+             elixir-mode
+             java-mode
+             ng2-html ng2-ts
+             ;; plain-tex-mode latex-mode ;; <- handled in nema-latex.el
+             ) . lsp)
+           (lsp-mode . lsp-enable-which-key-integration))
     :init
-    (setq lsp-enable-snippet t
+    (setq lsp-keymap-prefix "s-p"
+          lsp-auto-configure t
+          lsp-keep-workspace-alive nil
           lsp-auto-guess-root t
           lsp-response-timeout 20
-          lsp-auto-configure t
-          lsp-prefer-flymake nil ;; Prefer flycheck
-          lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory)
-          )
+          lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory))
     :config
     (use-package lsp-java)
     (require 'lsp-clients)
+    ;; Add some extra dirs to ignore
     (dolist (dir '("[/\\\\]builddir$"
                    "[/\\\\]\\.elixir_ls$"
                    "[/\\\\]_build$"
                    "[/\\\\]\\.ccls-cache$"
-                   "[/\\\\]deps$"))
+                   "[/\\\\]deps$"
+                   "[/\\\\]\\.log$"))
       (push dir lsp-file-watch-ignored)))
 
 ;; Display LSP output
 (use-package lsp-ui
   :after (lsp-mode)
-  :commands (lsp-ui)
+  :commands (lsp-ui-mode)
   :bind
   (:map lsp-ui-mode-map
-        ("M-." . lsp-ui-peek-find-definitions)
         ([remap xref-find-references] . lsp-ui-peek-find-references)
+        ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
         ("C-c u" . lsp-ui-imenu))
   :hook (lsp-mode . lsp-ui-mode)
+  :init
+  ;; WORKAROUND
+  ;; See: https://github.com/syl20bnr/spacemacs/issues/13355
+  (setq lsp-ui-doc--buffer-prefix "*lsp-ui-doc-"
+        lsp-ui-doc-winum-ignore t)
   :config
-  (setq scroll-margin 0
-        lsp-ui-doc-use-webkit (featurep 'xwidget-internal)))
-
-;; LSP as completion backend
-(use-package company-lsp
-  :after (lsp-mode company)
-  :commands (company-lsp))
-
-;; Treemacs support
-(if (fboundp 'treemacs)
-    (use-package lsp-treemacs
-      :commands lsp-treemacs-error-list))
+  (setq scroll-margin 0))
 
 ;; Debugger
 ;; See https://github.com/yyoncho/dap-mode for usage
@@ -73,9 +69,25 @@
   (require 'dap-gdb-lldb)
   (setq dap-breakpoints-file (expand-file-name ".cache/dap-breakpoints" user-emacs-directory)))
 
+;; LSP as completion backend
+(use-package company-lsp
+  :after (lsp-mode company)
+  :commands (company-lsp))
+
+;; Treemacs support
+(use-package lsp-treemacs
+  :if (fboundp 'treemacs)
+  :commands (lsp-treemacs-error-list))
+
 ;; Helm intergration
-(if (eq nema-emacs-completion-engine 'helm)
-  (use-package helm-lsp))
+(use-package helm-lsp
+  :if (eq nema-emacs-completion-engine 'helm)
+  :commands (helm-lsp-workspace-symbol))
+
+;; ivy intergration
+(use-package lsp-ivy
+  :if (eq nema-emacs-completion-engine 'ivy)
+  :commands (lsp-ivy-workspace-symbol))
 
 (provide 'nema-lsp)
 
