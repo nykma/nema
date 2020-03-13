@@ -4,6 +4,7 @@
 ;;; Code:
 
 (use-package org-board
+  :demand t
   :config
   (setq org-board-wget-show-buffer nil)
   (add-to-list 'org-board-wget-switches "--span-hosts")

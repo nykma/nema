@@ -6,6 +6,7 @@
 ;; Basiclly pasted from
 ;; https://github.com/Kungsgeten/org-brain
 (use-package org-brain
+  :demand t
   :bind (("C-c a" . org-brain-visualize)
          :map org-mode-map
          ("C-c w" . org-brain-refile))
