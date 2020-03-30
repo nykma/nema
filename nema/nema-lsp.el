@@ -20,6 +20,7 @@
               dart-mode
               elixir-mode
               java-mode
+              tuareg-mode ;; OCaml
               ng2-html ng2-ts
               ;; plain-tex-mode latex-mode ;; <- handled in nema-latex.el
               ) . lsp)
