@@ -3,9 +3,7 @@
 "Dart tools"
 ;;; Code:
 
-(use-package dart-mode
-  :config
-  (setq dart-enable-analysis-server t))
+(use-package dart-mode)
 
 (use-package flutter
   :after dart-mode

@@ -1,11 +1,11 @@
 ;;; nema-python --- PYTHON mode
 ;;; Code:
 
-(unless nema-use-lsp
+(unless nema-lsp
   (use-package elpy))
 
 (use-package lsp-python-ms
-  :if nema-use-lsp
+  :if (eq nema-lsp 'lsp-mode)
   :hook (python-mode . (lambda () (require 'lsp-python-ms) (lsp)))
   :config
   (setq lsp-python-ms-dir (expand-file-name ".cache/mspyls" user-emacs-directory)

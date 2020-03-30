@@ -8,7 +8,7 @@
 (use-package toml-mode
   :mode "/\\(Cargo.lock\\|\\.cargo/config\\)\\'")
 
-(unless nema-use-lsp
+(unless nema-lsp
   (use-package racer
     :defer t
     :requires (rust-mode)

@@ -12,7 +12,7 @@
 (use-package cmake-mode)
 
 (use-package ccls
-  :if nema-use-lsp
+  :if (eq nema-lsp 'lsp-mode)
   :hook ((c-mode c++-mode objc-mode) . (lambda () (require 'ccls) (lsp)))
   :config (setq ccls-executable "/usr/bin/ccls"))
 

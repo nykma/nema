@@ -15,7 +15,7 @@
          :help "Run LaTeX"))
       TeX-auto-save t))
 
-(if nema-use-lsp
+(if (eq nema-lsp 'lsp-mode)
     (progn
       (setq lsp-clients-digestif-executable (expand-file-name "~/.luarocks/bin/digestif"))
       (add-hook 'plain-tex-mode-hook #'lsp)

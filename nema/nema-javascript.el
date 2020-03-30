@@ -33,7 +33,7 @@
     (setq mmm-typescript-mode-enter-hook (lambda () (setq syntax-ppss-table nil))))
   (setq mmm-submode-decoration-level 3)) ;; high coloring
 
-(unless nema-use-lsp
+(unless nema-lsp
   (defun nema/tide/setup ()
     "Setup process of tide.
 See also: https://github.com/ananthakumaran/tide"

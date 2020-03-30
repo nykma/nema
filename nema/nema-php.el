@@ -33,14 +33,14 @@
 ;;   ;; (with-eval-after-load "lsp-php"
 ;;   ;;   (add-hook 'php-mode-hook #'lsp))
 ;;   )
-(unless nema-use-lsp
+(unless nema-lsp
   (use-package php-extras
     :defer t
     :config
     (eval-after-load 'php-mode '(require 'php-extras)))
   (use-package ac-php)
   (use-package company-php
-    :if (not nema-use-lsp)
+    :if (not nema-lsp)
     :hook
     (php-mode . (lambda ()
                   (ac-php-core-eldoc-setup)

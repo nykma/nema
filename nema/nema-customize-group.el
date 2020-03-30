@@ -27,12 +27,15 @@ Disabled by default."
   :group 'nema
   :type '(boolean))
 
-(defcustom nema-use-lsp nil
+(defcustom nema-lsp nil
   "Use LSP (Language Server Protocol) as code completion backend.
 Disabled by default."
   :tag "Use LSP"
   :group 'nema
-  :type '(boolean))
+  :type `(choice
+          (const :tag "Don't use" ,nil)
+          (const :tag "emacs-lsp/lsp-mode" lsp-mode)
+          (const :tag "manateelazycat/nox" nox)))
 
 (defcustom nema-mode-line 'smart-mode-line
   "Mode line to use.

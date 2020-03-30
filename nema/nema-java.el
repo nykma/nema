@@ -8,7 +8,7 @@
 (use-package groovy-mode)
 
 (use-package lsp-java
-  :if nema-use-lsp)
+  :if (eq nema-lsp 'lsp-mode))
 
 (provide 'nema-java)
 

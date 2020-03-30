@@ -36,7 +36,7 @@
 ;;                        (require 'lsp-ruby)
 ;;                        (lsp))))
 
-(unless nema-use-lsp
+(unless nema-lsp
   ;; SEEALSO: spacemacs/layers/+lang/ruby/packages.el
   (use-package enh-ruby-mode
     :mode (("Appraisals\\'" . enh-ruby-mode)

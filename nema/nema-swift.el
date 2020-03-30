@@ -10,7 +10,7 @@
   :quelpa (swift-helpful :fetcher github :repo "danielmartin/swift-helpful" :files ("*.el" "swift-info/*.info")))
 
 (use-package lsp-sourcekit
-  :if nema-use-lsp
+  :if (eq nema-lsp 'lsp-mode)
   :after lsp-mode
   :hook (swift-mode . lsp)
   :config

@@ -42,8 +42,7 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 ;; General purpose layers
 (require 'nema-snippet)
 (require 'nema-completion)
-(when nema-use-lsp
-  (require 'nema-lsp))
+(require 'nema-lsp)
 (require 'nema-vcs)
 (require 'nema-flycheck)
 (require 'nema-project)

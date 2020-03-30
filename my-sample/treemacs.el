@@ -58,7 +58,7 @@
   :after treemacs projectile)
 
 (use-package lsp-treemacs
-  :if nema-use-lsp
+  :if (eq nema-lsp 'lsp-mode)
   :no-require t
   :quelpa (lsp-treemacs :fetcher github :repo "emacs-lsp/lsp-treemacs")
   :after treemacs lsp-mode)
