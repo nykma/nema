@@ -12,7 +12,8 @@
          ("C-c w" . org-brain-refile))
   :init
   ;; Do this in customize-variable:
-  ;; (setq org-brain-path "directory/path/where-i-want-org-brain")
+  ;; (setq org-brain-path "directory/path/where-i-want-org-brain"
+  ;;       org-brain-data-file (expand-file-name ".cache/org-brain-data.el" user-emacs-directory))
   (if nema-use-evil
       (with-eval-after-load 'evil
         (evil-set-initial-state 'org-brain-visualize-mode 'emacs)))
