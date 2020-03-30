@@ -56,7 +56,7 @@ emacs -nw
      - =nema-use-evil= :: Whether or not to use evil-mode. Default to =nil=.
           My evil-mode intergration is at a very basic level (since I don't use evil-mode). Any pull request is welcomed.
      - =nema-emacs-completion-engine= :: Choose between =ivy=, =helm= and none. Default to =ivy=
-     - =nema-use-lsp= :: Use LSP or not. Remember to follow toolchain installation instructions below. Default to =nil=
+     - =nema-lsp= :: Use LSP or not. Remember to follow server installation instructions below. Default to =nil=
      - =nema-theme= :: Choose one theme from given pre-defined themes list.
      - =nema-theme-style= :: Switch between dark and light mode of your theme (if supported).
      - =nema-mode-line= :: Choose which mode line to use.
