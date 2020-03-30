@@ -20,6 +20,9 @@
   (unless (file-exists-p (liberime-get-module-file))
     (liberime-build)))
 
+(use-package posframe
+  :quelpa (posframe :fetcher github :repo "tumashu/posframe" :files ("posframe.el")))
+
 (use-package pyim
   :demand t
   :bind
@@ -29,7 +32,7 @@
   :config
   (setq default-input-method "pyim"
         pyim-default-scheme 'rime
-        pyim-page-tooltip 'popup
+        pyim-page-tooltip 'posframe
         pyim-page-length 6)
 
   ;; 设置 pyim 探针设置，这是 pyim 高级功能设置，可以实现 *无痛* 中英文切换 :-)
