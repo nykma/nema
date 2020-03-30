@@ -25,6 +25,18 @@
   :config
   (setq company-quickhelp-delay 0.2))
 
+;; Icons and fancies
+(use-package all-the-icons)
+
+(use-package company-box
+  :hook (company-mode . company-box-mode)
+  :config
+  (setq company-box-backends-colors nil
+        company-box-show-single-candidate t
+        company-box-max-candidates 20
+        company-box-doc-delay 0.5
+        company-box-icons-alist 'company-box-icons-all-the-icons))
+
 (provide 'nema-completion)
 
 ;;; nema-completion.el ends here
