@@ -25,7 +25,14 @@
 
   (when (fboundp 'org-capture)
       (push '("b" "Brain" plain (function org-brain-goto-end)
-              "* %i%?" :empty-lines 1)
+              "** %?
+  :PROPERTIES:
+  :ID:           %(org-id-new)
+  :CAPTURED_AT:  %T
+  :END:
+
+%i
+" :empty-lines 1)
             org-capture-templates)
       ;; Prepare INBOX.org in brain path first.
       (push `("i"
