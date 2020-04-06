@@ -5,8 +5,8 @@
 
 (use-package htmlize :defer t)
 
-(use-package org-bullets
-  :hook (org-mode . org-bullets-mode))
+(use-package org-superstar
+  :hook (org-mode . org-superstar-mode))
 
 (use-package org
   :pin org
