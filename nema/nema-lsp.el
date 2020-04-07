@@ -21,7 +21,7 @@
               elixir-mode
               java-mode
               tuareg-mode ;; OCaml
-              ng2-html ng2-ts
+              ng2-html-mode ng2-ts-mode
               ;; plain-tex-mode latex-mode ;; <- handled in nema-latex.el
               ) . lsp)
             (lsp-mode . lsp-enable-which-key-integration))
