@@ -12,7 +12,7 @@
      :hook (((ruby-mode
               php-mode
               ;; python-mode ;; <- handled in nema-python.el
-              js-mode typescript-mode js2-mode rjsx-mode vue-mode
+              js-mode typescript-mode js2-mode rjsx-mode vue-mode ng2-html-mode
               go-mode
               rust-mode
               ;; c-mode c++-mode objc-mode ;; <- handled in nema-c.el
@@ -21,7 +21,6 @@
               elixir-mode
               java-mode
               tuareg-mode ;; OCaml
-              ng2-html-mode ng2-ts-mode
               ;; plain-tex-mode latex-mode ;; <- handled in nema-latex.el
               ) . lsp)
             (lsp-mode . lsp-enable-which-key-integration))
