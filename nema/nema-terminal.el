@@ -13,8 +13,6 @@
     ;; https://github.com/akermu/emacs-libvterm
     (use-package vterm
       :config
-      (use-package multi-vterm
-        :quelpa (multi-vterm :fetcher github :repo "suonlight/multi-libvterm"))
       (setq nema-term #'vterm)
       (when nema-use-evil
         (add-hook 'vterm-mode-hook
