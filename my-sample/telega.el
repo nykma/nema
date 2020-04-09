@@ -4,7 +4,7 @@
 ;;; Code:
 
 (use-package telega
-  :command (telega)
+  :commands (telega)
   :hook ((telega-load . global-telega-squash-message-mode)
   ;;       (telega-load . global-telega-url-shorten-mode) ;; 20200408: will cause recursive load
        (telega-chat-mode . (lambda ()
