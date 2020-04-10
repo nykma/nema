@@ -4,9 +4,7 @@
 ;;; Code:
 
 (use-package prism
-  :hook ((json-mode
-          emacs-lisp-mode
-          lisp-mode)
+  :hook ((json-mode)
          . prism-mode))
 
 ;;; prism.el ends here
