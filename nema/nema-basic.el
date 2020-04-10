@@ -138,5 +138,22 @@
   :config
   (setq separedit-default-mode 'markdown-mode))
 
+;; Powerful ibuffer alternative
+(use-package bufler
+  :bind (("C-x C-b" . bufler)
+         ("C-x b" . bufler-switch-buffer))
+  :config
+  ;; The global minor mode bufler-mode allows each frame to have a
+  ;; “workspace”, which is a buffer group selected by the user.
+  (bufler-mode)
+  ;; The global minor mode bufler-tabs-mode uses the new Emacs 27
+  ;; tab-bar and tab-line features to display workspaces and
+  ;; buffers.
+  ;; (if (version<= "27" emacs-version)
+  ;;       (bufler-tabs-mode))
+  )
+
+
+
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
