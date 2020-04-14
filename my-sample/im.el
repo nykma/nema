@@ -16,6 +16,9 @@ Default is `rime'."
           (const :tag "rime" rime)
           (const :tag "pyim" pyim)))
 
+(use-package posframe
+  :quelpa (posframe :fetcher github :repo "tumashu/posframe" :files ("posframe.el")))
+
 (pcase nema-im
   ('rime
    ;; https://github.com/DogLooksGood/emacs-rime
@@ -27,7 +30,7 @@ Default is `rime'."
      ;; (rime-user-data-dir "~/.config/fcitx/rime")
      :config
      (setq rime-translate-keybindings '("C-f" "C-b" "C-n" "C-p" "C-g")
-           rime-show-candidate 'minibuffer)
+           rime-show-candidate 'posframe)
      (if nema-use-evil
          ;; 一个在 evil-normal-state 中、在英文字母后面以及代码中自动使用英文的例子。
          (setq rime-disable-predicates
@@ -51,8 +54,6 @@ Default is `rime'."
              (unless (file-exists-p (liberime-get-module-file))
                (liberime-build)))
 
-   (use-package posframe
-     :quelpa (posframe :fetcher github :repo "tumashu/posframe" :files ("posframe.el")))
    (use-package pyim
      :demand t
      :bind
