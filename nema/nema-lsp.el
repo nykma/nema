@@ -12,7 +12,7 @@
      :hook (((ruby-mode
               php-mode
               ;; python-mode ;; <- handled in nema-python.el
-              js-mode typescript-mode js2-mode rjsx-mode vue-mode ng2-html-mode
+              js-mode typescript-mode js2-mode rjsx-mode vue-mode ng2-html-mode ng2-ts-mode
               go-mode
               rust-mode
               ;; c-mode c++-mode objc-mode ;; <- handled in nema-c.el
