@@ -30,7 +30,8 @@
            lsp-keep-workspace-alive nil
            lsp-auto-guess-root t
            lsp-response-timeout 20
-           lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory))
+           lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory)
+           lsp-intelephense-storage-path (expand-file-name ".cache/lsp/intelephense" user-emacs-directory))
      :config
      (use-package lsp-java)
      (require 'lsp-clients)
