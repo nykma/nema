@@ -9,7 +9,8 @@
   ;;            )
   :delight
   :config
-  (setq projectile-file-exists-remote-cache-expire (* 10 60))
+  (setq projectile-file-exists-remote-cache-expire (* 10 60)
+        projectile-cache-file (expand-file-name ".cache/projectile.cache" user-emacs-directory))
   (projectile-mode)
   (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
   (projectile-register-project-type 'npm '("package.json")
