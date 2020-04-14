@@ -11,6 +11,7 @@
   :config
 
   (add-to-list 'tree-sitter-major-mode-language-alist '(tuareg-mode . ocaml))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(ng2-ts-mode . typescript))
 
   (dolist (lang tree-sitter-major-mode-language-alist) ;; (agda-mode . agda)
     (let* ((lang-mode (car lang))
