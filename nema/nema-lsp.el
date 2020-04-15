@@ -3,6 +3,10 @@
 "Language Server Protocol settings"
 ;;; Code:
 
+(require 'nema-customize-group)
+(require 'company)
+(require 'company-capf)
+
 (pcase nema-lsp
   ('lsp-mode
    ;; Main
@@ -17,7 +21,7 @@
               rust-mode
               ;; c-mode c++-mode objc-mode ;; <- handled in nema-c.el
               ;; swift-mode ;; <- handled in nema-swift.el
-              dart-mode
+              ;; dart-mode ;; <- handled in nema-dart.el
               elixir-mode
               java-mode
               tuareg-mode ;; OCaml
@@ -33,15 +37,16 @@
            lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory)
            lsp-intelephense-storage-path (expand-file-name ".cache/lsp/intelephense" user-emacs-directory))
      :config
-     (use-package lsp-java)
      (require 'lsp-clients)
+     (use-package lsp-java)
      ;; Add some extra dirs to ignore
      (dolist (dir '("[/\\\\]builddir$"
                     "[/\\\\]\\.elixir_ls$"
                     "[/\\\\]_build$"
                     "[/\\\\]\\.ccls-cache$"
                     "[/\\\\]deps$"
-                    "[/\\\\]\\.log$"))
+                    "[/\\\\]\\.log$"
+                    "[/\\\\]vendor$"))
        (push dir lsp-file-watch-ignored)))
 
    ;; Display LSP output
@@ -73,9 +78,12 @@
      (setq dap-breakpoints-file (expand-file-name ".cache/dap-breakpoints" user-emacs-directory)))
 
    ;; LSP as completion backend
-   (use-package company-lsp
-     :after (lsp-mode company)
-     :commands (company-lsp))
+   ;; Deprecated: now suggest using company-capf
+   ;; (use-package company-lsp
+   ;;   :after (lsp-mode company)
+   ;;   :commands (company-lsp))
+   (add-to-list 'company-backends 'company-capf)
+
 
    ;; Treemacs support
    (use-package lsp-treemacs
