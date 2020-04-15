@@ -120,6 +120,11 @@
 ;; usage: begin_src sh :async
 (use-package ob-async)
 
+;; https://github.com/abo-abo/org-download
+(use-package org-download
+  :demand t
+  :hook ((dired-mode . org-download-enable)))
+
 (provide 'nema-org)
 
 ;;; nema-org.el ends here
