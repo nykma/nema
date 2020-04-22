@@ -1,5 +1,9 @@
 ;;; nema-project --- Project management
+;;; Commentary:
+"Settings about projectile"
 ;;; Code:
+
+(require 'nema-customize-group)
 
 (use-package projectile
   ;; :delight '(:eval
@@ -23,14 +27,17 @@
                                     :run "yarn start"))
 
 (pcase nema-emacs-completion-engine
-  ;; ('ivy (use-package counsel-projectile
-  ;;         :config
-  ;;         (counsel-projectile-mode)))
-  ('helm (use-package helm-projectile
-           :config
-           (helm-projectile-on))
-         (use-package helm-ag)
-         (use-package helm-rg)))
+  ;; https://github.com/ericdanan/counsel-projectile
+  ('ivy
+   (use-package counsel-projectile
+     :config
+     (counsel-projectile-mode)))
+  ('helm
+   (use-package helm-projectile
+     :config
+     (helm-projectile-on))
+   (use-package helm-ag)
+   (use-package helm-rg)))
 
 (provide 'nema-project)
 
