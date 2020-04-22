@@ -16,6 +16,9 @@ See also: https://github.com/raxod502/selectrum"
   (selectrum-prescient-mode t)
   (prescient-persist-mode t))
 
+(use-package ag
+  :after (company))
+
 (provide 'nema-selectrum)
 
 ;;; nema-selectrum.el ends here

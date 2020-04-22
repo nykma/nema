@@ -11,7 +11,7 @@
 
 (use-package lsp-sourcekit
   :if (eq nema-lsp 'lsp-mode)
-  :after lsp-mode
+  :after (lsp-mode)
   :hook (swift-mode . lsp)
   :config
   ;; (setenv "SOURCEKIT_TOOLCHAIN_PATH" "/Library/Developer/Toolchains/swift-latest.xctoolchain")

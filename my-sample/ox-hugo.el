@@ -5,7 +5,7 @@
 
 
 (use-package ox-hugo
-  :after ox
+  :after (ox)
   :config
   (setq org-hugo-auto-set-lastmod t
         org-hugo-use-code-for-kbd t))

@@ -27,10 +27,9 @@
 (use-package rinari)
 ;; https://github.com/emacs-lsp/lsp-ruby
 ;; Install: gem install solargraph
-;; FIXME: has some problems of rendering docs
 ;; (use-package lsp-ruby
 ;;   :quelpa (lsp-ruby :fetcher github :repo "emacs-lsp/lsp-ruby")
-;;   :after lsp-mode
+;;   :after (lsp-mode)
 ;;   :commands lsp-ruby-enable
 ;;   :hook (ruby-mode . (lambda ()
 ;;                        (require 'lsp-ruby)

@@ -6,7 +6,7 @@
 (use-package dart-mode)
 
 (use-package flutter
-  :after dart-mode
+  :after (dart-mode)
   :bind (:map dart-mode-map
               ("C-M-x" . #'flutter-run-or-hot-reload))
   :config

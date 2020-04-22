@@ -39,7 +39,7 @@
 
 ;; prescient.el: simple but effective sorting and filtering for Emacs.
 (use-package company-prescient
-  :after company
+  :after (company)
   :config
   (company-prescient-mode t))
 
