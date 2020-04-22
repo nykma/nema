@@ -37,6 +37,12 @@
         company-box-doc-delay 0.5
         company-box-icons-alist 'company-box-icons-all-the-icons))
 
+;; prescient.el: simple but effective sorting and filtering for Emacs.
+(use-package company-prescient
+  :after company
+  :config
+  (company-prescient-mode t))
+
 (provide 'nema-completion)
 
 ;;; nema-completion.el ends here
