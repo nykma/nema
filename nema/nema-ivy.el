@@ -20,8 +20,9 @@
   ;; Add C-o quick menu in ivy selection
   (use-package ivy-hydra)
   ;; swiper - show all overview of searches
-  (use-package swiper
-    :bind (("\C-s" . swiper)))
+  ;; Not as good as CTRLF. Deprecated.
+  ;; (use-package swiper
+  ;;   :bind (("\C-s" . swiper)))
   ;; counsel - enhanced default common commands
   (use-package counsel
     :bind (("M-x" . counsel-M-x)

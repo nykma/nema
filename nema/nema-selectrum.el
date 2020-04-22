@@ -16,11 +16,6 @@ See also: https://github.com/raxod502/selectrum"
   (selectrum-prescient-mode t)
   (prescient-persist-mode t))
 
-;; Better C-s
-(use-package ctrlf
-  :config
-  (ctrlf-mode t))
-
 (provide 'nema-selectrum)
 
 ;;; nema-selectrum.el ends here

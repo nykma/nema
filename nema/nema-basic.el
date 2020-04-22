@@ -38,12 +38,18 @@
   ('selectrum (require 'nema-selectrum))
   (t (ido-mode 1)))
 
+;; Interactive regex replacer
 (use-package anzu
   ;; :bind (("C-M-%" . 'anzu-query-replace-at-cursor)
   :delight
   ;; :init
   ;; (global-anzu-mode +1)
   )
+
+;; Interactive searcher aka Better C-s
+(use-package ctrlf
+  :config
+  (ctrlf-mode t))
 
 ;; which-key
 (use-package which-key
