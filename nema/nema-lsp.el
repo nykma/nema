@@ -34,8 +34,10 @@
            lsp-keep-workspace-alive nil
            lsp-auto-guess-root t
            lsp-response-timeout 20
+           lsp-idle-delay 0.500
            lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory)
-           lsp-intelephense-storage-path (expand-file-name ".cache/lsp/intelephense" user-emacs-directory))
+           lsp-intelephense-storage-path (expand-file-name ".cache/lsp/intelephense" user-emacs-directory)
+           lsp-prefer-capf t)
      :config
      (require 'lsp-clients)
      (use-package lsp-java)
@@ -82,8 +84,6 @@
    ;; (use-package company-lsp
    ;;   :after (lsp-mode company)
    ;;   :commands (company-lsp))
-   (add-to-list 'company-backends 'company-capf)
-
 
    ;; Treemacs support
    (use-package lsp-treemacs

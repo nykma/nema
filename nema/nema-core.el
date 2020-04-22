@@ -4,8 +4,14 @@
 ;;; Code:
 
 ;; Reduce the frequency of garbage collection by making it happen on
-;; each 50MB of allocated data (the default is on every 0.76MB)
-(setq gc-cons-threshold (* 50 1024 1024))
+;; each 100MB of allocated data (the default is on every 0.76MB)
+(setq gc-cons-threshold (* 100 1024 1024))
+
+;; Increase the amount of data which Emacs reads from the
+;; process. Again the emacs default is too low 4k considering that the
+;; some of the language server responses are in 800k - 3M range.
+(setq read-process-output-max (* 5 1024 1024))
+
 ;; Don’t compact font caches during GC.
 (setq inhibit-compacting-font-caches t)
 
