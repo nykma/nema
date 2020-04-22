@@ -36,7 +36,6 @@
            lsp-response-timeout 20
            lsp-idle-delay 0.500
            lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory)
-           lsp-intelephense-storage-path (expand-file-name ".cache/lsp/intelephense" user-emacs-directory)
            lsp-prefer-capf t)
      :config
      (require 'lsp-clients)
