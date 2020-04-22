@@ -3,6 +3,8 @@
 "Must-have plugins and configs"
 ;;; Code:
 
+(require 'nema-customize-group)
+
 (if (boundp 'save-place-file)
     (setq save-place-file (expand-file-name ".cache/places" user-emacs-directory)))
 
@@ -33,6 +35,7 @@
   ('ivy (require 'nema-ivy))
   ;; Helm - Completion
   ('helm (require 'nema-helm))
+  ('selectrum (require 'nema-selectrum))
   (t (ido-mode 1)))
 
 (use-package anzu

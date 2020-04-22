@@ -16,9 +16,10 @@ Default is `ivy'."
   :tag "Emacs completion engine"
   :group 'nema
   :type '(choice
-          (const :tag "Ivy" ivy)
+          (const :tag "ido" nil)
+          (const :tag "Ivy / Swiper" ivy)
           (const :tag "Helm" helm)
-          (const :tag "ido" nil)))
+          (const :tag "Selectrum" selectrum)))
 
 (defcustom nema-use-evil nil
   "Use evil-mode.

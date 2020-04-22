@@ -37,7 +37,9 @@
      :config
      (helm-projectile-on))
    (use-package helm-ag)
-   (use-package helm-rg)))
+   (use-package helm-rg))
+  ('selectrum
+   (setq projectile-completion-system 'default)))
 
 (provide 'nema-project)
 
