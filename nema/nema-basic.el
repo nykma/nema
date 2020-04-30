@@ -160,9 +160,13 @@
   ;; buffers.
   ;; (if (version<= "27" emacs-version)
   ;;       (bufler-tabs-mode))
-  )
 
-
+  ;; Manually delight
+  (defun nema//bufler-workspace-delight ()
+    "Advice for overwriting `bufler-workspace-mode-lighter'"
+    "")
+  (advice-add 'bufler-workspace-mode-lighter
+              :override #'nema//bufler-workspace-delight))
 
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
