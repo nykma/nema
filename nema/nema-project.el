@@ -25,7 +25,11 @@
   (projectile-register-project-type 'yarn '("yarn.lock")
                                     :compile "yarn"
                                     :test "yarn test"
-                                    :run "yarn start"))
+                                    :run "yarn start")
+  (projectile-register-project-type 'go '("go.mod")
+                                    :compile "go build"
+                                    :test "go test"
+                                    :run "go run"))
 
 (pcase nema-emacs-completion-engine
   ;; https://github.com/ericdanan/counsel-projectile
