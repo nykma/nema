@@ -19,6 +19,10 @@ Default is `rime'."
 (use-package posframe
   :quelpa (posframe :fetcher github :repo "tumashu/posframe" :files ("posframe.el")))
 
+(when nema-has-jis-keycode
+  (bind-key (kbd "<henkan>") #'toggle-input-method)
+  (unbind-key (kbd "C-\\")))
+
 (pcase nema-im
   ('rime
    ;; https://github.com/DogLooksGood/emacs-rime

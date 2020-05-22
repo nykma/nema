@@ -77,6 +77,12 @@ Default is `dark'"
           (const :tag "Light" light)
           (const :tag "Dark" dark)))
 
+(defcustom nema-has-jis-keycode nil
+  "Define if keyboard can send JIS keycode."
+  :tag "JIS keycode"
+  :group 'nema
+  :type 'boolean)
+
 (provide 'nema-customize-group)
 
 ;;; nema-customize-group.el ends here
