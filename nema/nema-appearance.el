@@ -3,6 +3,8 @@
 "Appearance and UI settings"
 ;;; Code:
 
+(require 'nema-customize-group)
+
 ;; Hide welcome buffer
 (setq inhibit-startup-screen t)
 
@@ -116,7 +118,17 @@
      :config
      (if (eq 'dark nema-theme-style)
          (load-theme 'alect-dark t)
-       (load-theme 'alect-light t))))))
+       (load-theme 'alect-light t))))
+  ('tron-legacy
+   (use-package tron-legacy-theme
+     :quelpa (tron-legacy-theme
+              :fetcher url
+              :url "https://raw.githubusercontent.com/ianpan870102/tron-legacy-emacs-theme/master/tron-legacy-theme.el")
+     :config
+     ;; FIXME: too dirty
+     (add-to-list 'custom-theme-load-path (expand-file-name "quelpa/build/tron-legacy-theme" user-emacs-directory))
+     ;; (setq tron-legacy-dark-fg-bright-comments t)
+     (load-theme 'tron-legacy t)))))
 
 (defun nema/reload-modeline (_args)
   "Reload mode line with settings of `nema-mode-line'."

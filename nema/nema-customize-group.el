@@ -51,7 +51,7 @@ Default is `smart-mode-line'"
           (const :tag "Telephone Line" telephone-line)
           (const :tag "Powerline" powerline)))
 
-(defcustom nema-theme 'srcery-theme
+(defcustom nema-theme 'tron-legacy
   "Color theme for the whole Emacs.
 Default is `srcery-theme'"
   :tag "Theme"
@@ -65,7 +65,8 @@ Default is `srcery-theme'"
           (const :tag "Fluc UI" flucui-themes)
           (const :tag "Srcery" srcery-theme)
           (const :tag "Kaolin" kaolin-themes)
-          (const :tag "Alect themes" alect-themes)))
+          (const :tag "Alect themes" alect-themes)
+          (const :tag "Tron: Legacy" tron-legacy)))
 
 (defcustom nema-theme-style 'dark
   "Use dark or light style of color theme (if the theme supports).
