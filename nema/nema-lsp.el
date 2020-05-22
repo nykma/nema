@@ -26,6 +26,7 @@
               java-mode
               tuareg-mode ;; OCaml
               ;; plain-tex-mode latex-mode ;; <- handled in nema-latex.el
+              yaml-mode
               ) . lsp)
             (lsp-mode . lsp-enable-which-key-integration))
      :init
