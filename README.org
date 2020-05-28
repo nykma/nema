@@ -78,7 +78,7 @@ emacs -nw
   :PROPERTIES:
   :ID:       ef25f462-f4dc-4b9f-ade4-46263eeed5bf
   :END:
-See [[https://github.com/emacs-lsp/lsp-mode#supported-languages][emacs-lsp/lsp-mode#supported-languages]]
+  See [[https://emacs-lsp.github.io/lsp-mode/page/languages][lsp-mode supported languages]]
 * Known issues
   :PROPERTIES:
   :ID:       2b934e9b-d6ed-4ea2-b4a6-11132f40955d
