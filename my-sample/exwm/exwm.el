@@ -3,6 +3,7 @@
 "EXWM config"
 ;;; Code:
 
+(require 'nema-customize-group)
 ;; FOLLOW STEPS IN README.org
 
 ;; Status bar in minibuffer when idle
@@ -26,6 +27,9 @@
   (require 'exwm-config)
   (exwm-config-default)
   (require 'exwm-systemtray)
-  (exwm-systemtray-enable))
+  (exwm-systemtray-enable)
+  (when (eq nema-emacs-completion-engine 'helm)
+    (use-package helm-exwm
+      :quelpa (helm-exwm :fetcher github :repo "emacs-helm/helm-exwm" :files ("helm-exwm.el")))))
 
 ;;; nema-exwm.el ends here
