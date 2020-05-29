@@ -69,8 +69,24 @@
 
   (when (executable-find "xrandr")
     (require 'exwm-randr)
-    (setq exwm-randr-workspace-output-plist '(1 "DP-0" 2 "DVI-D-0"))
-    (add-hook 'exwm-randr-screen-change-hook (lambda () (start-process-shell-command "xrandr" nil "xrandr --output DVI-D-0 --auto --output DP-0 --primary --auto --below DVI-D-0")))
+    ;; FIXME: too ugly. need to be generated
+    (setq exwm-randr-workspace-monitor-plist
+          '(1 "DP-0"
+              2 "DVI-D-0"
+              3 "DP-0"
+              4 "DP-0"
+              5 "DP-0"
+              6 "DVI-D-0"
+              7 "DVI-D-0"
+              8 "DVI-D-0"
+              9 "DVI-D-0"
+              0 "DVI-D-0"))
+    (add-hook 'exwm-randr-screen-change-hook
+              (lambda ()
+                (start-process-shell-command
+                 "xrandr"
+                 nil
+                 "xrandr --output DVI-D-0 --auto --output DP-0 --primary --auto --below DVI-D-0")))
     (exwm-randr-enable))
 
   (require 'exwm-systemtray)
@@ -78,6 +94,13 @@
 
   (when (eq nema-emacs-completion-engine 'helm)
     (use-package helm-exwm
-      :quelpa (helm-exwm :fetcher github :repo "emacs-helm/helm-exwm" :files ("helm-exwm.el")))))
+      :quelpa (helm-exwm :fetcher github :repo "emacs-helm/helm-exwm" :files ("helm-exwm.el"))))
+
+  ;; input method
+  (require 'exwm-xim)
+  (exwm-xim-enable)
+  ;; add your IM switching method to line-mode prefix keys list
+  ;; (push 'henkan exwm-input-prefix-keys)
+  )
 
 ;;; nema-exwm.el ends here
