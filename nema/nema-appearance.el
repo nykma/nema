@@ -2,8 +2,16 @@
 ;;; Commentary:
 "Appearance and UI settings"
 ;;; Code:
-
 (require 'nema-customize-group)
+
+;; Hide general UI elements
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(fringe-mode 1)
+
+;; No cursor blinking
+(blink-cursor-mode 0)
 
 ;; Hide welcome buffer
 (setq inhibit-startup-screen t)
