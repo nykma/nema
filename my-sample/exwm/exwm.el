@@ -5,7 +5,9 @@
 
 (require 'nema-customize-group)
 
-(server-mode 1)
+(setq display-time-default-load-average nil)
+(display-time-mode t)
+(server-start)
 
 ;; FOLLOW STEPS IN README.org
 
@@ -65,7 +67,6 @@
             ([?\C-k] . [S-end delete])))
 
   (exwm-enable)
-  (exwm-config-ido)
 
   (when (executable-find "xrandr")
     (require 'exwm-randr)
