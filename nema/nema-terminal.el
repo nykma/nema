@@ -3,6 +3,8 @@
 "Terminal Emulator"
 ;;; Code:
 
+(require 'nema-customize-group)
+
 (if (and (executable-find "clang")
          (executable-find "libtool")
          (or (executable-find "gcc")
@@ -12,6 +14,8 @@
     ;; Use a C/S term if build dependencies are satisfied.
     ;; https://github.com/akermu/emacs-libvterm
     (use-package vterm
+      :custom
+      (vterm-kill-buffer-on-exit t)
       :config
       (setq nema-term #'vterm)
       (when nema-use-evil
