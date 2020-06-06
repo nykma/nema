@@ -16,8 +16,9 @@
   ;; (setq magit-no-confirm t)
   )
 
-(use-package magit-todos
-  :hook ((magit-mode . magit-todos-mode)))
+;; Connsuming too much CPUs
+;; (use-package magit-todos
+;;   :hook ((magit-mode . magit-todos-mode)))
 
 ;; Intergration with GitHub / GitLab / BitBucket / Gitea / Gogs
 ;; See my-sample/forge.el for usage
