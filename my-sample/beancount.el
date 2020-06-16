@@ -4,7 +4,7 @@
 ;;; Code:
 
 (use-package beancount
-  :quelpa (beancount :fetcher github :repo "beancount/beancount" :files ("editors/emacs/beancount.el"))
+  :quelpa (beancount :fetcher url :url "https://raw.githubusercontent.com/beancount/beancount/master/editors/emacs/beancount.el")
   :mode
   ("\\.bean$" . beancount-mode))
 
