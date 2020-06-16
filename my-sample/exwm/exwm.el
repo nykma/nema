@@ -6,7 +6,7 @@
 (require 'nema-customize-group)
 
 (setq display-time-default-load-average nil)
-(display-time-mode t)
+;; (display-time-mode t)
 (server-start)
 
 ;; FOLLOW STEPS IN README.org
