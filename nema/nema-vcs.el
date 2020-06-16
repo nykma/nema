@@ -38,6 +38,7 @@
   (diff-hl-flydiff-mode))
 
 (use-package magit-delta
+  :delight
   :if (executable-find "delta")
   :quelpa (magit-delta :fetcher github :repo "dandavison/magit-delta" :files ("magit-delta.el"))
   :hook ((magit-mode . magit-delta-mode)))

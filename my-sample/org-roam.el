@@ -4,6 +4,7 @@
 ;;; Code:
 
 (use-package org-roam
+  :delight ""
   :hook (after-init . org-roam-mode)
   ;; :custom
   ;; (org-roam-directory "/path/to/org-files/")
