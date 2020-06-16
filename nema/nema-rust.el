@@ -3,6 +3,8 @@
 "Rust enhance tools."
 ;;; Code:
 
+(require 'nema-customize-group)
+
 (use-package rust-mode)
 
 (use-package toml-mode
@@ -15,6 +17,7 @@
     :hook ((rust-mode . racer-mode)
            (racer-mode . eldoc-mode)))
   (use-package flycheck-rust
+    :if nema-use-flycheck
     :requires (rust-mode flycheck)
     :hook (flycheck-mode . flycheck-rust-setup)
   ;; :config

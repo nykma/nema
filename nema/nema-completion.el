@@ -29,6 +29,7 @@
 (use-package all-the-icons)
 
 (use-package company-box
+  :delight
   :hook (company-mode . company-box-mode)
   :config
   (setq company-box-backends-colors nil

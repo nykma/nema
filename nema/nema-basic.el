@@ -168,5 +168,17 @@
   (advice-add 'bufler-workspace-mode-lighter
               :override #'nema//bufler-workspace-delight))
 
+;; Syntax checker - flymake (lasy version) or flycheck
+(if nema-use-flycheck
+    (use-package flycheck
+      :delight
+      :init
+      (setq flycheck-emacs-lisp-load-path 'inherit)
+      :config
+      (global-flycheck-mode))
+  (use-package lazyflymake
+    :quelpa (lazyflymake :fetcher github :repo "redguardtoo/lazyflymake")
+    :hook ((prog-mode . lazyflymake-start))))
+
 (provide 'nema-basic)
 ;;; nema-basic.el ends here

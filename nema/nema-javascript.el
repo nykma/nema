@@ -3,6 +3,8 @@
 "JavaScript and TypeScript tools"
 ;;; Code:
 
+(require 'nema-customize-group)
+
 (use-package js2-mode
   :mode "\\.\\(js\\)\\'"
   :config
@@ -10,7 +12,7 @@
         ;; js2-strict-trailing-comma-warning nil
         ;; js2-missing-semi-one-line-override nil
         ;; js2-strict-missing-semi-warning nil
-        js2-mode-show-parse-errors nil) ;; use flycheck & ESLint instead
+        js2-mode-show-parse-errors (not nema-use-flycheck)) ;; use flycheck & ESLint instead
   )
 
 (use-package typescript-mode
@@ -39,7 +41,6 @@
 See also: https://github.com/ananthakumaran/tide"
     (interactive)
     (tide-setup)
-    ;; (setq flycheck-check-syntax-automatically '(save mode-enabled))
     (tide-hl-identifier-mode t))
   (use-package tide
     ;; :mode "\\.\\(ts\\)\\'"

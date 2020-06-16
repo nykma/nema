@@ -44,7 +44,6 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-completion)
 (require 'nema-lsp)
 (require 'nema-vcs)
-(require 'nema-flycheck)
 (require 'nema-project)
 (require 'nema-terminal)
 (require 'nema-systemd)

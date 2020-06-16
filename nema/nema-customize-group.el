@@ -83,6 +83,12 @@ Default is `dark'"
   :group 'nema
   :type 'boolean)
 
+(defcustom nema-use-flycheck t
+  "Use flycheck or flymake."
+  :tag "FlyCheck"
+  :group 'nema
+  :type 'boolean)
+
 (provide 'nema-customize-group)
 
 ;;; nema-customize-group.el ends here
