@@ -34,7 +34,7 @@ Default is `rime'."
      ;; (rime-user-data-dir "~/.config/fcitx/rime")
      :config
      (setq rime-translate-keybindings '("C-f" "C-b" "C-n" "C-p" "C-g")
-           rime-show-candidate 'posframe)
+           rime-show-candidate 'minibuffer)
      (if nema-use-evil
          ;; 一个在 evil-normal-state 中、在英文字母后面以及代码中自动使用英文的例子。
          (setq rime-disable-predicates
