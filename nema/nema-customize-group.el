@@ -16,7 +16,7 @@ Default is `ivy'."
   :tag "Emacs completion engine"
   :group 'nema
   :type '(choice
-          (const :tag "ido" nil)
+          (const :tag "ido" ido)
           (const :tag "Ivy / Swiper" ivy)
           (const :tag "Helm" helm)
           (const :tag "Selectrum" selectrum)))
