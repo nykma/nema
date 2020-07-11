@@ -6,7 +6,7 @@
 (require 'nema-customize-group)
 (require 's) ;; s-contains?/2
 
-(defcustom nema-native-compile-ignore-names '()
+(defcustom nema-native-compile-ignore-names '("telega")
   "Packages' name which should be ignored when native-compiling
 Default is empty list"
   :tag "Native compile ignore list"
