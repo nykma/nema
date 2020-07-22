@@ -125,6 +125,9 @@
   :demand t
   :hook ((dired-mode . org-download-enable)))
 
+;; Github flavoured marodkwn exporter
+(use-package ox-gfm)
+
 (provide 'nema-org)
 
 ;;; nema-org.el ends here
