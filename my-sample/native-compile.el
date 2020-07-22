@@ -7,8 +7,9 @@
 (require 's) ;; s-contains?/2
 
 (defcustom nema-native-compile-ignore-names '("telega")
-  "Packages' name which should be ignored when native-compiling
-Default is empty list"
+  "Packages' name which should be ignored when native-compiling.
+
+Default is '(\"telega\")"
   :tag "Native compile ignore list"
   :group 'nema
   :type '(repeat string))
@@ -36,5 +37,9 @@ Return t if any one in NEEDLE-LIST matches."
   (let* ((dirs (directory-files (expand-file-name "elpa" user-emacs-directory) t "^[^\\.]"))
          (target (seq-filter #'nema//native-compile-target-p dirs)))
     (native-compile-async target t)))
+
+;; Maybe a workaround of
+;; Error: Symbol’s function definition is void: cc-bytecomp-is-compiling
+(require 'cc-bytecomp)
 
 ;;; native-compile.el ends here
