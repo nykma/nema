@@ -5,6 +5,8 @@
 
 (use-package helm
   :delight
+  (helm-mode)
+  (helm-ff-cache-mode)
   :bind (("M-x" . helm-M-x)
          ("C-x C-f" . helm-find-files))
   :config
