@@ -21,7 +21,7 @@
 ;; Packges: If not customized in custom.el
 (let* ((old-package-archives (eval (car (get 'package-archives 'standard-value)))))
   (unless (eq old-package-archives package-archives)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
     (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
     ;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
     (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)))
