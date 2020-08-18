@@ -1,7 +1,7 @@
 #+TITLE: NEMA - Nayuki's EMAcs config
 #+AUTHOR: Nyk Ma <i@nyk.ma>
 
-[[https://builds.sr.ht/~nykma/nema/test.yml.svg]] [[https://img.shields.io/badge/written%20by-nema-e298b6.svg]]
+[[https://builds.sr.ht/~nykma/nema/test.yml.svg]] [[https://img.shields.io/badge/written%20with-nema-e298b6.svg]]
 
 [[https://user-images.githubusercontent.com/1191636/74646301-85dc6c80-51b4-11ea-900e-3827ee42c979.png]]
 
@@ -41,7 +41,6 @@ emacs -nw
 | =C-c & w=     | =aya-create=                    | =nema-snippet.el= | Create and use a snippet when editing          |
 | =C-M-o=       | =ace-window=                    | =nema-basic.el=   | Powerful window switch                         |
 | =C-1= ~ =C-9= | =winum-select-window-1=         | =nema-basic.el=   | Quick window switch                            |
-| =C-z=         | =popwin:keymap=                 | =nema-basic.el=   | Popup window (acts like Quickfix in Vim)       |
 
 * Customize
   :PROPERTIES:

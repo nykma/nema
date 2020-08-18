@@ -114,12 +114,13 @@
 ;;   (smartparens-global-mode t))
 
 ;; Popup window manager
-(use-package popwin
-  :delight
-  :bind-keymap
-  ("C-z" . popwin:keymap)
-  :config
-  (popwin-mode 1))
+;; Seldom use it. Disabled.
+;; (use-package popwin
+;;   :delight
+;;   :bind-keymap
+;;   ("C-z" . popwin:keymap)
+;;   :config
+;;   (popwin-mode 1))
 
 ;; Better help page
 (use-package helpful

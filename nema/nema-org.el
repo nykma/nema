@@ -10,7 +10,7 @@
 
 (use-package org
   :pin org
-  :bind (("C-c a" . org-agenda)
+  :bind (;; ("C-c a" . org-agenda)
          ("C-c c" . org-capture))
   :config
   ;; Auto save all org files

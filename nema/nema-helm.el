@@ -30,7 +30,10 @@
   (setq helm-multi-swoop-edit-save t)
 
   ;; If this value is t, split window inside the current window
-  (setq helm-swoop-split-with-multiple-windows t))
+  (setq helm-swoop-split-with-multiple-windows t)
+
+  ;; Cache causes too much trouble. Disable it.
+  (setq helm-ff-keep-cached-candidates nil))
 
 (provide 'nema-helm)
 
