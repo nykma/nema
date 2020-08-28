@@ -39,7 +39,6 @@
            lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory)
            lsp-prefer-capf t)
      :config
-     (require 'lsp-clients)
      (use-package lsp-java)
      ;; Add some extra dirs to ignore
      (dolist (dir '("[/\\\\]builddir$"
