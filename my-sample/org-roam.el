@@ -17,7 +17,7 @@
          ("C-c n f" . org-roam-find-file)
          ("C-c n g" . org-roam-graph))
         :map org-mode-map
-        (("C-c n i" . org-roam-insert)))
+        (("C-c n i" . org-roam-insert-immediate)))
   :init
   (setq org-roam-db-location (expand-file-name ".cache/roam.db" user-emacs-directory))
   :config
