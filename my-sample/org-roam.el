@@ -30,6 +30,11 @@
            :file-name "%<%Y%m%d%H%M%S>-${slug}"
            :head "#+title: ${title}\n#+roam_alias:\n#+roam_tags:\n\n* ${title}\n"))))
 
+(use-package company-org-roam
+  :if (fboundp 'company-mode)
+  :config
+  (push 'company-org-roam company-backends))
+
 (use-package org-roam-server
   :commands (org-roam-server-mode)
   :config
