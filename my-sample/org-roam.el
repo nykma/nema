@@ -23,7 +23,12 @@
   :config
   ;; https://www.orgroam.com/manual/Installation-_00281_0029.html#Installation-_00281_0029
   (require 'org-roam-protocol)
-  (setq org-roam-completion-system nema-emacs-completion-engine))
+  (setq org-roam-completion-system nema-emacs-completion-engine
+        org-roam-capture-templates
+        '(("d" "default" plain (function org-roam-capture--get-point)
+           "%?"
+           :file-name "%<%Y%m%d%H%M%S>-${slug}"
+           :head "#+title: ${title}\n#+roam_alias:\n#+roam_tags:\n\n* ${title}\n"))))
 
 (use-package org-roam-server
   :commands (org-roam-server-mode)
@@ -46,6 +51,7 @@
   (:map org-roam-mode-map
         (("C-c n j" . org-journal-new-entry)))
   :custom
+  (org-journal-file-header "#+roam_tags: journal")
   (org-journal-date-prefix "#+title: ")
   (org-journal-file-format "%Y-%m-%d.org")
   (org-journal-dir (expand-file-name "journal" org-roam-directory))
