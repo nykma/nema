@@ -28,7 +28,18 @@
         '(("d" "default" plain (function org-roam-capture--get-point)
            "%?"
            :file-name "%<%Y%m%d%H%M%S>-${slug}"
-           :head "#+title: ${title}\n#+roam_alias:\n#+roam_tags:\n\n* ${title}\n"))))
+           :head "#+title: ${title}\n#+roam_alias:\n#+roam_tags:\n\n* ${title}\n"))
+        org-roam-capture-ref-templates
+        ;; webclip JS bookmark:
+        ;; javascript:location.href = 'org-protocol://roam-ref?template=c&ref=' + encodeURIComponent(location.href) + '&title='+encodeURIComponent(document.title) + '&body='+encodeURIComponent(function(){var html = "";var sel = window.getSelection();if (sel.rangeCount) {var container = document.createElement("div");for (var i = 0, len = sel.rangeCount; i < len; ++i) {container.appendChild(sel.getRangeAt(i).cloneContents());}html = container.innerHTML;}var dataDom = document.createElement('div');dataDom.innerHTML = html;['p', 'h1', 'h2', 'h3', 'h4'].forEach(function(tag, idx){dataDom.querySelectorAll(tag).forEach(function(item, index) {var content = item.innerHTML.trim();if (content.length > 0) {item.innerHTML = content + '&#13;&#10;';}});});return dataDom.innerText.trim();}())
+        ;; from: https://www.zmonster.me/2020/06/27/org-roam-introduction.html
+        ;; For qutebrowser:
+        '(("c" "Web clip" plain (function org-roam-capture--get-point)
+           "- %U ${body}"
+           :file-name "webclips/${slug}"
+           :head "#+title: ${title}\n#+roam_key: ${ref}\n#+roam_alias:\n#+roam_tags: webclip\n\n* ${title}\n"
+           :immediate-finish t
+           :unnarrowed t))))
 
 (use-package company-org-roam
   :if (fboundp 'company-mode)
