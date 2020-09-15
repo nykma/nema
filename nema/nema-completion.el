@@ -18,12 +18,21 @@
             '(:with company-yasnippet))))
 
 ;; Popup documentation for completion candidates
-(use-package company-quickhelp
-  ;; :bind (:map company-active-map
-  ;; ("M-h" . company-quickhelp-manual-begin))
-  :hook (global-company-mode . company-quickhelp-mode)
+(use-package posframe
+  :quelpa (posframe :fetcher github :repo "tumashu/posframe" :files ("posframe.el"))
   :config
-  (setq company-quickhelp-delay 0.2))
+  (company-posframe-mode 1))
+
+(use-package company-posframe
+  :quelpa (company-posframe :fetcher github :repo "tumashu/company-posframe" :files ("company-posframe.el"))
+  :delight)
+
+;; (use-package company-quickhelp
+;;   ;; :bind (:map company-active-map
+;;   ;; ("M-h" . company-quickhelp-manual-begin))
+;;   :hook (global-company-mode . company-quickhelp-mode)
+;;   :config
+;;   (setq company-quickhelp-delay 0.2))
 
 ;; Icons and fancies
 (use-package all-the-icons)
