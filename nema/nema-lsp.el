@@ -64,9 +64,22 @@
      ;; WORKAROUND
      ;; See: https://github.com/syl20bnr/spacemacs/issues/13355
      (setq lsp-ui-doc--buffer-prefix "*lsp-ui-doc-"
-           lsp-ui-doc-winum-ignore t)
+           lsp-ui-doc-winum-ignore t
+           ;; https://github.com/emacs-lsp/lsp-mode/blob/master/docs/tutorials/how-to-turn-off.md
+           lsp-enable-symbol-highlighting t
+           lsp-ui-doc-enable t
+           lsp-lens-enable t
+           lsp-headerline-breadcrumb-enable t
+           lsp-ui-sideline-enable t
+           lsp-ui-sideline-show-hover nil
+           lsp-ui-sideline-show-code-actions t
+           lsp-ui-sideline-show-diagnostics t
+           lsp-modeline-code-actions-enable t
+           lsp-signature-auto-active t
+           lsp-signature-render-documentation nil)
      :config
-     (setq scroll-margin 0))
+     (setq scroll-margin 0)
+     (delight 'lsp-lens-mode nil 'lsp-lens))
 
    ;; Debugger
    ;; See https://github.com/yyoncho/dap-mode for usage
