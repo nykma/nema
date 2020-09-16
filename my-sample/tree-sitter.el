@@ -3,15 +3,17 @@
 "Incremental parsing"
 ;;; Code:
 
-(add-to-list 'package-archives '("ublt" . "https://elpa.ubolonton.org/packages/"))
-
-(use-package tree-sitter)
+(use-package tree-sitter
+  :quelpa (tree-sitter :fetcher github :repo "ubolonton/emacs-tree-sitter" :files ("lisp/*.el")))
 
 (use-package tree-sitter-langs
+  :quelpa (tree-sitter-langs :fetcher github :repo "ubolonton/emacs-tree-sitter" :files ("langs/*.el" "langs/queries"))
+  :after tree-sitter
   :config
-  (global-tree-sitter-mode)
   (require 'tree-sitter-hl)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+  (global-tree-sitter-mode)
+  (delight 'tree-sitter-mode nil 'tree-sitter)
+  ;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
   (add-to-list 'tree-sitter-major-mode-language-alist '(tuareg-mode . ocaml))
   (add-to-list 'tree-sitter-major-mode-language-alist '(ng2-ts-mode . typescript))
