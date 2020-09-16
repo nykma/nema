@@ -13,7 +13,7 @@
   (require 'tree-sitter-hl)
   (global-tree-sitter-mode)
   (delight 'tree-sitter-mode nil 'tree-sitter)
-  ;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
   (add-to-list 'tree-sitter-major-mode-language-alist '(tuareg-mode . ocaml))
   (add-to-list 'tree-sitter-major-mode-language-alist '(ng2-ts-mode . typescript))
