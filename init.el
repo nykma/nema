@@ -73,6 +73,7 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-latex)
 (require 'nema-ocaml)
 (require 'nema-protobuf)
+(require 'nema-haskell)
 
 ;; misc
 (require 'nema-dired)
