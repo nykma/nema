@@ -4,7 +4,10 @@
 ;;; Code:
 
 (use-package beancount
-  :quelpa (beancount :fetcher url :url "https://raw.githubusercontent.com/beancount/beancount/master/editors/emacs/beancount.el")
+  :quelpa (beancount :fetcher github :repo "beancount/beancount-mode" :files ("beancount.el" "COPYING"))
+  :hook
+  ((beancount-mode . (lambda () (setq-local electric-indent-chars nil)))
+   (beancount-mode . outline-minor-mode))
   :mode
   ("\\.bean$" . beancount-mode))
 
