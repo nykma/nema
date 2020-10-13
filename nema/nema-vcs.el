@@ -13,6 +13,7 @@
         transient-levels-file (expand-file-name ".cache/transient/levels.el" user-emacs-directory)
         transient-values-file (expand-file-name ".cache/transient/values.el" user-emacs-directory))
   :config
+  (setq magit-revision-show-gravatars t)
   ;; (setq magit-no-confirm t)
   )
 
