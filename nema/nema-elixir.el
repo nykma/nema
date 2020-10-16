@@ -17,6 +17,11 @@
   ;; Since original repo is kinda deprecated
   :quelpa (alchemist :fetcher github :repo "dfischer/alchemist.el"))
 
+(use-package inf-iex
+  :hook (elixir-mode . inf-iex-minor-mode)
+  :quelpa (inf-iex :fetcher github
+                :repo "DogLooksGood/inf-iex"))
+
 (provide 'nema-elixir)
 
 ;;; nema-elixir.el ends here
