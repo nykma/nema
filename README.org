@@ -17,8 +17,10 @@ A not-so-hurt-yet-still-make-kind-of-sense emacs configuration set, c/w a bunch 
   :ID:       ca712775-4855-4d5a-844a-6bad3318844c
   :END:
 
-  Any specific {package,variable} config should be found *no more than
-  2 layers* down from =init.el=.
+  1. Any specific {package,variable} config should be found *no more than
+     2 layers* down from =init.el=.
+  2. I will *not* focus on "startup speed", since daemonize Emacs is
+     all you need.
 
 * Usage
   :PROPERTIES:
