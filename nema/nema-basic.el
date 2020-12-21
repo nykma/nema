@@ -80,10 +80,17 @@
         avy-timeout-seconds 0.3))
 
 ;; ace-window - Quickly switch windows
-(use-package ace-window
-  :bind (("C-M-o" . ace-window))
+;; (use-package ace-window
+;;   :bind (("C-M-o" . ace-window))
+;;   :config
+;;   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
+;; a dynamic window manager for Emacs
+(use-package edwina
   :config
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+  (setq display-buffer-base-action '(display-buffer-below-selected))
+  (edwina-setup-dwm-keys)
+  (edwina-mode 1))
 
 ;; multiple-cursors
 (use-package multiple-cursors
