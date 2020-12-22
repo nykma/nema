@@ -86,7 +86,6 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 ;; Key bindings
 (if nema-use-evil
     (require 'nema-evil))
-(require 'nema-hydra)
 
 ;; Load all self configs in ~/.emacs.d/my
 (let ((loaded (mapcar #'car load-history)))

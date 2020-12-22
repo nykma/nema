@@ -62,6 +62,11 @@
     :config
     (setq multi-term-program "/usr/bin/bash")))
 
+(global-set-key (kbd "M-i")
+                (lambda ()
+                  (interactive)
+                  (call-interactively nema-term)))
+
 (provide 'nema-terminal)
 
 ;;; nema-terminal.el ends here

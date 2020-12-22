@@ -39,18 +39,19 @@ emacs -nw
   :ID:       13729a39-5628-49a7-9f5c-eeb44f740985
   :END:
 
-| Hotkey        | Command                         | Location          | Comment                                        |
-|---------------+---------------------------------+-------------------+------------------------------------------------|
-| =C-c g g=     | =magit-status=                  | =nema-vcs.el=     | =git status=                                   |
-| =C-c g b=     | =magit-blame=                   | =nema-vcs.el=     | =git blame= current buffer                     |
-| =C-c g d=     | =magit-diff-buffer-file=        | =nema-vcs.el=     | =git diff= current buffer                      |
-| C-'           | =avy-goto-char-timer=           | =nema-basic.el=   | Cursor jump to location                        |
-| =C->=         | =mc/mark-next-like-this-symbol= | =nema-basic.el=   | Multi cursor (find next symbol)                |
-| =C-C=         | =mc/edit-lines=                 | =nema-basic.el=   | Multi cursor (add one cursor each line)        |
-| =M-o=         | Common window functions         | =nema-hydra.el=   | Focus changing, window creation/deletion, etc. |
-| =C-c & w=     | =aya-create=                    | =nema-snippet.el= | Create and use a snippet when editing          |
-| =C-M-o=       | =ace-window=                    | =nema-basic.el=   | Powerful window switch                         |
-| =C-1= ~ =C-9= | =winum-select-window-1=         | =nema-basic.el=   | Quick window switch                            |
+| Hotkey        | Command                         | Defined in         | Comment                                 |
+|---------------+---------------------------------+--------------------+-----------------------------------------|
+| =C-c g g=     | =magit-status=                  | =nema-vcs.el=      | =git status=                            |
+| =C-c g b=     | =magit-blame=                   | =nema-vcs.el=      | =git blame= current buffer              |
+| =C-c g d=     | =magit-diff-buffer-file=        | =nema-vcs.el=      | =git diff= current buffer               |
+| C-'           | =avy-goto-char-timer=           | =nema-basic.el=    | Cursor jump to location                 |
+| =C->=         | =mc/mark-next-like-this-symbol= | =nema-basic.el=    | Multi cursor (find next symbol)         |
+| =C-C=         | =mc/edit-lines=                 | =nema-basic.el=    | Multi cursor (add one cursor each line) |
+| =M-S-RET=     | =edwina-clone-window=           | =nema-basic.el=    | Provided by =edwina=                    |
+| =M-i=         | =nema-term=                     | =nema-terminal.el= | Start a terminal buffer                 |
+| =C-c & w=     | =aya-create=                    | =nema-snippet.el=  | Create and use a snippet when editing   |
+| =C-M-o=       | =ace-window=                    | =nema-basic.el=    | Powerful window switch                  |
+| =C-1= ~ =C-9= | =winum-select-window-1=         | =nema-basic.el=    | Quick window switch                     |
 
 * Customize
   :PROPERTIES:

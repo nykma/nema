@@ -89,6 +89,22 @@
 (use-package edwina
   :config
   (setq display-buffer-base-action '(display-buffer-below-selected))
+  ;; Customized, since original M-d is annoying
+  (setq edwina-dwm-key-alist
+        '(("r" edwina-arrange)
+          ("j" edwina-select-next-window)
+          ("k" edwina-select-previous-window)
+          ("J" edwina-swap-next-window)
+          ("K" edwina-swap-previous-window)
+          ("h" edwina-dec-mfact)
+          ("l" edwina-inc-mfact)
+          ("D" edwina-dec-nmaster)
+          ("I" edwina-inc-nmaster)
+          ("C" edwina-delete-window)
+          ("RET" edwina-zoom t)
+          ("return" edwina-zoom t)
+          ("S-RET" edwina-clone-window t)
+          ("S-return" edwina-clone-window t)))
   (edwina-setup-dwm-keys)
   (edwina-mode 1))
 
