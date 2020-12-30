@@ -18,7 +18,7 @@
 
   :init
   (setq telega-directory (expand-file-name ".cache/telega" user-emacs-directory)
-        telega-chat-use-markdown-version 2)
+        telega-chat-input-markups '("markdown2" nil))
 
   :config
   (telega-mode-line-mode 1)

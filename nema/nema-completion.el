@@ -19,13 +19,13 @@
 
 ;; Popup documentation for completion candidates
 (use-package posframe
-  :quelpa (posframe :fetcher github :repo "tumashu/posframe" :files ("posframe.el"))
-  :config
-  (company-posframe-mode 1))
+  :quelpa (posframe :fetcher github :repo "tumashu/posframe" :files ("posframe.el")))
 
 (use-package company-posframe
   :quelpa (company-posframe :fetcher github :repo "tumashu/company-posframe" :files ("company-posframe.el"))
-  :delight)
+  :delight
+  :config
+  (company-posframe-mode 1))
 
 ;; (use-package company-quickhelp
 ;;   ;; :bind (:map company-active-map

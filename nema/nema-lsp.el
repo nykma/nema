@@ -36,8 +36,7 @@
            lsp-auto-guess-root t
            lsp-response-timeout 20
            lsp-idle-delay 0.500
-           lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory)
-           lsp-prefer-capf t)
+           lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory))
      :config
      (use-package lsp-java)
      ;; Add some extra dirs to ignore
@@ -48,7 +47,7 @@
                     "[/\\\\]deps$"
                     "[/\\\\]\\.log$"
                     "[/\\\\]vendor$"))
-       (push dir lsp-file-watch-ignored)))
+       (push dir lsp-file-watch-ignored-directories)))
 
    ;; Display LSP output
    (use-package lsp-ui
@@ -69,13 +68,12 @@
            lsp-enable-symbol-highlighting t
            lsp-ui-doc-enable t
            lsp-lens-enable t
-           lsp-headerline-breadcrumb-enable t
+           lsp-headerline-breadcrumb-enable nil
            lsp-ui-sideline-enable t
            lsp-ui-sideline-show-hover nil
            lsp-ui-sideline-show-code-actions t
            lsp-ui-sideline-show-diagnostics t
            lsp-modeline-code-actions-enable t
-           lsp-signature-auto-active t
            lsp-signature-render-documentation nil)
      :config
      (setq scroll-margin 0)

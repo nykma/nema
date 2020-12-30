@@ -77,7 +77,7 @@
    (use-package moe-theme
      :config
      (setq moe-theme-highlight-buffer-id t)
-     (moe-theme-set-color 'cyan)
+     (moe-theme-apply-color 'yellow)
      (if (eq 'dark nema-theme-style)
          (moe-dark)
        (moe-light))))
