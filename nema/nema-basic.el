@@ -134,7 +134,7 @@
 (use-package smartparens-config
   :ensure smartparens
   ;; https://ebzzry.io/en/emacs-pairs/#keys
-  :hook ((prog-mode markdown-mode org-mode) . turn-on-smartparens-strict-mode)
+  ;; :hook ((prog-mode markdown-mode org-mode) . turn-on-smartparens-strict-mode)
   :bind (:map smartparens-mode-map
               ("C-M-a" . sp-beginning-of-sexp)
               ("C-M-e" . sp-end-of-sexp)
