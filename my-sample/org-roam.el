@@ -41,13 +41,6 @@
            :immediate-finish t
            :unnarrowed t))))
 
-(use-package company-org-roam
-  :if (fboundp 'company-mode)
-  ;; Seems like company-mode disabled in org-mode
-  :hook ((org-mode . company-mode))
-  :config
-  (push 'company-org-roam company-backends))
-
 (use-package org-roam-server
   :commands (org-roam-server-mode)
   :config
