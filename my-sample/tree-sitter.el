@@ -12,7 +12,7 @@
   :quelpa (tree-sitter :fetcher github :repo "ubolonton/emacs-tree-sitter" :files ("lisp/*.el")))
 
 (use-package tree-sitter-langs
-  :quelpa (tree-sitter-langs :fetcher github :repo "ubolonton/emacs-tree-sitter" :files ("langs/*.el" "langs/queries"))
+  :quelpa (tree-sitter-langs :fetcher github :repo "ubolonton/tree-sitter-langs")
   :after tree-sitter
   :config
   (require 'tree-sitter-hl)
@@ -30,5 +30,6 @@
   ;;         (add-hook lang-hook #'tree-sitter-mode)
   ;;       (message "tree-sitter: %s not found in current emacs environment. Skipped" lang-hook-string))))
   )
+
 
 ;;; tree-sitter.el ends here
