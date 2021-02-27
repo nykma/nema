@@ -136,7 +136,11 @@
      ;; FIXME: too dirty
      (add-to-list 'custom-theme-load-path (expand-file-name "quelpa/build/tron-legacy-theme" user-emacs-directory))
      ;; (setq tron-legacy-dark-fg-bright-comments t)
-     (load-theme 'tron-legacy t)))))
+     (load-theme 'tron-legacy t)))
+  ('nord
+   (use-package nord-theme
+     :config
+     (load-theme 'nord t)))))
 
 (defun nema/reload-modeline (_args)
   "Reload mode line with settings of `nema-mode-line'."
