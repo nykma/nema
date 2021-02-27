@@ -19,10 +19,10 @@
   (add-hook 'enh-ruby-mode-hook 'inf-ruby-minor-mode)
   (add-hook 'compilation-filter-hook 'inf-ruby-auto-enter))
 
-(use-package projectile-rails
-  :delight 'projectile-rails-mode
-  :config
-  (projectile-rails-global-mode))
+;; (use-package projectile-rails
+;;   :delight 'projectile-rails-mode
+;;   :config
+;;   (projectile-rails-global-mode))
 
 (use-package rinari)
 ;; https://github.com/emacs-lsp/lsp-ruby
