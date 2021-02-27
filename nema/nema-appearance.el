@@ -140,7 +140,14 @@
   ('nord
    (use-package nord-theme
      :config
-     (load-theme 'nord t)))))
+     ;; NOTE: very stupid behavior will happen in terminal Emacsclient
+     ;; SEEALSO: https://github.com/arcticicestudio/nord-emacs/issues/59
+     (if (daemonp)
+	    (add-hook 'after-make-frame-functions
+		      (lambda (frame)
+			(with-selected-frame frame (load-theme 'nord t))))
+	  (load-theme 'nord t))
+     ))))
 
 (defun nema/reload-modeline (_args)
   "Reload mode line with settings of `nema-mode-line'."
@@ -183,8 +190,8 @@
            (powerline-moe-theme)
          (powerline-center-theme))))))
 
-(nema/reload-theme ())
 (nema/reload-modeline ())
+(nema/reload-theme ())
 
 (provide 'nema-appearance)
 
