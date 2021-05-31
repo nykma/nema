@@ -9,7 +9,7 @@
   :hook (org-mode . org-superstar-mode))
 
 (use-package org
-  :pin org
+  :pin gnu
   :bind (;; ("C-c a" . org-agenda)
          ("C-c c" . org-capture))
   :config
@@ -98,8 +98,8 @@
         maple-preview:websocket-port 8081
         maple-preview:auto t))
 
-(use-package org-plus-contrib
-  :pin org
+(use-package org-contrib
+  :pin nongnu
   :no-require t)
 
 ;; Org babel extensions
