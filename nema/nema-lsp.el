@@ -36,7 +36,8 @@
            lsp-auto-guess-root t
            lsp-response-timeout 20
            lsp-idle-delay 0.500
-           lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory))
+           lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory)
+           lsp-eslint-library-choices-file (expand-file-name ".cache/lsp-eslint-choices" user-emacs-directory))
      :config
      (use-package lsp-java)
      ;; Add some extra dirs to ignore
