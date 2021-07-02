@@ -64,8 +64,8 @@
 	 ("C-e" . mwim-end-of-code-or-line)))
 
 ;; ace-jump-mode - cursor quick jump
-;; (use-package ace-jump-mode
-;;   :bind (("C-." . ace-jump-mode)))
+(use-package ace-jump-mode
+  :bind (("C-." . ace-jump-mode)))
 
 ;; avy - jump to char
 (use-package avy
@@ -80,33 +80,10 @@
         avy-timeout-seconds 0.3))
 
 ;; ace-window - Quickly switch windows
-;; (use-package ace-window
-;;   :bind (("C-M-o" . ace-window))
-;;   :config
-;;   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
-
-;; a dynamic window manager for Emacs
-(use-package edwina
+(use-package ace-window
+  :bind (("C-M-o" . ace-window))
   :config
-  (setq display-buffer-base-action '(display-buffer-below-selected))
-  ;; Customized, since original M-d is annoying
-  (setq edwina-dwm-key-alist
-        '(("r" edwina-arrange)
-          ("j" edwina-select-next-window)
-          ("k" edwina-select-previous-window)
-          ("J" edwina-swap-next-window)
-          ("K" edwina-swap-previous-window)
-          ("h" edwina-dec-mfact)
-          ("l" edwina-inc-mfact)
-          ("D" edwina-dec-nmaster)
-          ("I" edwina-inc-nmaster)
-          ("C" edwina-delete-window)
-          ("RET" edwina-zoom t)
-          ("return" edwina-zoom t)
-          ("S-RET" edwina-clone-window t)
-          ("S-return" edwina-clone-window t)))
-  (edwina-setup-dwm-keys)
-  (edwina-mode 1))
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 ;; multiple-cursors
 (use-package multiple-cursors
