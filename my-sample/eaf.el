@@ -17,72 +17,76 @@ https://github.com/manateelazycat/emacs-application-framework/wiki/Keybindings
 "
 ;;; Code:
 
-(defun nema--pip-package-p (package-name)
-  "Test if PACKAGE-NAME is installed."
-  (let* ((buffer-name "*nema-pip-probe*")
-         (cmd (concat "pip3 show " package-name))
-         (result (shell-command cmd buffer-name)))
-    (kill-buffer buffer-name)
-    (eq result 0)))
+(require 'nema-customize-group)
 
-(defun nema--pip-packages-p (package-list)
-  "Test PACKAGE-LIST of pip packages."
-  (if package-list
-      (if (nema--pip-package-p (car package-list))
-          (nema--pip-packages-p (cdr package-list))
-        (error (concat "EAF: pip3 dependency: "
-                       (car package-list)
-                       " not found. Consider install it." ))
-        nil)
-    t))
+;; (defun nema--pip-package-p (package-name)
+;;   "Test if PACKAGE-NAME is installed."
+;;   (let* ((buffer-name "*nema-pip-probe*")
+;;          (cmd (concat "pip3 show " package-name))
+;;          (result (shell-command cmd buffer-name)))
+;;     (kill-buffer buffer-name)
+;;     (eq result 0)))
 
-(defun nema-eaf-check-dep ()
-  "Check depenency of EAF."
-  (interactive "P")
-  (let* ((package-list '("dbus-python"
-                         "python-xlib"
-                         "pyqt5"
-                         "pyqtwebengine"
-                         "pymupdf"
-                         "grip"
-                         "qrcode"
-                         "feedparser"
-                         "aria2p"))
-         (package-result (nema--pip-packages-p package-list)))
-    package-result))
+;; (defun nema--pip-packages-p (package-list)
+;;   "Test PACKAGE-LIST of pip packages."
+;;   (if package-list
+;;       (if (nema--pip-package-p (car package-list))
+;;           (nema--pip-packages-p (cdr package-list))
+;;         (error (concat "EAF: pip3 dependency: "
+;;                        (car package-list)
+;;                        " not found. Consider install it." ))
+;;         nil)
+;;     t))
 
-;; It cannot use quelpa since it lacks some info when packaging into
-;; ELPA.
-(let* ((eaf-repo "https://github.com/manateelazycat/emacs-application-framework.git")
-       (eaf-dir (expand-file-name "my/eaf" user-emacs-directory))
-       (eaf-dir-exists (file-directory-p eaf-dir)))
-  (unless eaf-dir-exists
-    (shell-command (concat "git clone "
-                           eaf-repo
-                           " "
-                           eaf-dir)))
-  (eval `(use-package eaf
-      :load-path ,eaf-dir
-      :custom
-      (eaf-find-alternate-file-in-dired t)
-      (eaf-config-location ,(expand-file-name ".cache/eaf" user-emacs-directory))
-      :config
-      ;; Make EAF the default browser of Emacs
-      (setq browse-url-function 'eaf-open-browser)
-      (defalias 'browse-web #'eaf-open-browser)
+;; (defun nema-eaf-check-dep ()
+;;   "Check depenency of EAF."
+;;   (interactive "P")
+;;   (let* ((package-list '("dbus-python"
+;;                          "python-xlib"
+;;                          "pyqt5"
+;;                          "pyqtwebengine"
+;;                          "pymupdf"
+;;                          "grip"
+;;                          "qrcode"
+;;                          "feedparser"
+;;                          "aria2p"))
+;;          (package-result (nema--pip-packages-p package-list)))
+;;     package-result))
 
-      ;; browser settings
-      (setq eaf-browser-search-engines 'duckduckgo)
-      (eaf-setq eaf-browser-blank-page-url "about:blank")
-      (eaf-setq eaf-browser-default-zoom "1.25") ;; I'm using HiDPI display
-      (eaf-setq eaf-browser-dark-mode ,(if (eq nema-theme-style 'dark) "true" "false"))
+(use-package eaf
+   :quelpa (eaf :fetcher github
+                :repo  "manateelazycat/emacs-application-framework"
+                :files ("*"))
+   :init
+   (use-package epc :defer t :ensure t)
+   (use-package ctable :defer t :ensure t)
+   (use-package deferred :defer t :ensure t)
+   (use-package s :defer t :ensure t)
+   (message "EAF: Trigger M-x eaf-install-dependencies if you haven't installed dependencies!")
+   :custom
+   (eaf-browser-continue-where-left-off t)
+   (eaf-find-alternate-file-in-dired t)
+   (eaf-config-location (expand-file-name ".cache/eaf" user-emacs-directory))
+   :config
+   (eaf-setq eaf-browser-enable-adblocker "true")
+   (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+   (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+   ;; Make EAF the default browser of Emacs
+   (setq browse-url-function 'eaf-open-browser)
+   (defalias 'browse-web #'eaf-open-browser)
 
-      ;; org intergration
-      (defun nema--eaf-org-open-file (file &optional link)
-        "An wrapper function on `eaf-open'."
-        (eaf-open file))
+   ;; browser settings
+   (setq eaf-browser-search-engines 'duckduckgo)
+   (eaf-setq eaf-browser-blank-page-url "about:blank")
+   (eaf-setq eaf-browser-default-zoom "1.25") ;; I'm using HiDPI display
+   (eaf-setq eaf-browser-dark-mode (if (eq nema-theme-style 'dark) "true" "false"))
 
-      ;; use `emacs-application-framework' to open PDF file: link
-      (add-to-list 'org-file-apps '("\\.pdf\\'" . nema--eaf-org-open-file)))))
+   ;; org intergration
+   (defun nema--eaf-org-open-file (file &optional link)
+     "An wrapper function on `eaf-open'."
+     (eaf-open file))
 
-;;; eal.el ends here
+   ;; use `emacs-application-framework' to open PDF file: link
+   (add-to-list 'org-file-apps '("\\.pdf\\'" . nema--eaf-org-open-file)))
+
+;;; eaf.el ends here
