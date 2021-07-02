@@ -5,7 +5,7 @@
 
 (use-package company-tabnine
   :config
-  (push 'company-tabnine company-backends))
+  (push '(company-tabnine company-capf) company-backends))
 
 (provide 'company-tabnine)
 
