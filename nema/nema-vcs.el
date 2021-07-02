@@ -38,10 +38,10 @@
   (global-diff-hl-mode)
   (diff-hl-flydiff-mode))
 
-(use-package magit-delta
-  :delight
-  :if (executable-find "delta")
-  :hook ((magit-mode . magit-delta-mode)))
+;; (use-package magit-delta
+;;   :delight
+;;   :if (executable-find "delta")
+;;   :hook ((magit-mode . magit-delta-mode)))
 
 (provide 'nema-vcs)
 ;;; nema-vcs.el ends here
