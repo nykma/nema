@@ -95,5 +95,12 @@ e.g. ruby main.rb => ruby main.rb:directory_name"
 ;; Reset bookmark path
 (setq bookmark-file (expand-file-name ".cache/bookmarks" user-emacs-directory))
 
+;; Don't generate lockfile
+(setq create-lockfiles nil)
+
+;; Put backup files in a separate directory
+(setq backup-directory-alist `((".*" . ,(expand-file-name ".cache/backup" user-emacs-directory)))
+      auto-save-list-file-prefix (expand-file-name ".cache/auto-save-list" user-emacs-directory))
+
 (provide 'nema-core)
 ;;; nema-core.el ends here
