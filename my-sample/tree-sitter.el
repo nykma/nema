@@ -4,15 +4,10 @@
 ;;; Code:
 
 ;; tree-sitter-core
-(use-package tsc
-  :quelpa (tsc :fetcher github :repo "ubolonton/emacs-tree-sitter" :files ("core/*.el")))
 
-(use-package tree-sitter
-  :after tsc
-  :quelpa (tree-sitter :fetcher github :repo "ubolonton/emacs-tree-sitter" :files ("lisp/*.el")))
+(use-package tree-sitter)
 
 (use-package tree-sitter-langs
-  :quelpa (tree-sitter-langs :fetcher github :repo "ubolonton/tree-sitter-langs")
   :after tree-sitter
   :config
   (require 'tree-sitter-hl)
