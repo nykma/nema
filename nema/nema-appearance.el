@@ -147,7 +147,32 @@
 		      (lambda (frame)
 			(with-selected-frame frame (load-theme 'nord t))))
 	  (load-theme 'nord t))
-     ))))
+     ))
+  ('bespoke
+   (use-package bespoke-themes
+     :quelpa
+     (bespoke-themes :fetcher github :repo "mclear-tools/bespoke-themes" :branch "main" :files ("*.el"))
+     :config
+     ;; Set header line
+     (setq bespoke-set-mode-line 'header)
+     ;; Set mode line height
+     (setq bespoke-set-mode-line-size 3)
+     ;; Show diff lines in modeline
+     (setq bespoke-set-git-diff-mode-line t)
+     ;; Set mode-line cleaner
+     (setq bespoke-set-mode-line-cleaner t)
+     ;; Set evil cursor colors
+     (setq bespoke-set-evil-cursors t)
+     ;; Use mode line visual bell
+     (setq bespoke-set-visual-bell t)
+     ;; Set use of italics
+     (setq bespoke-set-italic-comments t
+           bespoke-set-italic-keywords t)
+     ;; Set variable pitch
+     (setq bespoke-set-variable-pitch t)
+     ;; Set initial theme variant
+     (setq bespoke-set-theme nema-theme-style)
+     (load-theme 'bespoke t)))))
 
 (defun nema/reload-modeline (_args)
   "Reload mode line with settings of `nema-mode-line'."
