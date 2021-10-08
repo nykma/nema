@@ -5,6 +5,7 @@
 ;; Author: Andreas Spindler <info@visualco.de>
 ;; Maintained at: <http://www.visualco.de>
 ;; Keywords: Emacs, Lisp
+;; Modified by: Nyk Ma <i@nyk.ma>
 
 ;; For sensitive files like password Lids. It disables backup creation and auto
 ;; saving.
@@ -54,7 +55,9 @@ null prefix argument turn off the mode."
         (set (make-local-variable 'backup-inhibited) t)
         ;; disable auto-save
         (if auto-save-default
-            (auto-save-mode -1)))
+            (auto-save-mode -1))
+        ;; Disable EPA file auto save
+        (set (make-local-variable 'epa-file-inhibit-auto-save) t))
     ;; resort to default value of backup-inhibited
     (kill-local-variable 'backup-inhibited)
     ;; resort to default auto save setting
