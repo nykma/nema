@@ -100,7 +100,9 @@
   (puni :fetcher github :repo "AmaiKinono/puni" :files ("puni.el" "LICENSE"))
   :init
   (puni-global-mode)
-  (add-hook 'vterm-mode-hook #'puni-disable-puni-mode))
+  (add-hook 'vterm-mode-hook #'puni-disable-puni-mode)
+  :bind (:map puni-mode-map
+              ("C-M-r" . puni-raise)))
 
 (use-package editorconfig
   :delight
