@@ -52,7 +52,6 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-restclient)
 (require 'nema-php)
 (require 'nema-ruby)
-(require 'nema-elisp)
 (require 'nema-org)
 (require 'nema-markdown)
 (require 'nema-javascript)
