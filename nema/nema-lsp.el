@@ -39,7 +39,13 @@
            lsp-session-file (expand-file-name ".cache/lsp-sessions" user-emacs-directory)
            lsp-eslint-library-choices-file (expand-file-name ".cache/lsp-eslint-choices" user-emacs-directory))
      :config
+     ;; force lsp-mode to forget the workspace folders for multi root
+     ;; servers so the workspace folders are added on demand
+     ;; https://emacs-lsp.github.io/lsp-mode/page/faq/#how-do-i-force-lsp-mode-to-forget-the-workspace-folders-for-multi-root
+     (advice-add 'lsp :before (lambda (&rest _args) (eval '(setf (lsp-session-server-id->folders (lsp-session)) (ht)))))
+
      (use-package lsp-java)
+
      ;; Add some extra dirs to ignore
      (dolist (dir '("[/\\\\]builddir$"
                     "[/\\\\]\\.elixir_ls$"
