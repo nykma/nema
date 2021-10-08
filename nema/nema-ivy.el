@@ -35,15 +35,7 @@
     (prescient-persist-mode t))
   (use-package ivy-prescient
     :config
-    (ivy-prescient-mode t))
-  (use-package ivy-posframe
-    :config
-    (ivy-posframe-mode 1)
-    (setq ivy-posframe-display-functions-alist
-          '((swiper          . ivy-posframe-display-at-point)
-            (complete-symbol . ivy-posframe-display-at-point)
-            (counsel-M-x     . ivy-posframe-display-at-window-bottom-left)
-            (t               . ivy-posframe-display)))))
+    (ivy-prescient-mode t)))
 
 (provide 'nema-ivy)
 ;;; nema-ivy.el ends here
