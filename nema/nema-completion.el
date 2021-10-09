@@ -37,15 +37,15 @@
 ;; Icons and fancies
 (use-package all-the-icons)
 
-(use-package company-box
-  :delight
-  :hook (company-mode . company-box-mode)
-  :config
-  (setq company-box-backends-colors nil
-        company-box-show-single-candidate t
-        company-box-max-candidates 20
-        company-box-doc-delay 0.5
-        company-box-icons-alist 'company-box-icons-all-the-icons))
+;; (use-package company-box
+;;   :delight
+;;   :hook (company-mode . company-box-mode)
+;;   :config
+;;   (setq company-box-backends-colors nil
+;;         company-box-show-single-candidate t
+;;         company-box-max-candidates 20
+;;         company-box-doc-delay 0.5
+;;         company-box-icons-alist 'company-box-icons-all-the-icons))
 
 ;; prescient.el: simple but effective sorting and filtering for Emacs.
 (use-package company-prescient
