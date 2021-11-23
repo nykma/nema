@@ -74,12 +74,13 @@
            ;; https://github.com/emacs-lsp/lsp-mode/blob/master/docs/tutorials/how-to-turn-off.md
            lsp-enable-symbol-highlighting t
            lsp-ui-doc-enable t
+           lsp-ui-doc-position 'top
            lsp-lens-enable t
            lsp-headerline-breadcrumb-enable nil
-           lsp-ui-sideline-enable t
-           lsp-ui-sideline-show-hover nil
-           lsp-ui-sideline-show-code-actions t
-           lsp-ui-sideline-show-diagnostics t
+           lsp-ui-sideline-enable nil
+           ;; lsp-ui-sideline-show-hover nil
+           ;; lsp-ui-sideline-show-code-actions t
+           ;; lsp-ui-sideline-show-diagnostics t
            lsp-modeline-code-actions-enable t
            lsp-signature-render-documentation nil)
      :config
