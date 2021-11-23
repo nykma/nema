@@ -188,16 +188,18 @@
      (use-package doom-modeline
        :hook (after-init . doom-modeline-mode)
        :config
+
        (setq doom-modeline-icon nil
              doom-modeline-height 18
-             doom-modeline-github nil
+             doom-modeline-github t
              doom-modeline-lsp t)
        (if doom-modeline-icon ;; Demo only
            (use-package all-the-icons
              ;; Remember to run
              ;; (all-the-icons-install-fonts)
              ;; after requiring this package
-             ))))
+             ))
+       (doom-modeline-mode 1)))
     ('awesome-tray
      (use-package awesome-tray
        :quelpa (awesome-tray :fetcher github :repo "manateelazycat/awesome-tray")
