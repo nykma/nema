@@ -38,10 +38,13 @@
   (global-diff-hl-mode)
   (diff-hl-flydiff-mode))
 
-;; (use-package magit-delta
-;;   :delight
-;;   :if (executable-find "delta")
-;;   :hook ((magit-mode . magit-delta-mode)))
+(use-package magit-delta
+  :delight
+  :if (executable-find "delta")
+  :hook ((magit-mode . magit-delta-mode))
+  :config
+  (setq magit-delta-delta-args
+        '("--max-line-distance" "0.6" "--24-bit-color" "always" "--color-only" "--no-gitconfig")))
 
 (provide 'nema-vcs)
 ;;; nema-vcs.el ends here
