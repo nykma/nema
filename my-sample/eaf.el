@@ -69,8 +69,8 @@ https://github.com/manateelazycat/emacs-application-framework/wiki/Keybindings
    (eaf-config-location (expand-file-name ".cache/eaf" user-emacs-directory))
    :config
    (eaf-setq eaf-browser-enable-adblocker "true")
-   (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
-   (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+   ;; (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+   ;; (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
    ;; Make EAF the default browser of Emacs
    (setq browse-url-function 'eaf-open-browser)
    (defalias 'browse-web #'eaf-open-browser)
