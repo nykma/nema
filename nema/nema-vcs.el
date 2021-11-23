@@ -46,5 +46,12 @@
   (setq magit-delta-delta-args
         '("--max-line-distance" "0.6" "--24-bit-color" "always" "--color-only" "--no-gitconfig")))
 
+;; (use-package blamer
+;;   :quelpa (blamer :fetcher github :repo "artawower/blamer.el" :files ("*.el" "LICENSE"))
+;;   :custom
+;;   (blamer-idle-time 0.3)
+;;   (blamer-min-offset 70)
+;;   :config
+;;   (global-blamer-mode 1))
 (provide 'nema-vcs)
 ;;; nema-vcs.el ends here
