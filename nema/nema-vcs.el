@@ -53,5 +53,10 @@
 ;;   (blamer-min-offset 70)
 ;;   :config
 ;;   (global-blamer-mode 1))
+
+(use-package code-review
+  :bind (:map forge-topic-mode-map
+              ("C-c r" . code-review-forge-pr-at-point)))
+
 (provide 'nema-vcs)
 ;;; nema-vcs.el ends here
