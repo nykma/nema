@@ -29,17 +29,49 @@
     lua-mode-hook
     swift-mode-hook
     elixir-mode-hook
-    ;; TODO: make elisp tree-sitter plugin auto-compiled
+
     ;; SEE ALSO: https://emacs-china.org/t/tree-sitter/19014
-    ;; emacs-lisp-mode-hook
-    ;; lisp-interaction-mode-hook
-    ;; lisp-mode-hook
-    ;; minibuffer-inactive-mode-hook
-    )
+    emacs-lisp-mode-hook
+    lisp-interaction-mode-hook
+    lisp-mode-hook
+    minibuffer-inactive-mode-hook)
   "All language mode hooks to use tree-sitter grammatical-edit (instead of puni-mode).")
 
 ;; tree-sitter-core
-(use-package tree-sitter)
+(use-package tree-sitter
+  :demand t)
+
+(defun nema//tree-sitter-install-elisp ()
+  "Install elisp.so in tree-sitter-lang dir"
+  (when (and (executable-find "gcc")
+             (executable-find "git"))
+    (let* ((buffer (generate-new-buffer (format "*tree-sitter-elisp-install*")))
+           (tmpdir (make-temp-file "tree-sitter-elisp-" t))
+           (source-file (expand-file-name "./src/parser.c" tmpdir))
+           (target-so (expand-file-name "./bin/elisp.so" tree-sitter-langs--dir))
+           (clone '(call-process-shell-command
+                    (s-join " " `("git" "clone" "https://github.com/Wilfred/tree-sitter-elisp" ,tmpdir))
+                    nil
+                    buffer))
+           (build '(call-process-shell-command
+                    (s-join " " `("gcc" ,source-file "-fPIC" ,(s-join "" `("-I" ,tmpdir "/")) "--shared" "-o" ,target-so))
+                    nil
+                    buffer))
+           (clean '(call-process-shell-command
+                    (s-join " " `("rm" "-rf" ,tmpdir))
+                    nil
+                    buffer)))
+      (if (file-exists-p target-so)
+          (message "ELisp tree-sitter support already installed.")
+        (switch-to-buffer-other-window buffer)
+        (if (= 0 (eval clone))
+            (if (= 0 (eval build))
+                (if (= 0 (eval clean))
+                    (progn (message "ELisp tree-sitter: installed successfully.")
+                           (kill-buffer buffer))
+                  (message "ELisp tree-sitter: Error when cleaning tmpdir."))
+              (message "ELisp tree-sitter: build failed."))
+          (message "ELisp tree-sitter: clone failed"))))))
 
 (use-package tree-sitter-langs
   :after tree-sitter
@@ -52,18 +84,14 @@
 
   (add-to-list 'tree-sitter-major-mode-language-alist '(ng2-ts-mode . typescript))
 
-  ;; (dolist (lang tree-sitter-major-mode-language-alist) ;; (agda-mode . agda)
-  ;;   (let* ((lang-mode (car lang))
-  ;;          (lang-hook-string (format "%s-hook" lang-mode))
-  ;;          (lang-hook (intern-soft lang-hook-string)))
-  ;;     (if lang-hook
-  ;;         (add-hook lang-hook #'tree-sitter-mode)
-  ;;       (message "tree-sitter: %s not found in current emacs environment. Skipped" lang-hook-string))))
-  )
+  (nema//tree-sitter-install-elisp)
+  (dolist (target-mode '(emacs-lisp-mode lisp-interaction-mode lisp-mode minibuffer-inactive-mode))
+    (add-to-list 'tree-sitter-major-mode-language-alist `(,target-mode . elisp))))
 
 ;; Structure editing based on tree-sitter
 (use-package grammatical-edit
   :quelpa (grammatical-edit :fetcher github :repo "manateelazycat/grammatical-edit")
+  :demand t
   :bind ((:map grammatical-edit-mode-map
                ("(" . grammatical-edit-open-round)
                ("[" . grammatical-edit-open-bracket)
@@ -94,7 +122,7 @@
                ("M-:" . grammatical-edit-jump-out-pair-and-newline)))
   :config
   (dolist (hook nema--tree-sitter-grammatical-edit-lang-hooks)
-    (add-hook hook '(lambda ()
+    (add-hook hook #'(lambda ()
                       (puni-disable-puni-mode)
                       (grammatical-edit-mode 1)))))
 
