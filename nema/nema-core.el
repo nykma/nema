@@ -100,7 +100,8 @@ e.g. ruby main.rb => ruby main.rb:directory_name"
 
 ;; Put backup files in a separate directory
 (setq backup-directory-alist `((".*" . ,(expand-file-name ".cache/backup" user-emacs-directory)))
-      auto-save-list-file-prefix (expand-file-name ".cache/auto-save-list" user-emacs-directory))
+      auto-save-list-file-prefix (expand-file-name ".cache/auto-save-list" user-emacs-directory)
+      savehist-file (expand-file-name ".cache/history" user-emacs-directory))
 
 (provide 'nema-core)
 ;;; nema-core.el ends here
