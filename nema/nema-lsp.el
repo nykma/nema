@@ -82,7 +82,9 @@
            ;; lsp-ui-sideline-show-code-actions t
            ;; lsp-ui-sideline-show-diagnostics t
            lsp-modeline-code-actions-enable t
-           lsp-signature-render-documentation nil)
+           lsp-signature-render-documentation nil
+           lsp-ui-doc-show-with-cursor t
+           lsp-ui-sideline-show-code-actions nil)
      :config
      (setq scroll-margin 0)
      (delight 'lsp-lens-mode nil 'lsp-lens))
