@@ -3,7 +3,9 @@
 "markdown-mode enhancement"
 ;;; Code:
 
-(use-package markdown-mode)
+(use-package markdown-mode
+  :bind (:map markdown-mode-map
+              ("C-c ." . org-time-stamp)))
 
 (use-package apib-mode
   :mode
