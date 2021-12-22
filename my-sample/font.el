@@ -29,32 +29,32 @@ To debug: check `fontset-alias-alist' variable."
 
 (add-hook 'server-after-make-frame-hook 'nema/font-init)
 
-(use-package ligature
-  :quelpa (ligature :fetcher github :repo "mickeynp/ligature.el")
-  :if (and (version< "27.2" emacs-version)
-           (s-contains-p "HARFBUZZ" system-configuration-features)
-           cairo-version-string)
-  :config
-  ;; Enable the "www" ligature in every possible major mode
-  ;; (ligature-set-ligatures 't '("www"))
-  ;; Enable traditional ligature support in eww-mode, if the
-  ;; `variable-pitch' face supports it
-  ;; (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
-  ;; Enable all Cascadia Code ligatures in programming modes
-  (ligature-set-ligatures 't '( ;; Victor Mono
-                               "</" "</>" "/>" "~-" "-~" "~@"
-                               "<~" "<~>" "<~~" "~>" "~~" "~~>"
-                               ">=" "<=" "<!--" "##" "###" "####" "|-" "-|" "|->" "<-|" ">-|" "|-<"
-                               "|=" "|=>" ">-" "<-" "<--" "-->" "->" "-<"
-                               ">->" ">>-" "<<-" "<->" "->>" "-<<" "<-<"
-                               "==>" "=>" "=/=" "!==" "!=" "<=="
-                               ">>=" "=>>" ">=>" "<=>" "<=<" "<<=" "=<<"
-                               ".-" ".=" "=:=" "=!=" "==" "===" "::" ":=" ":>" ":<" ">:" ";;"
-                               "<|" "<|>" "|>" "<>"
-                               "<$" "<$>" "$>" "<+" "<+>" "+>"
-                               "?=" "/=" "/==" "/\\" "\\/" "__" "&&" "++" "+++"))
-  ;; Enables ligature checks globally in all buffers. You can also do it
-  ;; per mode with `ligature-mode'.
-  (global-ligature-mode t))
+;; (use-package ligature
+;;   :quelpa (ligature :fetcher github :repo "mickeynp/ligature.el")
+;;   :if (and (version< "27.2" emacs-version)
+;;            (s-contains-p "HARFBUZZ" system-configuration-features)
+;;            cairo-version-string)
+;;   :config
+;;   ;; Enable the "www" ligature in every possible major mode
+;;   ;; (ligature-set-ligatures 't '("www"))
+;;   ;; Enable traditional ligature support in eww-mode, if the
+;;   ;; `variable-pitch' face supports it
+;;   ;; (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+;;   ;; Enable all Cascadia Code ligatures in programming modes
+;;   (ligature-set-ligatures 't '( ;; Victor Mono
+;;                                "</" "</>" "/>" "~-" "-~" "~@"
+;;                                "<~" "<~>" "<~~" "~>" "~~" "~~>"
+;;                                ">=" "<=" "<!--" "##" "###" "####" "|-" "-|" "|->" "<-|" ">-|" "|-<"
+;;                                "|=" "|=>" ">-" "<-" "<--" "-->" "->" "-<"
+;;                                ">->" ">>-" "<<-" "<->" "->>" "-<<" "<-<"
+;;                                "==>" "=>" "=/=" "!==" "!=" "<=="
+;;                                ">>=" "=>>" ">=>" "<=>" "<=<" "<<=" "=<<"
+;;                                ".-" ".=" "=:=" "=!=" "==" "===" "::" ":=" ":>" ":<" ">:" ";;"
+;;                                "<|" "<|>" "|>" "<>"
+;;                                "<$" "<$>" "$>" "<+" "<+>" "+>"
+;;                                "?=" "/=" "/==" "/\\" "\\/" "__" "&&" "++" "+++"))
+;;   ;; Enables ligature checks globally in all buffers. You can also do it
+;;   ;; per mode with `ligature-mode'.
+;;   (global-ligature-mode t))
 
 ;;; font.el ends here
