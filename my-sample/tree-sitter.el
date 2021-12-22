@@ -88,6 +88,9 @@
   (dolist (target-mode '(emacs-lisp-mode lisp-interaction-mode lisp-mode minibuffer-inactive-mode))
     (add-to-list 'tree-sitter-major-mode-language-alist `(,target-mode . elisp))))
 
+(use-package tree-sitter-indent
+  :after tree-sitter)
+
 ;; Structure editing based on tree-sitter
 (use-package grammatical-edit
   :quelpa (grammatical-edit :fetcher github :repo "manateelazycat/grammatical-edit")
