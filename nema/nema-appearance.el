@@ -172,7 +172,23 @@
      (setq bespoke-set-variable-pitch t)
      ;; Set initial theme variant
      (setq bespoke-set-theme nema-theme-style)
-     (load-theme 'bespoke t)))))
+     (load-theme 'bespoke t)))
+  ('modus-themes
+   (use-package modus-themes
+     ;;:bind ("<f5>" . modus-themes-toggle)
+     :init
+     ;; Add all your customizations prior to loading the themes
+     (setq modus-themes-italic-constructs t
+           modus-themes-bold-constructs nil
+           modus-themes-region '(bg-only no-extend))
+
+     ;; Load the theme files before enabling a theme
+     (modus-themes-load-themes)
+     :config
+     ;; Load the theme of your choice:
+     (if (eq nema-theme-style 'dark)
+         (modus-themes-load-vivendi)
+       (modus-themes-load-operandi))))))
 
 (defun nema/reload-modeline (_args)
   "Reload mode line with settings of `nema-mode-line'."

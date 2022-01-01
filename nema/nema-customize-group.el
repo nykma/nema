@@ -68,7 +68,8 @@ Default is `srcery-theme'"
           (const :tag "Alect themes" alect-themes)
           (const :tag "Tron: Legacy" tron-legacy)
           (const :tag "Nord theme" nord)
-          (const :tag "Bespoke-themes" bespoke)))
+          (const :tag "Bespoke-themes" bespoke)
+          (const :tag "modus-themes" modus-themes)))
 
 (defcustom nema-theme-style 'dark
   "Use dark or light style of color theme (if the theme supports).
