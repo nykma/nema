@@ -1,60 +1,56 @@
 ;;; font --- Sample font setting
 ;;; Commentary:
-"Sample font setting"
+"Sample font setting. Copied from https://github.com/DogLooksGood/meomacs/blob/master/laf.org#font-families"
 ;;; Code:
 
-(defun nema/font-init ()
-  "Font settings.
+(defvar nema-fonts '((default . "VictorMono Nerd Font")
+                        (unicode . "LXGW WenKai")
+                        (modeline . "Source Serif Pro")
+                        (fixed . "Sarasa Mono SC")
+                        (variable . "Bembo Std"))
+  "Fonts to use.")
+(defvar nema-font-size 12 "Font size")
 
-See also: `find-font', `font-spec', `set-fontset-font',
-`face-font-family-alternatives' and external program `xfontsel'.
+(defun nema--get-font-family (key)
+  (alist-get key nema-fonts))
 
-To debug: check `fontset-alias-alist' variable."
-  (interactive)
-  (if (display-graphic-p)
-      (let ((normal-font (font-spec :family "Victor Mono" :height 12))
-            (emoji-font (font-spec :family "JoyPixels" :height 12))
-            (cjk-font (font-spec :family "Sarasa Term Slab SC" :height 12)))
-        (if (and (find-font normal-font) (find-font cjk-font) (find-font emoji-font))
-            (progn
-              (set-fontset-font nil 'unicode normal-font nil 'prepend)
-              (dolist (cjk-charset '(kana han hangul cjk-misc bopomofo cyrillic))
-                (set-fontset-font nil cjk-charset cjk-font nil 'append))
-              (set-fontset-font nil 'symbol emoji-font nil 'prepend))
-          (message "Some font not found. Normal: %s | CJK: %s | Emoji: %s"
-                   (find-font normal-font)
-                   (find-font cjk-font)
-                   (find-font emoji-font))))
-    (message "No graphic. Font settings skipped.")))
+(defun nema--get-font-spec (key)
+  (format "%s-%d"
+          (nema--get-font-family key)
+          nema-font-size))
 
-(add-hook 'server-after-make-frame-hook 'nema/font-init)
+(defun nema-load-base-font ()
+  "Load the default font for ascii characters."
+  (let* ((font-spec (nema--get-font-spec 'default)))
+    (set-frame-parameter nil 'font font-spec)
+    (add-to-list 'default-frame-alist (cons 'font font-spec))))
 
-;; (use-package ligature
-;;   :quelpa (ligature :fetcher github :repo "mickeynp/ligature.el")
-;;   :if (and (version< "27.2" emacs-version)
-;;            (s-contains-p "HARFBUZZ" system-configuration-features)
-;;            cairo-version-string)
-;;   :config
-;;   ;; Enable the "www" ligature in every possible major mode
-;;   ;; (ligature-set-ligatures 't '("www"))
-;;   ;; Enable traditional ligature support in eww-mode, if the
-;;   ;; `variable-pitch' face supports it
-;;   ;; (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
-;;   ;; Enable all Cascadia Code ligatures in programming modes
-;;   (ligature-set-ligatures 't '( ;; Victor Mono
-;;                                "</" "</>" "/>" "~-" "-~" "~@"
-;;                                "<~" "<~>" "<~~" "~>" "~~" "~~>"
-;;                                ">=" "<=" "<!--" "##" "###" "####" "|-" "-|" "|->" "<-|" ">-|" "|-<"
-;;                                "|=" "|=>" ">-" "<-" "<--" "-->" "->" "-<"
-;;                                ">->" ">>-" "<<-" "<->" "->>" "-<<" "<-<"
-;;                                "==>" "=>" "=/=" "!==" "!=" "<=="
-;;                                ">>=" "=>>" ">=>" "<=>" "<=<" "<<=" "=<<"
-;;                                ".-" ".=" "=:=" "=!=" "==" "===" "::" ":=" ":>" ":<" ">:" ";;"
-;;                                "<|" "<|>" "|>" "<>"
-;;                                "<$" "<$>" "$>" "<+" "<+>" "+>"
-;;                                "?=" "/=" "/==" "/\\" "\\/" "__" "&&" "++" "+++"))
-;;   ;; Enables ligature checks globally in all buffers. You can also do it
-;;   ;; per mode with `ligature-mode'.
-;;   (global-ligature-mode t))
+(defun nema-load-face-font ()
+  "Load fonts used in faces.
 
-;;; font.el ends here
+This function must be called after frame creation."
+  (let ((modeline-font-spec (nema--get-font-spec 'modeline))
+        (variable-font-spec (nema--get-font-spec 'variable))
+        (fixed-font-spec (nema--get-font-spec 'fixed)))
+    (set-face-attribute 'variable-pitch nil :font variable-font-spec :height 1.1)
+    (set-face-attribute 'fixed-pitch nil :font fixed-font-spec)
+    (set-face-attribute 'fixed-pitch-serif nil :font fixed-font-spec)
+    (set-face-attribute 'mode-line nil :font modeline-font-spec)
+    (set-face-attribute 'mode-line-inactive nil :font modeline-font-spec)
+    (set-face-attribute 'tab-bar nil :font modeline-font-spec)))
+
+(defun nema-load-ext-font ()
+  "Load fonts used for non-ascii characters.
+
+This function must be called after frame creation."
+  (let ((font (frame-parameter nil 'font))
+        (font-spec (font-spec :family (nema--get-font-family 'unicode))))
+    (dolist (charset '(kana han hangul cjk-misc bopomofo symbol))
+      (set-fontset-font font charset font-spec))))
+
+(nema-load-base-font)
+
+(add-hook 'after-init-hook
+          (lambda ()
+            (nema-load-ext-font)
+            (nema-load-face-font)))
