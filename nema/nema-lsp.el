@@ -74,18 +74,26 @@
            lsp-ui-doc-winum-ignore t
            ;; https://github.com/emacs-lsp/lsp-mode/blob/master/docs/tutorials/how-to-turn-off.md
            lsp-enable-symbol-highlighting t
+
            lsp-ui-doc-enable t
            lsp-ui-doc-position 'top
+           lsp-ui-doc-alignment 'frame
+           lsp-ui-doc-show-with-cursor t
+           lsp-ui-doc-text-scale-level -3
+
            lsp-lens-enable t
+
            lsp-headerline-breadcrumb-enable nil
+
            lsp-ui-sideline-enable nil
            ;; lsp-ui-sideline-show-hover nil
            ;; lsp-ui-sideline-show-code-actions t
            ;; lsp-ui-sideline-show-diagnostics t
+           lsp-ui-sideline-show-code-actions nil
+
            lsp-modeline-code-actions-enable t
-           lsp-signature-render-documentation nil
-           lsp-ui-doc-show-with-cursor t
-           lsp-ui-sideline-show-code-actions nil)
+
+           lsp-signature-render-documentation nil)
      :config
      (setq scroll-margin 0)
      (delight 'lsp-lens-mode nil 'lsp-lens))
