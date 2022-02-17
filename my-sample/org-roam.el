@@ -54,4 +54,15 @@
         org-roam-ui-follow t
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
+
+;; Journal
+(use-package org-journal
+  :bind
+  ("C-c n j" . org-journal-new-entry)
+  :custom
+  (org-journal-date-prefix "#+title: ")
+  (org-journal-file-format "%Y-%m-%d.org")
+  (org-journal-dir (expand-file-name "daily/" org-roam-directory))
+  (org-journal-date-format "%A, %d %B %Y"))
+
 ;;; org-roam.el ends here
