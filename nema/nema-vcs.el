@@ -32,13 +32,14 @@
   :hook ((magit-mode . turn-on-magit-gitflow)))
 
 (use-package diff-hl
-  :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
-         (magit-post-refresh . diff-hl-magit-post-refresh)
-         (dired-mode . diff-hl-dired-mode-unless-remote))
   :config
   (fringe-mode)
   (global-diff-hl-mode)
-  (diff-hl-flydiff-mode))
+  (diff-hl-flydiff-mode)
+
+  (add-hook 'magit-pre-refresh-hook #'diff-hl-magit-pre-refresh)
+  (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)
+  (add-hook 'dired-mode-hook #'diff-hl-dired-mode-unless-remote))
 
 (use-package magit-delta
   :delight
