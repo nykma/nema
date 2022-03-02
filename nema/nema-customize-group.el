@@ -51,12 +51,13 @@ Default is `smart-mode-line'"
           (const :tag "Telephone Line" telephone-line)
           (const :tag "Powerline" powerline)))
 
-(defcustom nema-theme 'tron-legacy
+(defcustom nema-theme 'vscode
   "Color theme for the whole Emacs.
-Default is `srcery-theme'"
+Default is VSCode Dark"
   :tag "Theme"
   :group 'nema
   :type '(choice
+          (const :tag "VSCode Dark" vscode)
           (const :tag "moe-theme.el" moe-theme)
           (const :tag "Zenburn (high contrast)" hc-zenburn-theme)
           (const :tag "Zenburn" zenburn)

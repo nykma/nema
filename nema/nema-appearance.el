@@ -82,6 +82,10 @@
   "Reload theme with setting of `nema-theme'"
   (interactive "P")
   (pcase nema-theme
+  ('vscode
+   (use-package vscode-dark-plus-theme
+     :config
+     (load-theme 'vscode-dark-plus t)))
   ('moe-theme
    (use-package moe-theme
      :config
