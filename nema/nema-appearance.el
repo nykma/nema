@@ -69,6 +69,15 @@
   :config
   (volatile-highlights-mode t))
 
+;; Visual feedback for focus-change events.
+(use-package beacon
+  :quelpa (beacon :fetcher github :repo "Malabarba/beacon" :files ("beacon.el", "COPYING"))
+  :config
+  (beacon-mode 1)
+  (setq beacon-blink-when-window-scrolls t
+        beacon-blink-when-window-changes t
+        beacon-blink-when-point-moves t))
+
 (defun nema/reload-theme (_args)
   "Reload theme with setting of `nema-theme'"
   (interactive "P")
@@ -235,6 +244,14 @@
 
 (nema/reload-modeline ())
 (nema/reload-theme ())
+
+;; visually distinguish "real" buffers (i.e. file-visiting code
+;; buffers where you do most of your work) from "unreal" buffers (like
+;; popups, sidebars, log buffers, terminals, etc) by giving the latter
+;; a slightly different -- often darker -- background
+(use-package solaire-mode
+  :config
+  (solaire-global-mode +1))
 
 (provide 'nema-appearance)
 
