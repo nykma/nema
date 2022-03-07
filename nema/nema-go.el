@@ -3,7 +3,9 @@
 "Go modules"
 ;;; Code:
 
-(use-package go-mode)
+(use-package go-mode
+  :config
+  (bind-key (kbd "C-c C-f") #'gofmt 'go-mode-map))
 
 (provide 'nema-go)
 
