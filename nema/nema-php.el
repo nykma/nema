@@ -34,10 +34,6 @@
 ;;   ;;   (add-hook 'php-mode-hook #'lsp))
 ;;   )
 (unless nema-lsp
-  (use-package php-extras
-    :defer t
-    :config
-    (eval-after-load 'php-mode '(require 'php-extras)))
   (use-package ac-php)
   (use-package company-php
     :if (not nema-lsp)
