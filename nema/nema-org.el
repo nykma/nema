@@ -10,7 +10,8 @@
 
 (use-package org
   :pin gnu
-  :bind (;; ("C-c a" . org-agenda)
+  :demand t
+  :bind (("C-c a" . org-agenda)
          ("C-c c" . org-capture))
   :config
   ;; Auto save all org files
@@ -61,7 +62,9 @@
   (setq org-log-done 'clock)
 
   (setq org-id-track-globally t)
-  (setq org-id-locations-file (expand-file-name ".cache/org-id-locations" user-emacs-directory)))
+  (setq org-id-locations-file (expand-file-name ".cache/org-id-locations" user-emacs-directory))
+  (setq org-agenda-files `(,(expand-file-name "agenda/" org-directory)))
+  (setq diary-file (expand-file-name "diary" org-directory)))
 
 (use-package org-cliplink)
 

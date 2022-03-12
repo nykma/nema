@@ -7,6 +7,7 @@
 
 (use-package org-roam
   :delight org-roam-mode
+  :demand t
   ;; :custom
   ;; (org-roam-directory "/path/to/org-files/")
   :bind
@@ -22,11 +23,18 @@
 	;; Do M-x org-roam-migrate-wizard first
 	org-roam-v2-ack t)
   :config
-  (org-roam-setup)
+  ;; (org-roam-setup)
   ;; https://www.orgroam.com/manual/Installation-_00281_0029.html#Installation-_00281_0029
   (require 'org-roam-protocol)
-  (setq org-roam-completion-system nema-emacs-completion-engine
-        org-roam-capture-templates
+  (require 'org-roam-dailies)
+  (add-to-list 'org-agenda-files
+               (expand-file-name org-roam-dailies-directory org-roam-directory))
+  (setq
+   org-roam-dailies-capture-templates
+   '(("d" "default" entry "* %?" :target
+      (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n#+roam_tags: daily\n\n")))
+
+   org-roam-capture-templates
         '(("d" "default" plain
            "* ${title}\n%?"
            :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+roam_alias:\n#+roam_key:\n#+roam_tags:\n")))
@@ -56,13 +64,13 @@
         org-roam-ui-open-on-start t))
 
 ;; Journal
-(use-package org-journal
-  :bind
-  ("C-c n j" . org-journal-new-entry)
-  :custom
-  (org-journal-date-prefix "#+title: ")
-  (org-journal-file-format "%Y-%m-%d.org")
-  (org-journal-dir (expand-file-name "daily/" org-roam-directory))
-  (org-journal-date-format "%A, %d %B %Y"))
+;; (use-package org-journal
+;;   :bind
+;;   ("C-c n j" . org-journal-new-entry)
+;;   :custom
+;;   (org-journal-date-prefix "#+title: ")
+;;   (org-journal-file-format "%Y-%m-%d.org")
+;;   (org-journal-dir (expand-file-name "daily/" org-roam-directory))
+;;   (org-journal-date-format "%A, %d %B %Y"))
 
 ;;; org-roam.el ends here
