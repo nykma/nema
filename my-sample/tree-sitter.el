@@ -84,7 +84,7 @@
 
   (add-to-list 'tree-sitter-major-mode-language-alist '(ng2-ts-mode . typescript))
 
-  (nema//tree-sitter-install-elisp)
+  ;; (nema//tree-sitter-install-elisp)
   (dolist (target-mode '(emacs-lisp-mode lisp-interaction-mode lisp-mode minibuffer-inactive-mode))
     (add-to-list 'tree-sitter-major-mode-language-alist `(,target-mode . elisp))))
 
@@ -128,6 +128,5 @@
 ;;     (add-hook hook #'(lambda ()
 ;;                       (puni-disable-puni-mode)
 ;;                       (grammatical-edit-mode 1)))))
-
 
 ;;; tree-sitter.el ends here
