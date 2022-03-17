@@ -106,6 +106,7 @@
             (lsp-mode . dap-ui-mode))
      :config
      (require 'dap-gdb-lldb)
+     (require 'dap-go)
      (setq dap-breakpoints-file (expand-file-name ".cache/dap-breakpoints" user-emacs-directory)))
 
    ;; LSP as completion backend
