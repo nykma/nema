@@ -71,7 +71,7 @@
 
 ;; Visual feedback for focus-change events.
 (use-package beacon
-  :quelpa (beacon :fetcher github :repo "Malabarba/beacon" :files ("beacon.el", "COPYING"))
+  :quelpa (beacon :fetcher url :url "https://raw.githubusercontent.com/Malabarba/beacon/master/beacon.el")
   :config
   (beacon-mode 1)
   (setq beacon-blink-when-window-scrolls t
