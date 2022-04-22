@@ -149,7 +149,9 @@
   :config
   (setq undo-tree-visualizer-timestamps t
         undo-tree-visualizer-diff t
-        undo-tree-history-directory-alist `(("." . ,(expand-file-name ".cache/undo-tree/" user-emacs-directory))))
+        undo-tree-auto-save-history nil
+        ;; undo-tree-history-directory-alist `(("." . ,(expand-file-name ".cache/undo-tree/" user-emacs-directory)))
+        )
   (global-undo-tree-mode))
 
 ;; Edit code comments using C-c ' , like org-mode
