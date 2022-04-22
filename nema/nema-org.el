@@ -59,7 +59,11 @@
   ;;     (add-hook 'org-mode-hook 'org-num-mode))
 
   ;; Log clock when a job is done.
-  (setq org-log-done 'clock)
+  (setq org-log-into-drawer t
+        org-log-done 'time
+        org-log-reschedule 'time
+        org-log-redeadline 'time
+        org-log-refile 'time)
 
   (setq org-id-track-globally t)
   (setq org-id-locations-file (expand-file-name ".cache/org-id-locations" user-emacs-directory))
