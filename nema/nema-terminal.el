@@ -17,6 +17,8 @@
       :custom
       (vterm-kill-buffer-on-exit t)
       :config
+      (use-package with-editor
+        :hook ((vterm-mode . with-editor-export-editor)))
       (setq nema-term #'vterm)
       (when nema-use-evil
         (add-hook 'vterm-mode-hook
