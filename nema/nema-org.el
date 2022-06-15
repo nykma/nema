@@ -5,8 +5,9 @@
 
 (use-package htmlize :defer t)
 
-(use-package org-superstar
-  :hook (org-mode . org-superstar-mode))
+;; Replaced by org-modern
+;; (use-package org-superstar
+;;   :hook (org-mode . org-superstar-mode))
 
 (use-package org
   :pin gnu
@@ -134,6 +135,11 @@
 
 ;; Github flavoured marodkwn exporter
 (use-package ox-gfm)
+
+;; Modern Org Style
+;; https://github.com/minad/org-modern
+(use-package org-modern
+  :hook ((org-mode . org-modern-mode)))
 
 (provide 'nema-org)
 
