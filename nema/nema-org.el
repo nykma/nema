@@ -69,7 +69,8 @@
   (setq org-id-track-globally t)
   (setq org-id-locations-file (expand-file-name ".cache/org-id-locations" user-emacs-directory))
   (setq org-agenda-files `(,(expand-file-name "agenda/" org-directory)))
-  (setq diary-file (expand-file-name "diary" org-directory)))
+  (setq diary-file (expand-file-name "diary" org-directory))
+  (setq org-startup-with-inline-images t))
 
 (use-package org-cliplink)
 
