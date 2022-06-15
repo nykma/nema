@@ -105,10 +105,21 @@
      :hook ((lsp-mode . dap-mode)
             (lsp-mode . dap-ui-mode))
      :config
+     (setq dap-breakpoints-file (expand-file-name ".cache/dap-breakpoints" user-emacs-directory)
+           dap-utils-extension-path (expand-file-name ".cache/dap-extension" user-emacs-directory))
      (require 'dap-gdb-lldb)
      (require 'dap-go)
-     (setq dap-breakpoints-file (expand-file-name ".cache/dap-breakpoints" user-emacs-directory)))
-
+     (setq dap-breakpoints-file (expand-file-name ".cache/dap-breakpoints" user-emacs-directory))
+     (require 'dap-cpptools)
+     (add-hook 'dap-stopped-hook
+          (lambda (arg) (call-interactively #'dap-hydra)))
+     (dap-register-debug-template "Rust::GDB Run Configuration"
+                                  (list :type "gdb"
+                                        :request "launch"
+                                        :name "GDB::Run"
+                                        :gdbpath "rust-gdb"
+                                        :target nil
+                                        :cwd nil)))
    ;; LSP as completion backend
    ;; Deprecated: now suggest using company-capf
    ;; (use-package company-lsp
