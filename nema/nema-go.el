@@ -4,8 +4,9 @@
 ;;; Code:
 
 (use-package go-mode
-  :config
-  (bind-key (kbd "C-c C-f") #'gofmt 'go-mode-map))
+  :defer nil
+  :bind (:map go-mode-map
+              ("C-c C-f" . gofmt)))
 
 (provide 'nema-go)
 

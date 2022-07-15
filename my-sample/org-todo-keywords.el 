@@ -1,0 +1,6 @@
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "DOING(g)" "|" "DONE(d)")
+        (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
+        (sequence "|" "CANCELED(c)" "WONTDO(w)")))
+
+(setq org-todo-keywords-for-agenda '("TODO" "DOING" "REPORT" "BUG" "KNOWNCAUSE" "FIXED" "CANCELED" "DONE" "WONTDO"))

@@ -60,9 +60,13 @@
 (use-package code-review
   :bind (:map forge-topic-mode-map
               ("C-c r" . code-review-forge-pr-at-point))
+  :hook
+  ((code-review-mode . emojify-mode))
   :config
   (setq code-review-db-database-file (expand-file-name ".cache/code-review-db.sqlite" user-emacs-directory)
-        code-review-log-file (expand-file-name ".cache/code-review-error.log" user-emacs-directory)))
+        code-review-log-file (expand-file-name ".cache/code-review-error.log" user-emacs-directory)
+        code-review-auth-login-marker 'forge
+        code-review-download-dir (expand-file-name ".cache/code-review/" user-emacs-directory)))
 
 (provide 'nema-vcs)
 ;;; nema-vcs.el ends here

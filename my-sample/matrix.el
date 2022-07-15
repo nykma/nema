@@ -1,3 +1,7 @@
-(use-package matrix-client
-  :quelpa (matrix-client :fetcher "github" :repo "alphapapa/matrix-client.el"
-                         :files (:defaults "logo.png" "matrix-client-standalone.el.sh")))
+;; ement: a Matrix client
+
+(use-package plz
+  :quelpa (plz :fetcher github :repo "alphapapa/plz.el"))
+
+(use-package ement
+  :quelpa (ement :fetcher github :repo "alphapapa/ement.el"))

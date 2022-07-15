@@ -103,7 +103,11 @@
   (add-hook 'vterm-mode-hook #'puni-disable-puni-mode)
   (add-hook 'minibuffer-mode-hook #'puni-disable-puni-mode)
   :bind (:map puni-mode-map
-              ("C-M-r" . puni-raise)))
+              ("C-M-r" . puni-raise)
+              ("C-M-." . puni-slurp-forward)
+              ("C-M-," . puni-slurp-backward)
+              ("s-." . puni-barf-forward)
+              ("s-," . puni-barf-backward)))
 
 (use-package editorconfig
   :delight

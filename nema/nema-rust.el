@@ -7,8 +7,9 @@
 
 (use-package rust-mode)
 
-(use-package toml-mode
-  :mode "/\\(Cargo.lock\\|\\.cargo/config\\)\\'")
+;; conf-toml-mode is enough
+;; (use-package toml-mode
+;;   :mode "/\\(Cargo.lock\\|\\.cargo/config\\)\\'")
 
 (unless nema-lsp
   (use-package racer

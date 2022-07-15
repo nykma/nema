@@ -35,8 +35,7 @@ Disabled by default."
   :group 'nema
   :type `(choice
           (const :tag "Don't use" ,nil)
-          (const :tag "emacs-lsp/lsp-mode" lsp-mode)
-          (const :tag "manateelazycat/nox" nox)))
+          (const :tag "emacs-lsp/lsp-mode" lsp-mode)))
 
 (defcustom nema-mode-line 'smart-mode-line
   "Mode line to use.

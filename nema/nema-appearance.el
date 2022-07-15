@@ -78,6 +78,10 @@
         beacon-blink-when-window-changes t
         beacon-blink-when-point-moves t))
 
+(use-package emojify
+  :config
+  (setq emojify-emojis-dir (expand-file-name ".cache/emojis" user-emacs-directory)))
+
 (defun nema/reload-theme (_args)
   "Reload theme with setting of `nema-theme'"
   (interactive "P")

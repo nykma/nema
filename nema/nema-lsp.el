@@ -28,6 +28,7 @@
               ;; plain-tex-mode latex-mode ;; <- handled in nema-latex.el
               yaml-mode
               csharp-mode
+              conf-toml-mode
               ) . lsp)
             (lsp-mode . lsp-enable-which-key-integration))
      :init
@@ -139,37 +140,7 @@
    ;; ivy intergration
    (use-package lsp-ivy
      :if (eq nema-emacs-completion-engine 'ivy)
-     :commands (lsp-ivy-workspace-symbol)))
-
-  ;; nox - a very-lightweight LSP client forked from eglot
-  ;; Seealso: https://github.com/manateelazycat/nox
-  ('nox
-   (use-package nox
-     :quelpa (nox
-              :fetcher github
-              :repo "manateelazycat/nox"
-              :files ("jsonrpc.el" "nox.el"))
-     :hook (((js-mode
-              rust-mode
-              python-mode
-              ruby-mode
-              java-mode
-              sh-mode
-              php-mode
-              c-mode-common
-              c-mode
-              c++-mode
-              haskell-mode
-              dart-mode
-              elixir-mode
-              latex-mode
-              json-mode
-              ) . nox-ensure))
-     :config
-     (add-to-list 'nox-server-programs
-                  `(elixir-mode . (,(expand-file-name "~/.elixir-ls-server/language_server.sh"))))
-     (add-to-list 'nox-server-programs
-                  '(php-mode . ("intelephense" "--stdio"))))))
+     :commands (lsp-ivy-workspace-symbol))))
 
 (provide 'nema-lsp)
 
