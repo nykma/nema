@@ -5,7 +5,9 @@
 
 (require 'nema-customize-group)
 
-(use-package rust-mode)
+(use-package rustic
+  :config
+  (setq rustic-lsp-server 'rust-analyzer))
 
 ;; conf-toml-mode is enough
 ;; (use-package toml-mode
