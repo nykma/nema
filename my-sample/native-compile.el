@@ -11,4 +11,6 @@
 ;; Error: Symbol’s function definition is void: cc-bytecomp-is-compiling
 (require 'cc-bytecomp)
 
+(setq comp-deferred-compilation t)
+
 ;;; native-compile.el ends here
