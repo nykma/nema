@@ -28,7 +28,8 @@
 
 ;; Paren mode
 (show-paren-mode t)
-(setq show-paren-style 'parenthesis)
+(setq show-paren-style 'parenthesis
+      show-paren-context-when-offscreen 'overlay) ;; emacs-version >= 29.1
 
 (use-package rainbow-delimiters
   :config
