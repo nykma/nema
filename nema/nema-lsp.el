@@ -28,6 +28,7 @@
               ;; plain-tex-mode latex-mode ;; <- handled in nema-latex.el
               yaml-mode
               csharp-mode
+              toml-mode
               conf-toml-mode
               ) . lsp)
             (lsp-mode . lsp-enable-which-key-integration))
@@ -47,6 +48,7 @@
      (advice-add 'lsp :before (lambda (&rest _args) (eval '(setf (lsp-session-server-id->folders (lsp-session)) (ht)))))
 
      (use-package lsp-java)
+     (require 'lsp-toml)
 
      ;; Add some extra dirs to ignore
      (dolist (dir '("[/\\\\]builddir$"
