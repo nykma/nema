@@ -47,7 +47,6 @@ Heavily inspired by parcell/emacs.d, prelude and kuanyui/.emacs.d"
 (require 'nema-project)
 (require 'nema-terminal)
 (require 'nema-systemd)
-
 ;; Language-specific layers
 (require 'nema-restclient)
 (require 'nema-php)

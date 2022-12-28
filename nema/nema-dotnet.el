@@ -5,6 +5,7 @@
 
 ;; https://github.com/emacs-csharp/csharp-mode
 (use-package csharp-mode
+  :if (version< emacs-version "29")
   :mode "\\.cs\\'")
 
 ;; https://github.com/fsharp/emacs-fsharp-mode

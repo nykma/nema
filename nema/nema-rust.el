@@ -6,6 +6,7 @@
 (require 'nema-customize-group)
 
 (use-package rust-mode)
+(use-package cargo)
 
 ;;https://github.com/brotzeit/rustic
 ;; (use-package rustic

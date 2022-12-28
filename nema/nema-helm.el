@@ -16,7 +16,7 @@
 (use-package helm-swoop
   ;; See also: https://github.com/ShingoFukuyama/helm-swoop
   :bind
-  (("M-i" . helm-swoop)
+  (("M-s M-s" . helm-swoop)
    ("M-I" . helm-swoop-back-to-last-point)
    ("C-c M-i" . helm-multi-swoop)
    ("C-x M-i" . helm-multi-swoop-all)
