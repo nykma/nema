@@ -17,6 +17,15 @@
         '((counsel-M-x . ivy--regex-fuzzy) ; Only counsel-M-x use flx fuzzy search
           (t . ivy--regex-plus))
         ivy-initial-inputs-alist nil)
+  ;; More friendly interface for ivy
+  (use-package ivy-rich
+    :init
+    (ivy-rich-mode 1)
+    :config
+    ;; (setq ivy-virtual-abbreviate 'full
+    ;;       ivy-rich-switch-buffer-align-virtual-buffer t
+    ;;       ivy-rich-path-style 'abbrev)
+    (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line))
   ;; Add C-o quick menu in ivy selection
   (use-package ivy-hydra)
   ;; swiper - show all overview of searches
@@ -36,14 +45,15 @@
   (use-package ivy-prescient
     :config
     (ivy-prescient-mode t))
-  (use-package ivy-posframe
-    :config
-    (ivy-posframe-mode 1)
-    ;; Deal with posframe grabbing input focus problem
-    ;; See also:https://emacs-china.org/t/snails-frame-mac-xxx-posrame-bug/18550/7
-    (setq posframe-mouse-banish t)
-    (setq ivy-posframe-display-functions-alist
-          '((t . ivy-posframe-display-at-window-bottom-left)))))
+  ;; (use-package ivy-posframe
+  ;;   :config
+  ;;   (ivy-posframe-mode 1)
+  ;;   ;; Deal with posframe grabbing input focus problem
+  ;;   ;; See also:https://emacs-china.org/t/snails-frame-mac-xxx-posrame-bug/18550/7
+  ;;   (setq posframe-mouse-banish t)
+  ;;   (setq ivy-posframe-display-functions-alist
+  ;;         '((t . ivy-posframe-display-at-window-bottom-left))))
+  )
 
 (provide 'nema-ivy)
 ;;; nema-ivy.el ends here
