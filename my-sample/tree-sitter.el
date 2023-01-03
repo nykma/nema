@@ -15,7 +15,8 @@ version and choose internal impl if possible."
     ;; 2. cd into it and run `./batch.sh'
     ;; 3. Copy every file under `dist/' to `~/.emacs.d/.cache/tree-sitter'.
     (progn
-      (setq treesit-extra-load-path (list (expand-file-name ".cache/tree-sitter" user-emacs-directory)))
+      (setq treesit-extra-load-path (list (expand-file-name ".cache/tree-sitter" user-emacs-directory))
+            treesit-font-lock-level 4)
       (defvar nema--tree-sitter-major-mode-map
             '((sh-mode . bash-ts-mode)
               (c-mode . c-ts-mode)
