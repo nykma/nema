@@ -4,9 +4,9 @@
 ;;; Code:
 
 ;; https://github.com/emacs-csharp/csharp-mode
-(use-package csharp-mode
-  :if (version< emacs-version "29")
-  :mode "\\.cs\\'")
+(if (version< emacs-version "29")
+    (use-package csharp-mode
+      :mode "\\.cs\\'"))
 
 ;; https://github.com/fsharp/emacs-fsharp-mode
 (use-package fsharp-mode
