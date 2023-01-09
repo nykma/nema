@@ -12,10 +12,6 @@
   (setq enable-recursive-minibuffers t
         ivy-use-virtual-buffers t
         ivy-display-style 'fancy
-        ivy-format-function 'ivy-format-function-line
-        ivy-re-builders-alist
-        '((counsel-M-x . ivy--regex-fuzzy) ; Only counsel-M-x use flx fuzzy search
-          (t . ivy--regex-plus))
         ivy-initial-inputs-alist nil)
   ;; More friendly interface for ivy
   (use-package ivy-rich

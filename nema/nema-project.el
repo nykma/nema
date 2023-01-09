@@ -14,7 +14,8 @@
   :delight
   :config
   (setq projectile-file-exists-remote-cache-expire (* 10 60)
-        projectile-cache-file (expand-file-name ".cache/projectile.cache" user-emacs-directory)
+        projectile-enable-caching t
+        projectile-cache-file (expand-file-name ".cache/projectile" user-emacs-directory)
         projectile-switch-project-action 'projectile-commander)
   (projectile-mode)
   (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
