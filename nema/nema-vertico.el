@@ -61,5 +61,4 @@ See also: https://github.com/minad/vertico"
   (marginalia-mode t))
 
 (provide 'nema-vertico)
-
 ;;; nema-vertico.el ends here

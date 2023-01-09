@@ -48,11 +48,6 @@
   ;; (global-anzu-mode +1)
   )
 
-;; Interactive searcher aka Better C-s
-(use-package ctrlf
-  :config
-  (ctrlf-mode t))
-
 ;; which-key
 (use-package which-key
   :delight
@@ -207,6 +202,13 @@
          ("C-h B" . embark-bindings))
   :config
   (setq prefix-help-command #'embark-prefix-help-command))
+
+;; Consult: Better search
+(use-package consult
+  :bind (("C-s" . consult-line)
+         ("C-r" . consult-line))
+  :config
+  (require 'embark-consult))
 
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
