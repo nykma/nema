@@ -8,6 +8,8 @@
 (if (boundp 'save-place-file)
     (setq save-place-file (expand-file-name ".cache/places" user-emacs-directory)))
 
+(setq project-list-file (expand-file-name ".cache/project.list" user-emacs-directory))
+
 ;; quelpa - For those packages which are not in MELPA
 (use-package quelpa
   :config
@@ -35,7 +37,7 @@
   ('ivy (require 'nema-ivy))
   ;; Helm - Completion
   ('helm (require 'nema-helm))
-  ('selectrum (require 'nema-selectrum))
+  ('vertico (require 'nema-vertico))
   (_ (ido-mode 1)))
 
 ;; Interactive regex replacer
@@ -198,6 +200,13 @@
   (use-package lazyflymake
     :quelpa (lazyflymake :fetcher github :repo "redguardtoo/lazyflymake")
     :hook ((prog-mode . lazyflymake-start))))
+
+;; Embark makes it easy to choose a command to run based on what is near point.
+(use-package embark
+  :bind (("C-;" . embark-act)
+         ("C-h B" . embark-bindings))
+  :config
+  (setq prefix-help-command #'embark-prefix-help-command))
 
 (provide 'nema-basic)
 ;;; nema-basic.el ends here

@@ -1,5 +1,6 @@
 ;;; nema-completion --- Completion
 ;;; Code:
+;;; -*- lexical-binding: t -*-
 
 (use-package company
   :delight

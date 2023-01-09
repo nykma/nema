@@ -19,7 +19,7 @@ Default is `ivy'."
           (const :tag "ido" ido)
           (const :tag "Ivy / Swiper" ivy)
           (const :tag "Helm" helm)
-          (const :tag "Selectrum" selectrum)))
+          (const :tag "Vertico" vertico)))
 
 (defcustom nema-use-evil nil
   "Use evil-mode.

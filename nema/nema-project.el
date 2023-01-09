@@ -2,20 +2,28 @@
 ;;; Commentary:
 "Settings about projectile"
 ;;; Code:
+;;; -*- lexical-binding: t -*-
 
 (require 'nema-customize-group)
 
+;; project-wide search
+(use-package ag
+  :if (executable-find "ag"))
+
+(use-package rg
+  :if (executable-find "rg"))
+
 (use-package projectile
-  ;; :delight '(:eval
-  ;;            (if (projectile-project-p)
-  ;;        	 (concat " |" (projectile-project-name) "|")
-  ;;              "")
-  ;;            )
+  :delight '(:eval
+             (if (projectile-project-p)
+         	 (concat " |" (projectile-project-name) "|")
+               "")
+             )
   :delight
   :config
   (setq projectile-file-exists-remote-cache-expire (* 10 60)
         projectile-enable-caching t
-        projectile-cache-file (expand-file-name ".cache/projectile" user-emacs-directory)
+        projectile-cache-file (expand-file-name ".cache/projectile.cache" user-emacs-directory)
         projectile-switch-project-action 'projectile-commander)
   (projectile-mode)
   (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
@@ -42,9 +50,9 @@
    (use-package helm-projectile
      :config
      (helm-projectile-on))
-   (use-package helm-ag)
-   (use-package helm-rg))
-  ('selectrum
+   (use-package helm-ag :if (executable-find "ag"))
+   (use-package helm-rg :if (executable-find "rg")))
+  ('vertico
    (setq projectile-completion-system 'default)))
 
 (provide 'nema-project)
