@@ -208,7 +208,7 @@
   :bind (("C-s" . consult-line)
          ("C-r" . consult-line))
   :config
-  (require 'embark-consult))
+  (use-package embark-consult))
 
 (provide 'nema-basic)
 ;;; nema-basic.el ends here
