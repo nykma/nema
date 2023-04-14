@@ -210,5 +210,8 @@
   :config
   (use-package embark-consult))
 
+;; Interactive extensions for package.el
+(use-package package-utils)
+
 (provide 'nema-basic)
 ;;; nema-basic.el ends here

@@ -49,10 +49,14 @@ version and choose internal impl if possible."
               ;; (wgsl-mode . wgsl-ts-mode)
               (yaml-mode . yaml-ts-mode))
             "Mode mapping for all major modes that support `treesit'.")
+      ;; Structure editing
+      (use-package combobulate
+        :quelpa (combobulate :fetcher github :repo "mickeynp/combobulate"))
       (dolist (modemap nema--tree-sitter-major-mode-map)
         (push modemap major-mode-remap-alist)
         (if nema-lsp
-            (add-hook (intern (format "%s-hook" (cdr modemap))) #'lsp))))
+            (add-hook (intern (format "%s-hook" (cdr modemap))) #'lsp))
+        (add-hook (intern (format "%s-hook" (cdr modemap))) #'combobulate-mode)))
 
   ;; else
   ;; tree-sitter-core
