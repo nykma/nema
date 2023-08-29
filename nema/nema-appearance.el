@@ -63,21 +63,18 @@
           ("DEPRECATED" font-lock-doc-face bold)
           ("DEBUG"      error bold))))
 
-;; Visual feedback for some operations
-(use-package volatile-highlights
-  :delight
-  :quelpa (volatile-highlights :fetcher github :repo "k-talo/volatile-highlights.el")
+;; Temporarily highlights the current line after a given function is
+;; invoked.
+(use-package pulsar
   :config
-  (volatile-highlights-mode t))
-
-;; Visual feedback for focus-change events.
-(use-package beacon
-  :quelpa (beacon :fetcher url :url "https://raw.githubusercontent.com/Malabarba/beacon/master/beacon.el")
-  :config
-  (beacon-mode 1)
-  (setq beacon-blink-when-window-scrolls t
-        beacon-blink-when-window-changes t
-        beacon-blink-when-point-moves t))
+  (setq pulsar-pulse t
+        pulsar-delay 0.055
+        pulsar-iterations 5
+        pulsar-face 'pulsar-blue
+        pulsar-highlight-face 'pulsar-yellow)
+  (pulsar-global-mode 1)
+  (add-hook 'consult-after-jump-hook #'pulsar-recenter-top)
+  (add-hook 'consult-after-jump-hook #'pulsar-reveal-entry))
 
 (use-package emojify
   :config
