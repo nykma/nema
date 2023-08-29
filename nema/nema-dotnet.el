@@ -15,5 +15,14 @@
   (setq inferior-fsharp-program "/usr/bin/fsharpi --readline-"
         fsharp-compiler "/usr/bin/fsharpc"))
 
+;; razor / blazor in web mode
+
+(add-to-list 'auto-mode-alist '("\\.cshtml?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.razor?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.blade?\\'" . web-mode))
+(setq web-mode-engines-alist
+	'(("razor"    . "\\.cshtml\\'")
+	  ("blade"  . "\\.blade\\.")))
+
 (provide 'nema-dotnet)
 ;;;nema-dotnet.el ends here
