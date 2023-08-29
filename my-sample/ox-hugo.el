@@ -5,6 +5,7 @@
 
 
 (use-package ox-hugo
+  :quelpa (ox-hugo :fetcher github :repo "kaushalmodi/ox-hugo")
   :after (ox)
   :config
   (setq org-hugo-auto-set-lastmod t
