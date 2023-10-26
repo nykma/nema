@@ -213,5 +213,13 @@
 ;; Interactive extensions for package.el
 (use-package package-utils)
 
+;; Turn off bi-di function and optimise single-long-line and huge
+;; file render performance
+(setq-default bidi-display-reordering nil)
+(setq bidi-inhibit-bpa t
+      long-line-threshold 1000
+      large-hscroll-threshold 1000
+      syntax-wholeline-max 1000)
+
 (provide 'nema-basic)
 ;;; nema-basic.el ends here

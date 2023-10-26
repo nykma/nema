@@ -7,6 +7,8 @@
 
 (if (and (executable-find "clang")
          (executable-find "libtool")
+         (executable-find "make")
+         (executable-find "cmake")
          (or (executable-find "gcc")
              (executable-find "clang"))
          (version<= "25.1" emacs-version)
