@@ -19,16 +19,24 @@ version and choose internal impl if possible."
       ;; auto download and compile .so modules
       (use-package treesit-auto
         :config
+        (setq treesit-auto-install t)
+        (treesit-auto-add-to-auto-mode-alist 'all)
         (global-treesit-auto-mode)
-        (setq
-         ;; Auto install all supported languages
-         treesit-auto-install t
-         treesit-auto-langs
-         (cl-loop for recipe in treesit-auto-recipe-list
-                  collect (treesit-auto-recipe-lang recipe))
-         treesit-language-source-alist (treesit-auto--build-treesit-source-alist))
+
         ;; Add LSP and combobulate support for each of `-ts-mode' hooks.
         (when (eq nema-lsp 'lsp-mode)
+          (defun treesit-auto-copy-all-lsp-languages ()
+	    (cl-loop for recipe in treesit-auto-recipe-list
+		     do (treesit-auto-copy-lsp-language
+			 (treesit-auto-recipe-remap recipe)
+			 (treesit-auto-recipe-ts-mode recipe))))
+	  (defun treesit-auto-copy-lsp-language (from to)
+	    (let ((from-value (alist-get from lsp-language-id-configuration)))
+	      (when from-value
+		(add-to-list 'lsp-language-id-configuration `(,to . ,from-value))
+		from-value)))
+          (treesit-auto-copy-all-lsp-languages)
+
           (let* ((tree-sitter-modes (cl-loop for recipe in treesit-auto-recipe-list
                                              collect (treesit-auto-recipe-ts-mode recipe)))
                  (tree-sitter-mode-hooks (cl-loop for mode in tree-sitter-modes

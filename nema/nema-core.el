@@ -4,7 +4,7 @@
 ;;; Code:
 ;; Reduce the frequency of garbage collection by making it happen on
 ;; each 100MB of allocated data (the default is on every 0.76MB)
-(setq gc-cons-threshold (* 100 1024 1024))
+(setq gc-cons-threshold (* 3000 1024 1024))
 
 ;; Increase the amount of data which Emacs reads from the
 ;; process. Again the emacs default is too low 4k considering that the
